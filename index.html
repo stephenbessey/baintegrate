@@ -48,7 +48,7 @@
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             position: relative;
             z-index: 2;
         }
@@ -72,8 +72,8 @@
         }
 
         .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
+            font-size: 1rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
             max-width: 600px;
             animation: fadeInUp 1s ease-out 0.4s both;
@@ -294,79 +294,6 @@
             color: #fff;
         }
 
-        /* Traction Section */
-        .traction {
-            padding: 6rem 0;
-            background: #0f172a;
-            color: white;
-            position: relative;
-        }
-
-        .traction::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transform: skewY(-2deg);
-            transform-origin: top right;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .metric-card {
-            text-align: center;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .metric-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .metric-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #06d6a0;
-            margin-bottom: 1rem;
-        }
-
-        .metric-label {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #2d1b69, #11998e);
-            color: white;
-        }
-
-        .team::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            transform: skewY(2deg);
-            transform-origin: top left;
-        }
-
         /* CTA Section */
         .final-cta {
             padding: 6rem 0;
@@ -418,6 +345,7 @@
             
             .cta-buttons {
                 flex-direction: column;
+                margin-bottom: 3rem;
             }
             
             .btn-primary, .btn-secondary {
