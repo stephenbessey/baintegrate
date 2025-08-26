@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAIS - Connecting Every Business to the AI Agent Economy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10px, 10px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            position: relative;
+        }
+
+        .problem::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: skewY(-2deg);
+            transform-origin: top left;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .pain-point {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .pain-point:hover {
+            transform: translateY(-5px);
+        }
+
+        .pain-point-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pain-point h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .market-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+        }
+
+        .solution::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            transform: skewY(2deg);
+            transform-origin: top left;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd700, #48cae4);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+            background: linear-gradient(45deg, #ff6b6b, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        /* Traction Section */
+        .traction {
+            padding: 6rem 0;
+            background: #0f172a;
+            color: white;
+            position: relative;
+        }
+
+        .traction::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: skewY(-2deg);
+            transform-origin: top right;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .metric-card {
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #06d6a0;
+            margin-bottom: 1rem;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #2d1b69, #11998e);
+            color: white;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: #0f172a;
+            transform: skewY(2deg);
+            transform-origin: top left;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #2d1b69, #11998e);
+            transform: skewY(-2deg);
+            transform-origin: top right;
+        }
+
+        .cta-content h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        .floating-element:nth-child(1) {
+            left: 10%;
+            animation-delay: -2s;
+            animation-duration: 12s;
+        }
+
+        .floating-element:nth-child(2) {
+            left: 20%;
+            animation-delay: -4s;
+            animation-duration: 18s;
+        }
+
+        .floating-element:nth-child(3) {
+            left: 60%;
+            animation-delay: -6s;
+            animation-duration: 14s;
+        }
+
+        .floating-element:nth-child(4) {
+            left: 80%;
+            animation-delay: -8s;
+            animation-duration: 16s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Missing Link in the AI Agent Economy</h1>
+            <div class="subtitle">Connect Every Business to Autonomous AI Agents</div>
+            <div class="description">
+                BAIS (Business-Agent Integration Standards) eliminates the $2.4B integration bottleneck preventing small businesses from participating in the rapidly growing AI agent economy. We're building the infrastructure that lets any business—from corner cafes to enterprise chains—seamlessly serve autonomous AI agents.
+            </div>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Join Our Funding Round</a>
+                <a href="#solution" class="btn-secondary">See The Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">The AI Agent Economy Is Broken</h2>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <span class="pain-point-icon">🚧</span>
+                    <h3>Integration Hell</h3>
+                    <p>Every AI agent needs custom integration for each business. A simple restaurant reservation requires months of engineering work, making small businesses inaccessible to agents.</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-icon">💸</span>
+                    <h3>Exclusion Crisis</h3>
+                    <p>73% of small businesses want AI agent integration but can't afford the $50K+ technical barriers. The agent economy is becoming a walled garden for tech giants.</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-icon">⚡</span>
+                    <h3>Failed Transactions</h3>
+                    <p>Current fragmented integrations fail 35% of the time, frustrating users and costing businesses millions in lost revenue. The user experience remains broken.</p>
+                </div>
+            </div>
+
+            <div class="market-stat">
+                <span class="stat-number">$47B</span>
+                <p><strong>Market opportunity by 2027.</strong> The AI agent economy is exploding, but without standardized business integration, most companies will be left behind. We're building the rails for this transformation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2 class="section-title">BAIS: The Universal Business-Agent Protocol</h2>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9;">
+                Built on proven standards (MCP, A2A) with 67% reduction in integration complexity
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔌</span>
+                    <h3>One Integration, All Agents</h3>
+                    <p>Businesses implement BAIS once and instantly become accessible to any AI agent—OpenAI, Claude, custom agents, or future platforms. No more custom integrations for each agent framework.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>15-Minute Onboarding</h3>
+                    <p>Our no-code business portal generates agent-ready endpoints automatically. Small businesses go from idea to live integration in under 15 minutes, not 15 weeks.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🏗️</span>
+                    <h3>Built on Proven Standards</h3>
+                    <p>BAIS extends Anthropic's MCP and Google's A2A protocols rather than competing with them. This ensures compatibility with existing agent infrastructure and accelerates adoption.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Enterprise-Grade Security</h3>
+                    <p>SOC 2 Type II compliant with OAuth 2.0, granular permissions, and fraud prevention built-in. Enterprises trust BAIS with their most sensitive business workflows.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <h3>Network Effect Business Model</h3>
+                    <p>Every business that joins makes the platform more valuable for agents, and every agent drives more business adoption. Classic network effects with defensible moats.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🌍</span>
+                    <h3>Industry-Agnostic Platform</h3>
+                    <p>Starting with hospitality, expanding to retail, healthcare, and finance. Our schema-based approach adapts to any industry's unique business workflows and compliance requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traction Section -->
+    <section class="traction">
+        <div class="container">
+            <h2 class="section-title">Proven Traction & Validation</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.8;">
+                12-week pilot study with real businesses and measurable results
+            </p>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">67%</div>
+                    <div class="metric-label">Integration Complexity Reduction</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">87%</div>
+                    <div class="metric-label">Business Onboarding Success Rate</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">245ms</div>
+                    <div class="metric-label">Average Response Latency</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">8.4/10</div>
+                    <div class="metric-label">Developer Satisfaction Score</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">0.23%</div>
+                    <div class="metric-label">Transaction Error Rate</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-number">$2.4M</div>
+                    <div class="metric-label">Revenue Pipeline (LOIs Secured)</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: rgba(255, 255, 255, 0.05); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: #06d6a0; margin-bottom: 1rem; font-size: 1.8rem;">Real Business Testimonial</h3>
+                <blockquote style="font-size: 1.2rem; font-style: italic; margin-bottom: 1rem; color: #e2e8f0;">
+                    "BAIS made it possible for our small hotel to participate in the AI agent ecosystem without hiring expensive developers. We went from idea to implementation in less than a week."
+                </blockquote>
+                <cite style="color: #94a3b8;">— Hotel Manager, Desert Pearl Inn (Pilot Program)</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Massive Market, Perfect Timing</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">🚀 Market Timing</h3>
+                    <ul style="list-style: none; space-y: 1rem;">
+                        <li style="margin-bottom: 1rem;">✓ OpenAI, Anthropic, Google all shipping agent platforms in 2025</li>
+                        <li style="margin-bottom: 1rem;">✓ $12B+ already invested in AI agents by enterprises</li>
+                        <li style="margin-bottom: 1rem;">✓ Critical infrastructure gap that big tech can't solve alone</li>
+                        <li style="margin-bottom: 1rem;">✓ First-mover advantage in standardization space</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">💰 Revenue Model</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 1rem;"><strong>SaaS Subscriptions:</strong> $29-299/month per business</li>
+                        <li style="margin-bottom: 1rem;"><strong>Transaction Fees:</strong> 1.5% on agent-driven transactions</li>
+                        <li style="margin-bottom: 1rem;"><strong>Enterprise Licensing:</strong> $50K-500K annual contracts</li>
+                        <li style="margin-bottom: 1rem;"><strong>Developer Tools:</strong> API usage & premium SDKs</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
+                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">🎯 Go-to-Market</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 1rem;"><strong>Phase 1:</strong> Hospitality (hotels, restaurants) - 50K target businesses</li>
+                        <li style="margin-bottom: 1rem;"><strong>Phase 2:</strong> Retail & E-commerce - 200K businesses</li>
+                        <li style="margin-bottom: 1rem;"><strong>Phase 3:</strong> Healthcare & Finance - enterprise focus</li>
+                        <li style="margin-bottom: 1rem;"><strong>Phase 4:</strong> Global expansion & verticals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join the Infrastructure Play That Enables the AI Agent Economy</h2>
+                <p>We're raising our Series A to scale BAIS globally. Join VCs who understand that the biggest returns come from building the rails, not just the trains. The AI agent economy needs BAIS to reach its full potential.</p>
+                
+                <div style="margin-bottom: 3rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">$5M</div>
+                            <div style="opacity: 0.9;">Series A Target</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">18 months</div>
+                            <div style="opacity: 0.9;">Runway to Profitability</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Q2 2025</div>
+                            <div style="opacity: 0.9;">Round Closing</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons" style="justify-content: center;">
+                    <a href="mailto:funding@baintegrate.com" class="btn-primary" style="background: white; color: #ff6b6b; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);">Request Investor Deck</a>
+                    <a href="mailto:demo@baintegrate.com" class="btn-secondary" style="border-color: white; color: white;">Schedule Demo</a>
+                </div>
+
+                <div style="margin-top: 3rem; opacity: 0.8; font-size: 0.9rem;">
+                    📧 funding@baintegrate.com | 🌐 baintegrate.com | 📱 Schedule a call: calendly.com/bais-funding
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.pain-point, .feature-card, .metric-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Dynamic typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero .subtitle');
+        const originalText = subtitle.textContent;
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < originalText.length) {
+                subtitle.textContent = originalText.slice(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after page load
+        setTimeout(typeWriter, 1000);
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Email validation and form handling
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Track email clicks for analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        event_category: 'Email',
+                        event_label: this.getAttribute('href')
+                    });
+                }
+            });
+        });
+
+        // Add loading states to buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.href && this.href.includes('mailto:')) {
+                    const originalText = this.textContent;
+                    this.textContent = 'Opening email...';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "BAIS - Business-Agent Integration Standards",
+        "url": "https://baintegrate.com",
+        "description": "The universal protocol connecting businesses to AI agents",
+        "foundingDate": "2025",
+        "industry": "AI Infrastructure",
+        "sameAs": [
+            "https://github.com/bais-protocol",
+            "https://linkedin.com/company/bais-protocol"
+        ]
+    }
+    </script>
+</head>
+</body>
+</html>
+                
