@@ -427,7 +427,7 @@
             }
         }
 
-        /* Floating Elements */
+        /* Interactive Floating Elements */
         .floating-elements {
             position: fixed;
             top: 0;
@@ -436,6 +436,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
+            overflow: hidden;
         }
 
         .floating-element {
@@ -445,6 +446,21 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 15s infinite linear;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-element:hover {
+            transform: scale(2.5) !important;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4), 
+                        0 0 60px rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            animation-play-state: paused;
+            z-index: 10;
         }
 
         .floating-element:nth-child(1) {
@@ -457,18 +473,63 @@
             left: 20%;
             animation-delay: -4s;
             animation-duration: 18s;
+            width: 25px;
+            height: 25px;
         }
 
         .floating-element:nth-child(3) {
             left: 60%;
             animation-delay: -6s;
             animation-duration: 14s;
+            width: 15px;
+            height: 15px;
         }
 
         .floating-element:nth-child(4) {
             left: 80%;
             animation-delay: -8s;
             animation-duration: 16s;
+            width: 30px;
+            height: 30px;
+        }
+
+        .floating-element:nth-child(5) {
+            left: 40%;
+            animation-delay: -10s;
+            animation-duration: 20s;
+            width: 18px;
+            height: 18px;
+        }
+
+        .floating-element:nth-child(6) {
+            left: 70%;
+            animation-delay: -12s;
+            animation-duration: 22s;
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Ripple effect on click */
+        .floating-element::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s, opacity 0.6s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .floating-element.clicked::after {
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            transition: width 0.6s, height 0.6s, opacity 0.6s ease-out;
         }
 
         @keyframes float {
@@ -486,6 +547,18 @@
                 transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
+        }
+
+        /* Mouse trail effect */
+        .mouse-trail {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+            transition: opacity 0.5s ease-out;
         }
     </style>
 </head>
