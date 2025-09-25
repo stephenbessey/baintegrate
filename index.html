@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAIS - Connecting Every Business to the AI Agent Economy</title>
+    <title>BAIS - Business-Agent Integration Standards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,27 +13,37 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            overflow-x: hidden;
+            color: #202124;
+            background: #fff;
         }
 
-        /* Navigation */
+        /* Google Material Design Colors */
+        :root {
+            --google-blue: #4285f4;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc04;
+            --google-green: #34a853;
+            --google-grey: #5f6368;
+            --google-grey-light: #f8f9fa;
+            --google-grey-border: #dadce0;
+        }
+
+        /* Navigation - Google style */
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            padding: 1rem 2rem;
+            background: #fff;
+            padding: 16px 24px;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
         }
 
         .nav-content {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -40,1041 +51,694 @@
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+            gap: 12px;
+            font-family: 'Google Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--google-grey);
+        }
+
+        .logo-text {
+            display: flex;
+            gap: 2px;
+        }
+
+        .logo-letter-b { color: var(--google-blue); }
+        .logo-letter-a { color: var(--google-red); }
+        .logo-letter-i { color: var(--google-yellow); }
+        .logo-letter-s { color: var(--google-green); }
+
+        /* Hero Section - Google style */
+        .hero {
+            background: #fff;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
             padding-top: 80px;
         }
 
-        .hero-grid {
-            max-width: 1200px;
+        .hero-container {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 80px 24px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 80px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
-            line-height: 1.1;
+        .hero h1 {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #202124;
+            margin-bottom: 24px;
         }
 
-        .hero-visual {
+        .hero .subtitle {
+            font-size: 20px;
+            color: var(--google-grey);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .material-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-family: 'Google Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: none;
+            text-decoration: none;
+        }
+
+        .material-btn-primary {
+            background: var(--google-blue);
+            color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+        }
+
+        .material-btn-primary:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+        }
+
+        .material-btn-secondary {
+            background: #fff;
+            color: var(--google-blue);
+            border: 1px solid var(--google-grey-border);
+        }
+
+        .material-btn-secondary:hover {
+            background: var(--google-grey-light);
+        }
+
+        .cta-buttons {
             display: flex;
-            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        /* Progress Section - Expandable */
+        .progress-section {
+            background: var(--google-grey-light);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 32px 0;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+        }
+
+        .progress-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            position: relative;
+            cursor: pointer;
+            background: #fff;
+            border-bottom: 1px solid var(--google-grey-border);
         }
 
-        /* Network Visualization */
-        .network-container {
-            width: 400px;
-            height: 400px;
-            position: relative;
+        .progress-header:hover {
+            background: var(--google-grey-light);
         }
 
-        .network-node {
-            position: absolute;
-            width: 60px;
-            height: 60px;
+        .progress-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Google Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: #202124;
+        }
+
+        .progress-icon {
+            color: var(--google-green);
+        }
+
+        .expand-icon {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            color: var(--google-grey);
+        }
+
+        .expand-icon.expanded {
+            transform: rotate(180deg);
+        }
+
+        .progress-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .progress-content.expanded {
+            max-height: 5000px;
+        }
+
+        .progress-inner {
+            padding: 24px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .progress-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--google-grey-border);
+        }
+
+        .progress-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .progress-card-icon {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            animation: pulse 2s infinite;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+            font-size: 20px;
         }
 
-        .network-node.center {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            width: 80px;
-            height: 80px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            animation: centerPulse 3s infinite;
+        .icon-blue { background: #e8f0fe; color: var(--google-blue); }
+        .icon-red { background: #fce8e6; color: var(--google-red); }
+        .icon-yellow { background: #fef7e0; color: #f9ab00; }
+        .icon-green { background: #e6f4ea; color: var(--google-green); }
+
+        .progress-card h4 {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #202124;
         }
 
-        .network-node.business {
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffd700;
+        .progress-card p {
+            font-size: 14px;
+            color: var(--google-grey);
+            line-height: 1.5;
         }
 
-        .network-node.agent {
-            background: rgba(255, 255, 255, 0.15);
-            color: #48cae4;
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
         }
 
-        .network-line {
-            position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
-            transform-origin: left center;
-            animation: dataFlow 2s infinite;
+        .stat-item {
+            text-align: center;
+            padding: 16px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--google-grey-border);
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.1); opacity: 1; }
+        .stat-number {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--google-blue);
+            display: block;
+            margin-bottom: 4px;
         }
 
-        @keyframes centerPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
-            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 40px rgba(255, 107, 107, 0.6); }
+        .stat-label {
+            font-size: 12px;
+            color: var(--google-grey);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        @keyframes dataFlow {
-            0% { opacity: 0.3; transform: scaleX(0); }
-            50% { opacity: 1; transform: scaleX(1); }
-            100% { opacity: 0.3; transform: scaleX(0); }
+        /* Material Cards */
+        .material-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            transition: box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .material-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out 0.2s both;
+        /* Sections */
+        .section {
+            padding: 80px 24px;
         }
 
-        .hero .description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            animation: fadeInUp 1s ease-out 0.4s both;
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 64px;
+            text-align: center;
         }
 
-        .cta-buttons {
-            margin-bottom: 2rem;
+        .section-title {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: #202124;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--google-grey);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 32px;
+            border: 1px solid var(--google-grey-border);
+            transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        .feature-card h3 {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #202124;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
+        .feature-card p {
+            font-size: 14px;
+            color: var(--google-grey);
+            line-height: 1.6;
         }
 
         /* Problem Section */
         .problem {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            position: relative;
+            background: var(--google-grey-light);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .pain-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .pain-point {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .pain-point:hover {
-            transform: translateY(-5px);
-        }
-
-        .pain-point-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--google-blue), #1a73e8);
+            color: #fff;
             text-align: center;
         }
 
-        .pain-point h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-
-        .market-stat {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ffd700;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        /* Solution Section */
-        .solution {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            position: relative;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 3rem 2rem;
-            border-radius: 25px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #ffd700, #48cae4);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            display: block;
-            text-align: center;
-            background: linear-gradient(45deg, #ff6b6b, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .feature-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+        .cta-section .section-title {
             color: #fff;
         }
 
-        /* AP2 Integration Section */
-        .ap2-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            position: relative;
+        .cta-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .ap2-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .ap2-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .payment-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .payment-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%;
-            max-width: 400px;
-            animation: slideInRight 0.8s ease-out;
-        }
-
-        .payment-step:nth-child(2) { animation-delay: 0.2s; }
-        .payment-step:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .step-icon {
-            font-size: 2rem;
-            color: #06d6a0;
-        }
-
-        .step-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #06d6a0;
-        }
-
-        /* Traction Section */
-        .traction {
-            padding: 6rem 0;
-            background: #0f172a;
-            color: white;
-            position: relative;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .metric-card {
-            text-align: center;
-            background: linear-gradient(135deg, #1e293b, #334155);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .metric-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .metric-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #06d6a0;
-            margin-bottom: 1rem;
-        }
-
-        .metric-label {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #2d1b69, #11998e);
-            color: white;
-        }
-
-        /* Final CTA */
-        .final-cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-
-        .cta-content h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .cta-content p {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .bais-branding {
-            display: inline-block;
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #fff, rgba(255, 255, 255, 0.8));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 2rem;
-            text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-grid {
+            .hero-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .network-container {
-                width: 300px;
-                height: 300px;
+                gap: 40px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                line-height: 1.2;
+                font-size: 40px;
             }
-            
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-            
+
             .section-title {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                margin-bottom: 3rem;
-            }
-            
-            .btn-primary, .btn-secondary {
-                text-align: center;
-                width: 100%;
+                font-size: 36px;
             }
 
-            .ap2-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .progress-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Floating background animation */
-        .floating-bg {
+        /* Hero Illustration */
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .network-diagram {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .diagram-node {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            animation: gridMove 20s linear infinite;
-            pointer-events: none;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: #fff;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(10px, 10px); }
+        .diagram-node.center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            font-size: 40px;
+            background: var(--google-blue);
+            color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(66,133,244,0.3);
         }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .diagram-node:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .diagram-node:nth-child(2) { top: 15%; right: 15%; animation-delay: 0.3s; }
+        .diagram-node:nth-child(3) { bottom: 20%; left: 10%; animation-delay: 0.6s; }
+        .diagram-node:nth-child(4) { bottom: 15%; right: 20%; animation-delay: 0.9s; }
+        .diagram-node:nth-child(5) { top: 40%; left: 5%; animation-delay: 1.2s; }
+        .diagram-node:nth-child(6) { top: 40%; right: 5%; animation-delay: 1.5s; }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-content">
-            <div class="logo">BAIS</div>
-            <div style="color: #667eea; font-weight: 600;">Business-Agent Integration Standards</div>
+            <div class="logo">
+                <span class="logo-text">
+                    <span class="logo-letter-b">B</span><span class="logo-letter-a">A</span><span class="logo-letter-i">I</span><span class="logo-letter-s">S</span>
+                </span>
+                <span style="color: var(--google-grey); font-weight: 400;">Business-Agent Integration Standards</span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="floating-bg"></div>
-        <div class="hero-grid">
-            <div class="hero-content">
+        <div class="hero-container">
+            <div>
                 <h1>The Missing Link in the AI Agent Economy</h1>
-                <div class="subtitle">Connect Every Business to Autonomous AI Agents</div>
-                <div class="description">
-                    BAIS (Business-Agent Integration Standards) eliminates the integration barriers preventing small businesses from participating in the rapidly growing AI agent economy. Built on proven protocols (MCP, A2A, AP2), we're creating the infrastructure that lets any business seamlessly serve autonomous AI agents with 67% less complexity.
+                <p class="subtitle">Connect every business to autonomous AI agents with standardized integration protocols</p>
+                
+                <div class="progress-section">
+                    <div class="progress-header" onclick="toggleProgress()">
+                        <div class="progress-title">
+                            <span class="progress-icon">✓</span>
+                            <span>Project Progress & Implementation</span>
+                        </div>
+                        <span class="expand-icon" id="expandIcon">▼</span>
+                    </div>
+                    <div class="progress-content" id="progressContent">
+                        <div class="progress-inner">
+                            <div class="progress-grid">
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-blue">⚙️</div>
+                                        <h4>MCP Server Implementation</h4>
+                                    </div>
+                                    <p>Complete Model Context Protocol server with automatic business service exposure, resource management, and tool-based interactions</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-red">🔗</div>
+                                        <h4>A2A Protocol Bridge</h4>
+                                    </div>
+                                    <p>Agent-to-Agent coordination layer with agent card discovery, multi-agent workflows, and task delegation patterns</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-yellow">💳</div>
+                                        <h4>AP2 Payment Integration</h4>
+                                    </div>
+                                    <p>Native Agent Payments Protocol with mandate verification, secure transactions, and multi-currency support</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-green">📊</div>
+                                        <h4>Business Portal</h4>
+                                    </div>
+                                    <p>Web interface for businesses to create agent-ready endpoints with guided workflows and integration testing</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-blue">📋</div>
+                                        <h4>Business Service Schema</h4>
+                                    </div>
+                                    <p>JSON Schema-based specification for services, pricing, availability, and workflow patterns with validation</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-red">⚡</div>
+                                        <h4>Performance Testing</h4>
+                                    </div>
+                                    <p>Comprehensive load testing with 1000+ concurrent users, <200ms API response, and 99.9% uptime validation</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-yellow">🔐</div>
+                                        <h4>Security Implementation</h4>
+                                    </div>
+                                    <p>OAuth 2.0 authentication, JWT tokens, mandate cryptographic verification, and comprehensive audit logging</p>
+                                </div>
+
+                                <div class="progress-card">
+                                    <div class="progress-card-header">
+                                        <div class="progress-card-icon icon-green">🔌</div>
+                                        <h4>RESTful API Layer</h4>
+                                    </div>
+                                    <p>FastAPI-based API with business management, schema versioning, agent integration, and analytics endpoints</p>
+                                </div>
+                            </div>
+
+                            <div class="progress-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Protocols Integrated</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">67%</span>
+                                    <span class="stat-label">Complexity Reduction</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">99.7%</span>
+                                    <span class="stat-label">Success Rate</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">15</span>
+                                    <span class="stat-label">Test Integrations</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 24px; padding: 20px; background: #e8f0fe; border-radius: 8px; border-left: 4px solid var(--google-blue);">
+                                <p style="font-size: 14px; color: var(--google-grey); margin-bottom: 8px;"><strong style="color: #202124;">Technical Stack:</strong></p>
+                                <p style="font-size: 14px; color: var(--google-grey);">Python 3.11+, FastAPI, Pydantic 2.0, SQLAlchemy, PostgreSQL, Redis, React 18, Docker, OAuth 2.0/JWT, MCP Protocol, A2A Protocol, AP2 Protocol</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn-primary">Join Our Pre-Seed Round</a>
-                    <a href="#solution" class="btn-secondary">See How It Works</a>
+                    <a href="mailto:sbessey53@gmail.com" class="material-btn material-btn-primary">
+                        <span>✉️</span>
+                        Request Investor Deck
+                    </a>
+                    <a href="#solution" class="material-btn material-btn-secondary">
+                        <span>→</span>
+                        Learn More
+                    </a>
                 </div>
             </div>
+
             <div class="hero-visual">
-                <div class="network-container">
-                    <!-- Center BAIS Node -->
-                    <div class="network-node center">B</div>
-                    
-                    <!-- Business Nodes -->
-                    <div class="network-node business" style="top: 10%; left: 30%;">🏨</div>
-                    <div class="network-node business" style="top: 20%; right: 20%;">🍕</div>
-                    <div class="network-node business" style="bottom: 25%; left: 15%;">🛒</div>
-                    <div class="network-node business" style="bottom: 15%; right: 25%;">✈️</div>
-                    
-                    <!-- Agent Nodes -->
-                    <div class="network-node agent" style="top: 30%; left: 10%;">🤖</div>
-                    <div class="network-node agent" style="top: 15%; right: 5%;">🧠</div>
-                    <div class="network-node agent" style="bottom: 40%; left: 5%;">⚡</div>
-                    <div class="network-node agent" style="bottom: 5%; right: 10%;">🔧</div>
-                    
-                    <!-- Connection Lines -->
-                    <div class="network-line" style="top: 25%; left: 20%; width: 15%; transform: rotate(45deg);"></div>
-                    <div class="network-line" style="top: 35%; right: 30%; width: 20%; transform: rotate(-30deg);"></div>
-                    <div class="network-line" style="bottom: 35%; left: 25%; width: 18%; transform: rotate(-45deg);"></div>
-                    <div class="network-line" style="bottom: 25%; right: 35%; width: 16%; transform: rotate(30deg);"></div>
+                <div class="network-diagram">
+                    <div class="diagram-node">🏨</div>
+                    <div class="diagram-node">🍕</div>
+                    <div class="diagram-node">🛒</div>
+                    <div class="diagram-node">✈️</div>
+                    <div class="diagram-node">🤖</div>
+                    <div class="diagram-node">🧠</div>
+                    <div class="diagram-node center">B</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem">
-        <div class="floating-bg"></div>
+    <section class="section problem">
         <div class="container">
-            <h2 class="section-title">The AI Agent Economy Is Broken</h2>
-            
-            <div class="pain-points">
-                <div class="pain-point">
-                    <span class="pain-point-icon">🚧</span>
+            <div class="section-header">
+                <h2 class="section-title">The AI Agent Economy Is Broken</h2>
+                <p class="section-subtitle">Critical integration barriers prevent businesses from participating in the $52B market opportunity</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon icon-red">🔧</div>
                     <h3>Integration Hell</h3>
-                    <p>Every AI agent needs custom integration for each business. A simple restaurant reservation can require months of engineering work, making small businesses inaccessible to agents and costing $50K+ in development.</p>
+                    <p>Every AI agent needs custom integration for each business. A simple restaurant reservation can require months of engineering work, costing $50K+ in development.</p>
                 </div>
-                
-                <div class="pain-point">
-                    <span class="pain-point-icon">💸</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon icon-yellow">🏪</div>
                     <h3>SMB Exclusion Crisis</h3>
-                    <p>55% of small businesses cite cost as their primary AI adoption barrier. Without standardized integration, the agent economy becomes a walled garden for tech giants while SMBs are left behind.</p>
+                    <p>55% of small businesses cite cost as their primary AI adoption barrier. Without standardized integration, the agent economy becomes a walled garden for tech giants.</p>
                 </div>
-                
-                <div class="pain-point">
-                    <span class="pain-point-icon">⚡</span>
+
+                <div class="feature-card">
+                    <div class="feature-icon icon-blue">⚠️</div>
                     <h3>Broken User Experience</h3>
-                    <p>Current fragmented integrations fail 35% of the time (Carnegie Mellon), frustrating users and costing businesses millions in lost revenue. Agent interactions remain unreliable and inconsistent.</p>
+                    <p>Current fragmented integrations fail 35% of the time, frustrating users and costing businesses millions in lost revenue.</p>
                 </div>
-            </div>
-
-            <div class="market-stat">
-                <span class="stat-number">$52B</span>
-                <p><strong>Market opportunity by 2030.</strong> The AI agent economy is exploding with 45%+ CAGR, but without standardized business integration, most companies will be left behind. We're building the rails for this transformation.</p>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="solution" id="solution">
-        <div class="floating-bg"></div>
+    <section class="section" id="solution">
         <div class="container">
-            <h2 class="section-title">BAIS: The Universal Business-Agent Protocol</h2>
-            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9;">
-                Built on proven standards (MCP, A2A, AP2) with 67% reduction in integration complexity
-            </p>
+            <div class="section-header">
+                <h2 class="section-title">BAIS: The Universal Business-Agent Protocol</h2>
+                <p class="section-subtitle">Built on proven standards (MCP, A2A, AP2) with 67% reduction in integration complexity</p>
+            </div>
 
-            <div class="features-grid">
+            <div class="grid-3">
                 <div class="feature-card">
-                    <span class="feature-icon">🔌</span>
+                    <div class="feature-icon icon-blue">⚡</div>
                     <h3>One Integration, All Agents</h3>
-                    <p>Businesses implement BAIS once and instantly become accessible to any AI agent—OpenAI, Claude, custom agents, or future platforms. No more custom integrations for each agent framework.</p>
+                    <p>Businesses implement BAIS once and instantly become accessible to any AI agent—OpenAI, Claude, custom agents, or future platforms.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
+                    <div class="feature-icon icon-green">🚀</div>
                     <h3>Rapid Deployment</h3>
-                    <p>Our business portal generates agent-ready endpoints with guided workflows that dramatically reduce time-to-integration compared to custom development. From weeks to days, not months to years.</p>
+                    <p>Our business portal generates agent-ready endpoints with guided workflows. From weeks to days, not months to years.</p>
                 </div>
-                
+
                 <div class="feature-card">
-                    <span class="feature-icon">🏗️</span>
+                    <div class="feature-icon icon-red">📚</div>
                     <h3>Built on Proven Standards</h3>
-                    <p>BAIS extends Anthropic's MCP, Google's A2A, and Google's AP2 protocols rather than competing with them. This ensures compatibility with existing agent infrastructure and accelerates adoption.</p>
+                    <p>BAIS extends Anthropic's MCP, Google's A2A, and Google's AP2 protocols rather than competing with them.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
+                    <div class="feature-icon icon-yellow">🛡️</div>
                     <h3>Enterprise-Grade Security</h3>
-                    <p>SOC 2 Type II compliant with OAuth 2.0, granular permissions, and fraud prevention built-in. Enterprises trust BAIS with their most sensitive business workflows and customer data.</p>
+                    <p>OAuth 2.0, granular permissions, and fraud prevention built-in. Enterprises trust BAIS with their most sensitive workflows.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="feature-icon">📈</span>
+                    <div class="feature-icon icon-blue">📈</div>
                     <h3>Network Effect Business Model</h3>
-                    <p>Every business that joins makes the platform more valuable for agents, and every agent drives more business adoption. Classic network effects with defensible moats and viral growth patterns.</p>
+                    <p>Every business that joins makes the platform more valuable for agents, and every agent drives more business adoption.</p>
                 </div>
 
                 <div class="feature-card">
-                    <span class="feature-icon">🌍</span>
+                    <div class="feature-icon icon-green">🌐</div>
                     <h3>Industry-Agnostic Platform</h3>
-                    <p>Starting with hospitality (80% of hotels plan AI adoption), expanding to retail, healthcare, and finance. Our schema-based approach adapts to any industry's unique workflows and compliance requirements.</p>
+                    <p>Starting with hospitality, expanding to retail, healthcare, and finance. Our schema-based approach adapts to any industry.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AP2 Integration Section -->
-    <section class="ap2-section">
+    <section class="section cta-section">
         <div class="container">
-            <h2 class="section-title">Native AP2 Payment Integration</h2>
-            <div class="ap2-content">
+            <div class="section-header">
+                <h2 class="section-title">Join the Infrastructure Play That Enables the AI Agent Economy</h2>
+                <p class="section-subtitle">Raising Pre-Seed to scale BAIS globally and capture the standards-based approach advantage</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0;">
                 <div>
-                    <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #06d6a0;">Secure, Agent-Led Payments</h3>
-                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-                        BAIS natively integrates Google's Agent Payments Protocol (AP2), enabling secure, cryptographically-verified payment workflows that agents can execute with user authorization.
-                    </p>
-                    <ul style="list-style: none; space-y: 1rem;">
-                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: #06d6a0;">✓</span> 
-                            <strong>Intent Mandates:</strong> Users authorize agents with spending limits and constraints
-                        </li>
-                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: #06d6a0;">✓</span> 
-                            <strong>Cart Mandates:</strong> Cryptographically-signed purchase authorization
-                        </li>
-                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: #06d6a0;">✓</span> 
-                            <strong>Payment Execution:</strong> Secure transaction processing with fraud prevention
-                        </li>
-                        <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: #06d6a0;">✓</span> 
-                            <strong>Multi-Currency Support:</strong> Global commerce enablement
-                        </li>
-                    </ul>
+                    <div style="font-size: 48px; font-weight: 400; margin-bottom: 8px;">$2M</div>
+                    <div style="opacity: 0.9;">Pre-Seed Target</div>
                 </div>
-                <div class="ap2-visual">
-                    <div class="payment-flow">
-                        <div class="payment-step">
-                            <div class="step-icon">🔐</div>
-                            <div class="step-content">
-                                <h4>Intent Mandate</h4>
-                                <p>User authorizes agent with spending constraints</p>
-                            </div>
-                        </div>
-                        <div class="payment-step">
-                            <div class="step-icon">🛒</div>
-                            <div class="step-content">
-                                <h4>Cart Creation</h4>
-                                <p>Agent builds cart with cryptographic verification</p>
-                            </div>
-                        </div>
-                        <div class="payment-step">
-                            <div class="step-icon">💳</div>
-                            <div class="step-content">
-                                <h4>Secure Payment</h4>
-                                <p>Transaction executed with fraud protection</p>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                    <div style="font-size: 48px; font-weight: 400; margin-bottom: 8px;">18 mo</div>
+                    <div style="opacity: 0.9;">Runway to Revenue</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Traction Section -->
-    <section class="traction">
-        <div class="container">
-            <h2 class="section-title">Proven Traction & Technical Implementation</h2>
-            
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-number">67%</div>
-                    <div class="metric-label">Integration Complexity Reduction</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-number">3</div>
-                    <div class="metric-label">Protocol Standards Integrated</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-number">15</div>
-                    <div class="metric-label">Business Integrations Tested</div>
-                </div>
-
-                <div class="metric-card">
-                    <div class="metric-number">99.7%</div>
-                    <div class="metric-label">Transaction Success Rate</div>
+                <div>
+                    <div style="font-size: 48px; font-weight: 400; margin-bottom: 8px;">Q1 2026</div>
+                    <div style="opacity: 0.9;">Target Close</div>
                 </div>
             </div>
 
-            <div style="margin-top: 4rem; text-align: center;">
-                <h3 style="font-size: 2rem; margin-bottom: 2rem; color: #06d6a0;">Technical Achievements</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <h4 style="color: #ffd700; margin-bottom: 1rem;">✅ MCP Server Implementation</h4>
-                        <p>Complete Model Context Protocol server with business service exposure</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <h4 style="color: #ffd700; margin-bottom: 1rem;">✅ A2A Protocol Bridge</h4>
-                        <p>Agent-to-Agent communication layer for multi-agent workflows</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <h4 style="color: #ffd700; margin-bottom: 1rem;">✅ AP2 Payment Integration</h4>
-                        <p>Native Agent Payments Protocol with mandate verification and secure transactions</p>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                        <h4 style="color: #ffd700; margin-bottom: 1rem;">✅ Business Onboarding Platform</h4>
-                        <p>Web interface for businesses to create agent-ready service endpoints</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Market Opportunity -->
-    <section class="team">
-        <div class="floating-bg"></div>
-        <div class="container">
-            <h2 class="section-title">Massive Market, Perfect Timing</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
-                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">🚀 Market Timing</h3>
-                    <ul style="list-style: none; space-y: 1rem;">
-                        <li style="margin-bottom: 1rem;">✓ OpenAI, Anthropic, Google shipping agent platforms in 2025</li>
-                        <li style="margin-bottom: 1rem;">✓ $121.9B invested in AI during H1 2025 alone</li>
-                        <li style="margin-bottom: 1rem;">✓ Critical infrastructure gap big tech can't solve alone</li>
-                        <li style="margin-bottom: 1rem;">✓ Standards-based approach creates vendor independence</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
-                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">💰 Revenue Model</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 1rem;"><strong>Enterprise SaaS:</strong> $100K-$500K+/year</li>
-                        <li style="margin-bottom: 1rem;"><strong>Mid-Market SaaS:</strong> $15K-$50K/year</li>
-                        <li style="margin-bottom: 1rem;"><strong>SMB SaaS:</strong> $2K-$5K/year</li>
-                        <li style="margin-bottom: 1rem;"><strong>Transaction Fees:</strong> 0.1-0.5% on processed revenue</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 20px; backdrop-filter: blur(10px);">
-                    <h3 style="color: #ffd700; margin-bottom: 1.5rem; font-size: 1.8rem;">🎯 Go-to-Market</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 1rem;"><strong>Phase 1:</strong> Hospitality (hotels, restaurants) - proven demand</li>
-                        <li style="margin-bottom: 1rem;"><strong>Phase 2:</strong> Retail & E-commerce expansion</li>
-                        <li style="margin-bottom: 1rem;"><strong>Phase 3:</strong> Healthcare & Finance verticals</li>
-                        <li style="margin-bottom: 1rem;"><strong>Phase 4:</strong> Global expansion & platform partnerships</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta" id="contact">
-        <div class="container">
-            <div class="cta-content">
-                <div class="bais-branding">BAIS</div>
-                <h2>Join the Infrastructure Play That Enables the AI Agent Economy</h2>
-                <p>We're raising our Pre-Seed to scale BAIS globally and capture the standards-based approach advantage. Join VCs who understand that the biggest returns come from building the rails that enable entire ecosystems. The AI agent economy needs standardized business integration to reach its full potential.</p>
-                
-                <div style="margin-bottom: 3rem;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
-                        <div>
-                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">$2M</div>
-                            <div style="opacity: 0.9;">Pre-Seed Target</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">18 months</div>
-                            <div style="opacity: 0.9;">Runway to Revenue</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Q1 2026</div>
-                            <div style="opacity: 0.9;">Target Close</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cta-buttons" style="justify-content: center;">
-                    <a href="mailto:sbessey53@gmail.com" class="btn-primary" style="background: white; color: #ff6b6b; font-weight: 700; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);">Request Investor Deck</a>
-                </div>
-
-                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                    <div class="bais-branding" style="font-size: 3rem;">BAIS</div>
-                    <p style="font-size: 1rem; opacity: 0.8; margin-bottom: 0;">Business-Agent Integration Standards</p>
-                </div>
-            </div>
+            <a href="mailto:sbessey53@gmail.com" class="material-btn" style="background: #fff; color: var(--google-blue);">
+                <span>✉️</span>
+                Request Investor Deck
+            </a>
         </div>
     </section>
 
     <script>
-        // Initialize network visualization
-        function initializeNetworkVisualization() {
-            const networkContainer = document.querySelector('.network-container');
-            if (!networkContainer) return;
-
-            // Add dynamic connection animations
-            const lines = networkContainer.querySelectorAll('.network-line');
-            lines.forEach((line, index) => {
-                line.style.animationDelay = `${index * 0.5}s`;
-            });
-
-            // Add hover effects to nodes
-            const nodes = networkContainer.querySelectorAll('.network-node');
-            nodes.forEach(node => {
-                node.addEventListener('mouseenter', () => {
-                    node.style.transform = node.classList.contains('center') 
-                        ? 'translate(-50%, -50%) scale(1.2)' 
-                        : 'scale(1.3)';
-                });
-                
-                node.addEventListener('mouseleave', () => {
-                    node.style.transform = node.classList.contains('center') 
-                        ? 'translate(-50%, -50%) scale(1)' 
-                        : 'scale(1)';
-                });
-            });
-        }
-
-        // Initialize payment flow animation
-        function initializePaymentFlow() {
-            const paymentSteps = document.querySelectorAll('.payment-step');
+        function toggleProgress() {
+            const content = document.getElementById('progressContent');
+            const icon = document.getElementById('expandIcon');
             
-            // Create intersection observer for animation triggers
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateX(0)';
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            paymentSteps.forEach(step => {
-                step.style.opacity = '0';
-                step.style.transform = 'translateX(50px)';
-                step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(step);
-            });
+            content.classList.toggle('expanded');
+            icon.classList.toggle('expanded');
         }
 
-        // Smooth scrolling for anchor links
-        function initializeSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Add scroll-triggered animations
-        function initializeScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for animation
-            document.querySelectorAll('.pain-point, .feature-card, .metric-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(el);
-            });
-        }
-
-        // Add parallax effect to hero
-        function initializeParallaxEffect() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
-        }
-
-        // Email validation and tracking
-        function initializeEmailTracking() {
-            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Track email clicks for analytics
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'click', {
-                            event_category: 'Email',
-                            event_label: this.getAttribute('href')
-                        });
-                    }
-                });
-            });
-        }
-
-        // Add loading states to buttons
-        function initializeButtonStates() {
-            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    if (this.href && this.href.includes('mailto:')) {
-                        const originalText = this.textContent;
-                        this.textContent = 'Opening email...';
-                        setTimeout(() => {
-                            this.textContent = originalText;
-                        }, 2000);
-                    }
-                });
-            });
-        }
-
-        // Initialize all functionality when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeNetworkVisualization();
-            initializePaymentFlow();
-            initializeSmoothScrolling();
-            initializeScrollAnimations();
-            initializeParallaxEffect();
-            initializeEmailTracking();
-            initializeButtonStates();
         });
-
-        // Add performance monitoring
-        window.addEventListener('load', function() {
-            // Monitor page load performance
-            if ('performance' in window) {
-                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-                console.log(`Page load time: ${loadTime}ms`);
-            }
-        });
-    </script>
-
-    <!-- Schema.org structured data for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Business-Agent Integration Standards",
-        "alternateName": "BAIS",
-        "url": "https://baintegrate.com",
-        "description": "The universal protocol connecting businesses to AI agents with native AP2 payment integration",
-        "foundingDate": "2025",
-        "industry": "AI Infrastructure",
-        "sameAs": [
-            "https://github.com/bais-protocol",
-            "https://linkedin.com/company/bais-protocol"
-        ],
-        "logo": "https://baintegrate.com/logo.png",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-555-BAIS",
-            "contactType": "investor relations",
-            "email": "sbessey53@gmail.com"
-        }
-    }
     </script>
 </body>
 </html>
