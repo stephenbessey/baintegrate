@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact BA Integrate - Get in touch for demos, support, and partnership inquiries">
+  <title>Contact - BA Integrate</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/base/variables.css">
+  <link rel="stylesheet" href="/assets/css/base/reset.css">
+  <link rel="stylesheet" href="/assets/css/base/typography.css">
+  <link rel="stylesheet" href="/assets/css/components/button.css">
+  <link rel="stylesheet" href="/assets/css/components/card.css">
+  <link rel="stylesheet" href="/assets/css/components/form.css">
+  <link rel="stylesheet" href="/assets/css/components/navigation.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/layouts/grid.css">
+  <link rel="stylesheet" href="/assets/css/layouts/section.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav" class="navigation">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="/">BA Integrate</a>
+      </div>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      
+      <ul class="nav-links">
+        <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
+        <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+        <li><a href="/pages/documentation.html" class="nav-link">Documentation</a></li>
+        <li><a href="/pages/pricing.html" class="nav-link">Pricing</a></li>
+      </ul>
+      
+      <a href="/pages/contact.html" class="btn btn-primary nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="section-hero">
+      <div class="container">
+        <h1 class="heading-1">Let's Build Together</h1>
+        <p class="text-large text-secondary">
+          Connect with our team to explore how BA Integrate can transform your business operations
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-2">
+          <!-- Contact Information -->
+          <div>
+            <h2 class="heading-2">Get in Touch</h2>
+            <p class="text-secondary">
+              Whether you're ready to start integrating AI agents or just exploring possibilities, we're here to help.
+            </p>
+
+            <div class="card" style="margin-top: 2rem;">
+              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card-icon">📧</div>
+                <div>
+                  <h3 class="heading-5">Email</h3>
+                  <a href="mailto:contact@baintegrate.com" style="color: var(--color-primary);">contact@baintegrate.com</a>
+                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">We typically respond within 24 hours</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card-icon">💬</div>
+                <div>
+                  <h3 class="heading-5">Sales Inquiries</h3>
+                  <a href="mailto:sales@baintegrate.com" style="color: var(--color-primary);">sales@baintegrate.com</a>
+                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">Schedule a demo or discuss pricing</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="card-icon">🔧</div>
+                <div>
+                  <h3 class="heading-5">Technical Support</h3>
+                  <a href="mailto:support@baintegrate.com" style="color: var(--color-primary);">support@baintegrate.com</a>
+                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">For existing customers and partners</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
+                <div class="card-icon">💼</div>
+                <div>
+                  <h3 class="heading-5">Partnerships</h3>
+                  <a href="mailto:partnerships@baintegrate.com" style="color: var(--color-primary);">partnerships@baintegrate.com</a>
+                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">Enterprise partnerships and integrations</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+              <h3 class="heading-5">Office</h3>
+              <p class="text-secondary">
+                Saint George, Utah<br>
+                United States
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div>
+            <div class="card">
+              <h3 class="heading-3" style="margin-bottom: 2rem;">Send us a Message</h3>
+              
+              <form id="contact-form">
+                <div class="form-group">
+                  <label for="name" class="form-label form-label-required">Name</label>
+                  <input type="text" id="name" name="name" class="form-input" required>
+                  <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label form-label-required">Email</label>
+                  <input type="email" id="email" name="email" class="form-input" required>
+                  <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="company" class="form-label">Company</label>
+                  <input type="text" id="company" name="company" class="form-input">
+                  <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="inquiry" class="form-label form-label-required">Inquiry Type</label>
+                  <select id="inquiry" name="inquiry" class="form-select" required>
+                    <option value="">Select an option</option>
+                    <option value="demo">Schedule a Demo</option>
+                    <option value="pricing">Pricing Information</option>
+                    <option value="technical">Technical Question</option>
+                    <option value="partnership">Partnership Inquiry</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label form-label-required">Message</label>
+                  <textarea id="message" name="message" class="form-textarea" rows="6" required minlength="10" maxlength="1000"></textarea>
+                  <span class="error-message"></span>
+                  <span class="help-text">10-1000 characters</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full-width">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        
+        <div class="card-grid-2">
+          <div class="card">
+            <h3 class="heading-5">How long does integration take?</h3>
+            <p class="text-secondary">
+              Typical integration takes 2-4 weeks from initial consultation to production deployment, depending on complexity and existing infrastructure.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="heading-5">Do you offer a free trial?</h3>
+            <p class="text-secondary">
+              Yes! We offer a 30-day free trial with full platform access to evaluate BA Integrate for your business needs.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="heading-5">What kind of support do you provide?</h3>
+            <p class="text-secondary">
+              We offer 24/7 technical support for Enterprise customers, with email support and documentation access for all tiers.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="heading-5">Can you integrate with our existing systems?</h3>
+            <p class="text-secondary">
+              Yes! BA Integrate is designed to work with major platforms including AWS, Google Cloud, Shopify, Salesforce, and custom APIs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Join leading enterprises transforming their operations with AI agents</p>
+        <div class="btn-group">
+          <a href="/pages/documentation.html" class="btn btn-primary btn-lg">View Documentation</a>
+          <a href="/pages/pricing.html" class="btn btn-secondary btn-lg">See Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">BA Integrate</div>
+          <p class="footer-description">Enterprise AI agent integration platform</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/platform.html">Features</a></li>
+            <li><a href="/pages/security.html">Security</a></li>
+            <li><a href="/pages/pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/documentation.html">Documentation</a></li>
+            <li><a href="/pages/api-reference.html">API Reference</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2025 BA Integrate. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="/pages/privacy.html">Privacy Policy</a>
+          <a href="/pages/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script type="module">
+    import Navigation from '/assets/js/components/Navigation.js';
+    import ContactForm from '/assets/js/components/ContactForm.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      new Navigation('#main-nav');
+      new ContactForm('#contact-form');
+    });
+  </script>
+</body>
+</html>
