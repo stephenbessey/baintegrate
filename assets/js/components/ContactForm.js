@@ -1,75 +1,129 @@
+/**
+ * Contact Form Component
+ * Handles form validation and submission
+ */
+
+import CONFIG from '../core/config.js';
+import { isValidEmail, sanitizeInput } from '../core/utils.js';
+
 class ContactForm {
-  constructor(formId, apiEndpoint) {
-    this.form = document.getElementById(formId);
-    this.apiEndpoint = apiEndpoint;
-    this.initializeValidation();
-    this.attachSubmitHandler();
+  constructor(formSelector, options = {}) {
+    this.form = document.querySelector(formSelector);
+    if (!this.form) {
+      console.warn(`Form not found: ${formSelector}`);
+      return;
+    }
+    
+    this.options = {
+      apiEndpoint: options.apiEndpoint || `${CONFIG.API_BASE_URL}${CONFIG.ENDPOINTS.CONTACT}`,
+      onSuccess: options.onSuccess || this.handleSuccess.bind(this),
+      onError: options.onError || this.handleError.bind(this),
+      validateOnBlur: options.validateOnBlur !== false,
+      ...options
+    };
+    
+    this.fields = {};
+    this.initialize();
   }
   
-  initializeValidation() {
+  initialize() {
+    this.collectFields();
+    this.setupValidation();
+    this.setupSubmission();
+  }
+  
+  collectFields() {
     const inputs = this.form.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
-      input.addEventListener('blur', () => this.validateField(input));
+      this.fields[input.name] = input;
+    });
+  }
+  
+  setupValidation() {
+    if (!this.options.validateOnBlur) return;
+    
+    Object.values(this.fields).forEach(field => {
+      field.addEventListener('blur', () => {
+        this.validateField(field);
+      });
+      
+      field.addEventListener('input', () => {
+        if (field.classList.contains('error')) {
+          this.validateField(field);
+        }
+      });
     });
   }
   
   validateField(field) {
     const value = field.value.trim();
     const isRequired = field.hasAttribute('required');
+    const fieldType = field.type;
     
+    // Clear previous errors
+    this.clearFieldError(field);
+    
+    // Required validation
     if (isRequired && !value) {
-      this.showError(field, 'This field is required');
+      this.showFieldError(field, 'This field is required');
       return false;
     }
     
-    if (field.type === 'email' && !this.isValidEmail(value)) {
-      this.showError(field, 'Please enter a valid email');
+    // Skip further validation if field is empty and not required
+    if (!value && !isRequired) {
+      return true;
+    }
+    
+    // Email validation
+    if (fieldType === 'email' && !isValidEmail(value)) {
+      this.showFieldError(field, 'Please enter a valid email address');
       return false;
     }
     
-    this.clearError(field);
+    // Min length validation
+    const minLength = field.getAttribute('minlength');
+    if (minLength && value.length < parseInt(minLength)) {
+      this.showFieldError(field, `Minimum ${minLength} characters required`);
+      return false;
+    }
+    
+    // Max length validation
+    const maxLength = field.getAttribute('maxlength');
+    if (maxLength && value.length > parseInt(maxLength)) {
+      this.showFieldError(field, `Maximum ${maxLength} characters allowed`);
+      return false;
+    }
+    
     return true;
   }
   
-  isValidEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  }
-  
-  showError(field, message) {
-    const errorElement = field.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
-      errorElement.textContent = message;
-    }
+  showFieldError(field, message) {
     field.classList.add('error');
+    
+    let errorElement = field.parentElement.querySelector('.error-message');
+    if (!errorElement) {
+      errorElement = document.createElement('span');
+      errorElement.className = 'error-message';
+      field.parentElement.appendChild(errorElement);
+    }
+    
+    errorElement.textContent = message;
   }
   
-  clearError(field) {
-    const errorElement = field.nextElementSibling;
-    if (errorElement && errorElement.classList.contains('error-message')) {
+  clearFieldError(field) {
+    field.classList.remove('error');
+    
+    const errorElement = field.parentElement.querySelector('.error-message');
+    if (errorElement) {
       errorElement.textContent = '';
     }
-    field.classList.remove('error');
-  }
-  
-  attachSubmitHandler() {
-    this.form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      if (!this.validateForm()) {
-        return;
-      }
-      
-      await this.submitForm();
-    });
   }
   
   validateForm() {
-    const inputs = this.form.querySelectorAll('input, textarea, select');
     let isValid = true;
     
-    inputs.forEach(input => {
-      if (!this.validateField(input)) {
+    Object.values(this.fields).forEach(field => {
+      if (!this.validateField(field)) {
         isValid = false;
       }
     });
@@ -77,12 +131,40 @@ class ContactForm {
     return isValid;
   }
   
+  setupSubmission() {
+    this.form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (!this.validateForm()) {
+        this.showMessage('Please fix the errors above', 'error');
+        return;
+      }
+      
+      await this.submitForm();
+    });
+  }
+  
   async submitForm() {
-    const formData = new FormData(this.form);
-    const data = Object.fromEntries(formData);
+    const submitButton = this.form.querySelector('button[type="submit"]');
+    const originalText = submitButton?.textContent;
     
     try {
-      const response = await fetch(this.apiEndpoint, {
+      // Disable submit button
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.classList.add('btn-loading');
+      }
+      
+      // Collect and sanitize form data
+      const formData = new FormData(this.form);
+      const data = {};
+      
+      for (const [key, value] of formData.entries()) {
+        data[key] = sanitizeInput(value);
+      }
+      
+      // Submit to API
+      const response = await fetch(this.options.apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,35 +172,96 @@ class ContactForm {
         body: JSON.stringify(data),
       });
       
-      if (response.ok) {
-        this.handleSuccess();
-      } else {
-        this.handleError('Submission failed. Please try again.');
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Submission failed');
       }
+      
+      const result = await response.json();
+      this.options.onSuccess(result);
+      
     } catch (error) {
-      this.handleError('Network error. Please check your connection.');
+      console.error('Form submission error:', error);
+      this.options.onError(error);
+    } finally {
+      // Re-enable submit button
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.classList.remove('btn-loading');
+        if (originalText) {
+          submitButton.textContent = originalText;
+        }
+      }
     }
   }
   
-  handleSuccess() {
+  handleSuccess(result) {
     this.form.reset();
-    this.showMessage('Thank you! We will contact you within 24 hours.', 'success');
+    this.showMessage(
+      'Thank you! We will contact you within 24 hours.',
+      'success'
+    );
+    
+    // Clear any error states
+    Object.values(this.fields).forEach(field => {
+      this.clearFieldError(field);
+    });
   }
   
-  handleError(message) {
-    this.showMessage(message, 'error');
+  handleError(error) {
+    this.showMessage(
+      error.message || 'An error occurred. Please try again later.',
+      'error'
+    );
   }
   
-  showMessage(text, type) {
+  showMessage(text, type = 'info') {
+    // Remove existing message
+    const existingMessage = this.form.parentElement.querySelector('.form-message');
+    if (existingMessage) {
+      existingMessage.remove();
+    }
+    
+    // Create new message
     const messageElement = document.createElement('div');
     messageElement.className = `form-message form-message-${type}`;
     messageElement.textContent = text;
     
-    this.form.insertAdjacentElement('beforebegin', messageElement);
+    this.form.parentElement.insertBefore(messageElement, this.form);
     
+    // Auto-remove after duration
     setTimeout(() => {
       messageElement.remove();
-    }, 5000);
+    }, CONFIG.UI.TOAST_DURATION);
+    
+    // Scroll to message
+    messageElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  
+  // Public method to reset form
+  reset() {
+    this.form.reset();
+    Object.values(this.fields).forEach(field => {
+      this.clearFieldError(field);
+    });
+  }
+  
+  // Public method to set field values
+  setValues(data) {
+    Object.entries(data).forEach(([key, value]) => {
+      if (this.fields[key]) {
+        this.fields[key].value = value;
+      }
+    });
+  }
+  
+  // Public method to get form data
+  getData() {
+    const data = {};
+    Object.entries(this.fields).forEach(([key, field]) => {
+      data[key] = field.value;
+    });
+    return data;
   }
 }
 
