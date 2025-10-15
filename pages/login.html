@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Customer Login - BA Integrate Business-Agent Integration Standard Platform">
+  <meta name="keywords" content="customer login, BAIS, business portal, agent integration">
+  <meta name="author" content="BA Integrate">
+  
+  <title>Customer Login - BA Integrate</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  
+  <!-- CSS - Load in order of specificity -->
+  <link rel="stylesheet" href="/assets/css/base/variables.css">
+  <link rel="stylesheet" href="/assets/css/base/reset.css">
+  <link rel="stylesheet" href="/assets/css/base/typography.css">
+  <link rel="stylesheet" href="/assets/css/components/button.css">
+  <link rel="stylesheet" href="/assets/css/components/card.css">
+  <link rel="stylesheet" href="/assets/css/components/form.css">
+  <link rel="stylesheet" href="/assets/css/components/navigation.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/layouts/grid.css">
+  <link rel="stylesheet" href="/assets/css/layouts/section.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="main-nav" class="navigation">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="/">BA Integrate</a>
+      </div>
+      
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+      
+      <ul class="nav-links">
+        <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
+        <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+        <li><a href="/pages/pricing.html" class="nav-link">Pricing</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a href="/pages/login.html" class="btn btn-secondary nav-cta nav-cta-active">Customer Login</a>
+        <a href="/pages/contact.html" class="btn btn-primary nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Login Section -->
+    <section class="section section-hero">
+      <div class="container">
+        <div class="login-container">
+          <div class="login-card">
+            <div class="login-header">
+              <h1 class="login-title">Customer Portal</h1>
+              <p class="login-subtitle">Access your BAIS business integration dashboard</p>
+            </div>
+            
+            <form id="login-form" class="login-form">
+              <div class="form-group">
+                <label for="email" class="form-label">Business Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-input" 
+                  placeholder="your-business@example.com"
+                  required
+                >
+              </div>
+              
+              <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-input" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+              
+              <div class="form-group form-group-checkbox">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="remember" name="remember">
+                  <span class="checkbox-text">Remember me</span>
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                Sign In
+              </button>
+              
+              <div class="login-links">
+                <a href="#" class="link">Forgot your password?</a>
+                <a href="/pages/contact.html" class="link">Need access? Contact us</a>
+              </div>
+            </form>
+          </div>
+          
+          <div class="login-info">
+            <h2 class="info-title">Customer Portal Features</h2>
+            <div class="info-list">
+              <div class="info-item">
+                <div class="info-icon">🏨</div>
+                <div class="info-content">
+                  <h3>Hotel Management</h3>
+                  <p>Monitor bookings, manage room availability, and track guest interactions</p>
+                </div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-icon">🍽️</div>
+                <div class="info-content">
+                  <h3>Restaurant Operations</h3>
+                  <p>View reservations, manage table availability, and analyze dining patterns</p>
+                </div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-icon">🛒</div>
+                <div class="info-content">
+                  <h3>E-commerce Analytics</h3>
+                  <p>Track transactions, monitor inventory, and analyze sales performance</p>
+                </div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-icon">📊</div>
+                <div class="info-content">
+                  <h3>Business Intelligence</h3>
+                  <p>Comprehensive dashboards with real-time metrics and insights</p>
+                </div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-icon">🔧</div>
+                <div class="info-content">
+                  <h3>API Management</h3>
+                  <p>Manage API keys, monitor usage, and configure agent integrations</p>
+                </div>
+              </div>
+              
+              <div class="info-item">
+                <div class="info-icon">🔒</div>
+                <div class="info-content">
+                  <h3>Security & Compliance</h3>
+                  <p>Access audit logs, manage permissions, and monitor security events</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="main-footer" class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">BA Integrate</div>
+          <p class="footer-description">
+            Business-Agent Integration Standard (BAIS) platform for hotels, restaurants, and e-commerce.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/platform.html">Features</a></li>
+            <li><a href="/pages/security.html">Security</a></li>
+            <li><a href="/pages/pricing.html">Pricing</a></li>
+            <li><a href="/pages/integrations.html">Integrations</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/guides.html">Guides</a></li>
+            <li><a href="/pages/api-reference.html">API Reference</a></li>
+            <li><a href="/pages/support.html">Support</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-section-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/careers.html">Careers</a></li>
+            <li><a href="/pages/blog.html">Blog</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2025 BA Integrate. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="/pages/privacy.html">Privacy Policy</a>
+          <a href="/pages/terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript - Load as modules -->
+  <script type="module">
+    import Navigation from '/assets/js/components/Navigation.js';
+    import CONFIG from '/assets/js/core/config.js';
+    
+    // Initialize navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      new Navigation('#main-nav');
+      
+      // Handle login form submission
+      const loginForm = document.getElementById('login-form');
+      
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(loginForm);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const remember = formData.get('remember');
+        
+        try {
+          // Show loading state
+          const submitBtn = loginForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Signing In...';
+          submitBtn.disabled = true;
+          
+          // Make API call to backend
+          const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/auth/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+              remember: remember === 'on'
+            })
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            
+            // Store auth token
+            if (remember === 'on') {
+              localStorage.setItem('bais_auth_token', data.token);
+            } else {
+              sessionStorage.setItem('bais_auth_token', data.token);
+            }
+            
+            // Redirect to dashboard
+            window.location.href = '/pages/dashboard.html';
+          } else {
+            const error = await response.json();
+            showError(error.message || 'Login failed. Please try again.');
+          }
+        } catch (error) {
+          console.error('Login error:', error);
+          showError('Network error. Please check your connection and try again.');
+        } finally {
+          // Reset button state
+          const submitBtn = loginForm.querySelector('button[type="submit"]');
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+      
+      function showError(message) {
+        // Remove existing error messages
+        const existingError = document.querySelector('.error-message');
+        if (existingError) {
+          existingError.remove();
+        }
+        
+        // Create error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        errorDiv.style.cssText = `
+          background: #fee2e2;
+          color: #dc2626;
+          padding: 12px;
+          border-radius: 6px;
+          margin-bottom: 16px;
+          border: 1px solid #fecaca;
+        `;
+        
+        // Insert before form
+        loginForm.insertBefore(errorDiv, loginForm.firstChild);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+          if (errorDiv.parentNode) {
+            errorDiv.remove();
+          }
+        }, 5000);
+      }
+    });
+  </script>
+
+  <style>
+    .login-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .login-card {
+      background: var(--color-white);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .login-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .login-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary-600);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .login-subtitle {
+      color: var(--color-neutral-600);
+      font-size: 1.1rem;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--color-neutral-700);
+    }
+    
+    .form-input {
+      padding: var(--spacing-sm);
+      border: 1px solid var(--color-neutral-300);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-primary-500);
+      box-shadow: 0 0 0 3px var(--color-primary-100);
+    }
+    
+    .form-group-checkbox {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      cursor: pointer;
+    }
+    
+    .checkbox-text {
+      color: var(--color-neutral-600);
+    }
+    
+    .btn-block {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .login-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--spacing-md);
+    }
+    
+    .link {
+      color: var(--color-primary-600);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    
+    .link:hover {
+      text-decoration: underline;
+    }
+    
+    .login-info {
+      background: var(--color-neutral-50);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+    }
+    
+    .info-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-primary-600);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+    
+    .info-item {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: flex-start;
+    }
+    
+    .info-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .info-content h3 {
+      font-weight: 600;
+      color: var(--color-neutral-800);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .info-content p {
+      color: var(--color-neutral-600);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+    
+    .nav-cta-active {
+      background: var(--color-primary-600);
+      color: var(--color-white);
+    }
+    
+    @media (max-width: 768px) {
+      .login-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+      
+      .login-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+    }
+  </style>
+</body>
+</html>

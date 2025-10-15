@@ -69,8 +69,19 @@
   background-color: var(--color-primary);
 }
 
+.nav-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
 .nav-cta {
   margin-left: var(--spacing-md);
+}
+
+.nav-cta-active {
+  background: var(--color-primary-600);
+  color: var(--color-white);
 }
 
 /* Mobile Menu */
@@ -141,9 +152,16 @@
     border-bottom: none;
   }
   
-  .nav-cta {
+  .nav-actions {
     margin-left: 0;
     margin-top: var(--spacing-md);
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-cta {
+    margin-left: 0;
     width: 100%;
   }
   
