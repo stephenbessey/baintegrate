@@ -107,6 +107,24 @@
   margin-bottom: var(--spacing-md);
 }
 
+/* Centered Card Content */
+.card-centered {
+  text-align: center;
+}
+
+.card-centered .card-icon {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-centered .card-title {
+  text-align: center;
+}
+
+.card-centered .text-secondary {
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .card-grid-3,

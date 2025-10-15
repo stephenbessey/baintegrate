@@ -271,25 +271,25 @@
         </div>
         
         <div class="card-grid-4">
-          <div class="card">
+          <div class="card card-centered">
             <div class="card-icon">🔍</div>
             <h3 class="card-title">Search</h3>
             <p class="text-secondary">Find available products, services, or inventory based on criteria</p>
           </div>
           
-          <div class="card">
+          <div class="card card-centered">
             <div class="card-icon">📅</div>
             <h3 class="card-title">Book</h3>
             <p class="text-secondary">Make reservations, bookings, or place orders for products/services</p>
           </div>
           
-          <div class="card">
+          <div class="card card-centered">
             <div class="card-icon">✏️</div>
             <h3 class="card-title">Modify</h3>
             <p class="text-secondary">Update existing bookings, reservations, or orders</p>
           </div>
           
-          <div class="card">
+          <div class="card card-centered">
             <div class="card-icon">❌</div>
             <h3 class="card-title">Cancel</h3>
             <p class="text-secondary">Cancel bookings, reservations, or orders according to policies</p>
@@ -556,6 +556,10 @@ response = client.chat({
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-xl);
       margin-top: var(--spacing-xl);
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
     .provider-selection-card h3 {
