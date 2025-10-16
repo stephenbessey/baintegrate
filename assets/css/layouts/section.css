@@ -195,10 +195,10 @@
 .card-grid-3 .card,
 .card-grid-4 .card,
 .grid .card {
-  text-align: center  ;
+  text-align: center !important;
 }
 
-/* Card icons */
+/* Card icons should be centered */
 .card-icon {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -215,7 +215,7 @@
 .card-grid-2 .text-secondary,
 .card-grid-3 .text-secondary,
 .card-grid-4 .text-secondary {
-  text-align: center  ;
+  text-align: center !important;
 }
 
 /* Specific card centering */
@@ -223,20 +223,20 @@
 .metric-card,
 .pricing-card,
 .feature-card {
-  text-align: center  ;
+  text-align: center !important;
 }
 
 .card-centered *,
 .metric-card *,
 .pricing-card * {
-  text-align: center  ;
+  text-align: center !important;
 }
 
 /* Cards with stats/metrics */
 .metric-value,
 .metric-label,
 .metric-change {
-  text-align: center  ;
-  display: block  ;
-  width: 100%  ;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
 }
