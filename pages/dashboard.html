@@ -70,214 +70,321 @@
       </div>
     </section>
 
-    <!-- Key Metrics -->
+    <!-- Main Dashboard Grid -->
     <section class="section">
       <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-icon">🏨</div>
-            <div class="metric-content">
-              <h3 class="metric-value" id="hotel-bookings">0</h3>
-              <p class="metric-label">Hotel Bookings Today</p>
-              <span class="metric-change positive" id="hotel-change">+0%</span>
-            </div>
-          </div>
+        <div class="dashboard-grid">
           
-          <div class="metric-card">
-            <div class="metric-icon">🍽️</div>
-            <div class="metric-content">
-              <h3 class="metric-value" id="restaurant-reservations">0</h3>
-              <p class="metric-label">Restaurant Reservations</p>
-              <span class="metric-change positive" id="restaurant-change">+0%</span>
+          <!-- E-commerce Analytics -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <div class="section-icon">🛒</div>
+              <div class="section-title-group">
+                <h2 class="section-title">E-commerce Analytics</h2>
+                <p class="section-subtitle">Track transactions, monitor inventory, and analyze sales performance</p>
+              </div>
+            </div>
+            
+            <div class="analytics-grid">
+              <div class="metric-card">
+                <div class="metric-icon">💰</div>
+                <div class="metric-content">
+                  <h3 class="metric-value" id="total-revenue">$24,567</h3>
+                  <p class="metric-label">Total Revenue</p>
+                  <span class="metric-change positive">+12.5%</span>
+                </div>
+              </div>
+              
+              <div class="metric-card">
+                <div class="metric-icon">📦</div>
+                <div class="metric-content">
+                  <h3 class="metric-value" id="orders-processed">1,247</h3>
+                  <p class="metric-label">Orders Processed</p>
+                  <span class="metric-change positive">+8.3%</span>
+                </div>
+              </div>
+              
+              <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-content">
+                  <h3 class="metric-value" id="conversion-rate">3.2%</h3>
+                  <p class="metric-label">Conversion Rate</p>
+                  <span class="metric-change positive">+0.4%</span>
+                </div>
+              </div>
+              
+              <div class="metric-card">
+                <div class="metric-icon">🛍️</div>
+                <div class="metric-content">
+                  <h3 class="metric-value" id="avg-order-value">$89.45</h3>
+                  <p class="metric-label">Avg Order Value</p>
+                  <span class="metric-change positive">+5.2%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="chart-container">
+              <h3 class="chart-title">Sales Performance (Last 30 Days)</h3>
+              <div class="chart-placeholder" id="sales-chart">
+                <div class="chart-bars">
+                  <div class="chart-bar" style="height: 60%"></div>
+                  <div class="chart-bar" style="height: 80%"></div>
+                  <div class="chart-bar" style="height: 45%"></div>
+                  <div class="chart-bar" style="height: 90%"></div>
+                  <div class="chart-bar" style="height: 75%"></div>
+                  <div class="chart-bar" style="height: 95%"></div>
+                  <div class="chart-bar" style="height: 70%"></div>
+                </div>
+                <div class="chart-labels">
+                  <span>Week 1</span>
+                  <span>Week 2</span>
+                  <span>Week 3</span>
+                  <span>Week 4</span>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="metric-card">
-            <div class="metric-icon">🛒</div>
-            <div class="metric-content">
-              <h3 class="metric-value" id="ecommerce-transactions">0</h3>
-              <p class="metric-label">E-commerce Transactions</p>
-              <span class="metric-change positive" id="ecommerce-change">+0%</span>
-            </div>
-          </div>
-          
-          <div class="metric-card">
-            <div class="metric-icon">💰</div>
-            <div class="metric-content">
-              <h3 class="metric-value" id="total-revenue">$0</h3>
-              <p class="metric-label">Total Revenue</p>
-              <span class="metric-change positive" id="revenue-change">+0%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Business Services -->
-    <section class="section section-light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Your Business Services</h2>
-          <p class="section-description">Manage your integrated services and monitor agent interactions</p>
-        </div>
-        
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-icon">🏨</div>
-              <div class="service-info">
-                <h3 class="service-title">Hotel Services</h3>
-                <p class="service-status active">Active</p>
+          <!-- Business Intelligence -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <div class="section-icon">📊</div>
+              <div class="section-title-group">
+                <h2 class="section-title">Business Intelligence</h2>
+                <p class="section-subtitle">Comprehensive dashboards with real-time metrics and insights</p>
               </div>
             </div>
-            <div class="service-metrics">
-              <div class="service-metric">
-                <span class="metric-number" id="hotel-rooms">0</span>
-                <span class="metric-text">Available Rooms</span>
+            
+            <div class="bi-grid">
+              <div class="bi-card">
+                <h3 class="bi-title">AI Agent Performance</h3>
+                <div class="bi-metrics">
+                  <div class="bi-metric">
+                    <span class="bi-label">Response Time</span>
+                    <span class="bi-value">142ms</span>
+                  </div>
+                  <div class="bi-metric">
+                    <span class="bi-label">Success Rate</span>
+                    <span class="bi-value">99.2%</span>
+                  </div>
+                  <div class="bi-metric">
+                    <span class="bi-label">Uptime</span>
+                    <span class="bi-value">99.9%</span>
+                  </div>
+                </div>
               </div>
-              <div class="service-metric">
-                <span class="metric-number" id="hotel-bookings-total">0</span>
-                <span class="metric-text">Total Bookings</span>
+              
+              <div class="bi-card">
+                <h3 class="bi-title">Customer Insights</h3>
+                <div class="bi-metrics">
+                  <div class="bi-metric">
+                    <span class="bi-label">Active Users</span>
+                    <span class="bi-value">2,847</span>
+                  </div>
+                  <div class="bi-metric">
+                    <span class="bi-label">Satisfaction</span>
+                    <span class="bi-value">4.8/5</span>
+                  </div>
+                  <div class="bi-metric">
+                    <span class="bi-label">Retention</span>
+                    <span class="bi-value">94.3%</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="service-actions">
-              <button class="btn btn-secondary btn-sm">Manage</button>
-              <button class="btn btn-primary btn-sm">View Details</button>
+            
+            <div class="insights-container">
+              <h3 class="insights-title">Key Insights</h3>
+              <div class="insights-list">
+                <div class="insight-item">
+                  <div class="insight-icon">📈</div>
+                  <div class="insight-content">
+                    <p>Sales increased 15% after implementing AI-powered recommendations</p>
+                  </div>
+                </div>
+                <div class="insight-item">
+                  <div class="insight-icon">⚡</div>
+                  <div class="insight-content">
+                    <p>ChatGPT integration reduced response time by 40%</p>
+                  </div>
+                </div>
+                <div class="insight-item">
+                  <div class="insight-icon">🎯</div>
+                  <div class="insight-content">
+                    <p>Gemini model shows 98% accuracy for inventory predictions</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-icon">🍽️</div>
-              <div class="service-info">
-                <h3 class="service-title">Restaurant Services</h3>
-                <p class="service-status active">Active</p>
-              </div>
-            </div>
-            <div class="service-metrics">
-              <div class="service-metric">
-                <span class="metric-number" id="restaurant-tables">0</span>
-                <span class="metric-text">Available Tables</span>
-              </div>
-              <div class="service-metric">
-                <span class="metric-number" id="restaurant-reservations-total">0</span>
-                <span class="metric-text">Total Reservations</span>
-              </div>
-            </div>
-            <div class="service-actions">
-              <button class="btn btn-secondary btn-sm">Manage</button>
-              <button class="btn btn-primary btn-sm">View Details</button>
-            </div>
-          </div>
-          
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-icon">🛒</div>
-              <div class="service-info">
-                <h3 class="service-title">E-commerce Services</h3>
-                <p class="service-status active">Active</p>
-              </div>
-            </div>
-            <div class="service-metrics">
-              <div class="service-metric">
-                <span class="metric-number" id="ecommerce-products">0</span>
-                <span class="metric-text">Active Products</span>
-              </div>
-              <div class="service-metric">
-                <span class="metric-number" id="ecommerce-transactions-total">0</span>
-                <span class="metric-text">Total Transactions</span>
-              </div>
-            </div>
-            <div class="service-actions">
-              <button class="btn btn-secondary btn-sm">Manage</button>
-              <button class="btn btn-primary btn-sm">View Details</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Recent Activity -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Recent Agent Activity</h2>
-          <p class="section-description">Monitor recent AI agent interactions with your business services</p>
-        </div>
-        
-        <div class="activity-list" id="activity-list">
-          <div class="activity-item">
-            <div class="activity-icon">🏨</div>
-            <div class="activity-content">
-              <h4 class="activity-title">Hotel Booking Created</h4>
-              <p class="activity-description">Agent booked room 205 for guest John Doe</p>
-              <span class="activity-time">2 minutes ago</span>
+          <!-- API Management -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <div class="section-icon">🔧</div>
+              <div class="section-title-group">
+                <h2 class="section-title">API Management</h2>
+                <p class="section-subtitle">Manage API keys, monitor usage, and configure agent integrations</p>
+              </div>
             </div>
-            <div class="activity-status success">Success</div>
-          </div>
-          
-          <div class="activity-item">
-            <div class="activity-icon">🍽️</div>
-            <div class="activity-content">
-              <h4 class="activity-title">Restaurant Reservation</h4>
-              <p class="activity-description">Agent made reservation for table 12 at 7:30 PM</p>
-              <span class="activity-time">15 minutes ago</span>
+            
+            <div class="api-management-grid">
+              <div class="api-card">
+                <h3 class="api-title">API Usage</h3>
+                <div class="api-stats">
+                  <div class="api-stat">
+                    <span class="api-label">Requests Today</span>
+                    <span class="api-value">45,672</span>
+                  </div>
+                  <div class="api-stat">
+                    <span class="api-label">Rate Limit</span>
+                    <span class="api-value">1,000/min</span>
+                  </div>
+                  <div class="api-stat">
+                    <span class="api-label">Success Rate</span>
+                    <span class="api-value">99.7%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="api-card">
+                <h3 class="api-title">Active API Keys</h3>
+                <div class="api-key-list">
+                  <div class="api-key-item">
+                    <div class="api-key-info">
+                      <span class="api-key-name">Production Key</span>
+                      <span class="api-key-status active">Active</span>
+                    </div>
+                    <div class="api-key-value">bai_****...****</div>
+                  </div>
+                  <div class="api-key-item">
+                    <div class="api-key-info">
+                      <span class="api-key-name">Development Key</span>
+                      <span class="api-key-status active">Active</span>
+                    </div>
+                    <div class="api-key-value">bai_****...****</div>
+                  </div>
+                  <div class="api-key-item">
+                    <div class="api-key-info">
+                      <span class="api-key-name">Testing Key</span>
+                      <span class="api-key-status inactive">Inactive</span>
+                    </div>
+                    <div class="api-key-value">bai_****...****</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="activity-status success">Success</div>
-          </div>
-          
-          <div class="activity-item">
-            <div class="activity-icon">🛒</div>
-            <div class="activity-content">
-              <h4 class="activity-title">E-commerce Purchase</h4>
-              <p class="activity-description">Agent completed purchase of 3 items for $89.99</p>
-              <span class="activity-time">1 hour ago</span>
+            
+            <div class="agent-configuration">
+              <h3 class="config-title">AI Agent Configuration</h3>
+              <div class="agent-list">
+                <div class="agent-item">
+                  <div class="agent-icon">🤖</div>
+                  <div class="agent-info">
+                    <span class="agent-name">ChatGPT Integration</span>
+                    <span class="agent-status enabled">Enabled</span>
+                  </div>
+                  <button class="btn btn-sm btn-secondary">Configure</button>
+                </div>
+                <div class="agent-item">
+                  <div class="agent-icon">🔍</div>
+                  <div class="agent-info">
+                    <span class="agent-name">Gemini Integration</span>
+                    <span class="agent-status enabled">Enabled</span>
+                  </div>
+                  <button class="btn btn-sm btn-secondary">Configure</button>
+                </div>
+                <div class="agent-item">
+                  <div class="agent-icon">🧠</div>
+                  <div class="agent-info">
+                    <span class="agent-name">Claude Integration</span>
+                    <span class="agent-status disabled">Disabled</span>
+                  </div>
+                  <button class="btn btn-sm btn-primary">Enable</button>
+                </div>
+              </div>
             </div>
-            <div class="activity-status success">Success</div>
           </div>
-          
-          <div class="activity-item">
-            <div class="activity-icon">💳</div>
-            <div class="activity-content">
-              <h4 class="activity-title">Payment Processed</h4>
-              <p class="activity-description">AP2 payment of $156.75 processed successfully</p>
-              <span class="activity-time">2 hours ago</span>
-            </div>
-            <div class="activity-status success">Success</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- API Management -->
-    <section class="section section-light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">API Management</h2>
-          <p class="section-description">Manage your API keys and monitor usage</p>
-        </div>
-        
-        <div class="api-management">
-          <div class="api-key-card">
-            <div class="api-key-header">
-              <h3>Production API Key</h3>
-              <div class="api-key-status active">Active</div>
-            </div>
-            <div class="api-key-value">
-              <code id="api-key-display">bai_************************</code>
-              <button class="btn btn-secondary btn-sm" id="toggle-api-key">Show</button>
-            </div>
-            <div class="api-key-usage">
-              <div class="usage-metric">
-                <span class="usage-label">Requests Today:</span>
-                <span class="usage-value" id="api-requests">0</span>
+          <!-- Security & Compliance -->
+          <div class="dashboard-section">
+            <div class="section-header">
+              <div class="section-icon">🔒</div>
+              <div class="section-title-group">
+                <h2 class="section-title">Security & Compliance</h2>
+                <p class="section-subtitle">Access audit logs, manage permissions, and monitor security events</p>
               </div>
-              <div class="usage-metric">
-                <span class="usage-label">Rate Limit:</span>
-                <span class="usage-value" id="rate-limit">100/min</span>
+            </div>
+            
+            <div class="security-grid">
+              <div class="security-card">
+                <h3 class="security-title">Security Overview</h3>
+                <div class="security-metrics">
+                  <div class="security-metric">
+                    <span class="security-label">Threats Blocked</span>
+                    <span class="security-value">23</span>
+                  </div>
+                  <div class="security-metric">
+                    <span class="security-label">Failed Logins</span>
+                    <span class="security-value">7</span>
+                  </div>
+                  <div class="security-metric">
+                    <span class="security-label">Last Scan</span>
+                    <span class="security-value">2 min ago</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="security-card">
+                <h3 class="security-title">Compliance Status</h3>
+                <div class="compliance-list">
+                  <div class="compliance-item">
+                    <span class="compliance-name">GDPR</span>
+                    <span class="compliance-status compliant">Compliant</span>
+                  </div>
+                  <div class="compliance-item">
+                    <span class="compliance-name">SOC 2</span>
+                    <span class="compliance-status compliant">Compliant</span>
+                  </div>
+                  <div class="compliance-item">
+                    <span class="compliance-name">PCI DSS</span>
+                    <span class="compliance-status compliant">Compliant</span>
+                  </div>
+                  <div class="compliance-item">
+                    <span class="compliance-name">ISO 27001</span>
+                    <span class="compliance-status pending">Pending</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="audit-log">
+              <h3 class="audit-title">Recent Audit Events</h3>
+              <div class="audit-list">
+                <div class="audit-item">
+                  <div class="audit-time">2 min ago</div>
+                  <div class="audit-event">API key regenerated for production environment</div>
+                  <div class="audit-user">admin@baintegrate.com</div>
+                </div>
+                <div class="audit-item">
+                  <div class="audit-time">15 min ago</div>
+                  <div class="audit-event">Claude integration disabled</div>
+                  <div class="audit-user">admin@baintegrate.com</div>
+                </div>
+                <div class="audit-item">
+                  <div class="audit-time">1 hour ago</div>
+                  <div class="audit-event">Failed login attempt from 192.168.1.100</div>
+                  <div class="audit-user">unknown</div>
+                </div>
+                <div class="audit-item">
+                  <div class="audit-time">2 hours ago</div>
+                  <div class="audit-event">User permissions updated for demo@baintegrate.com</div>
+                  <div class="audit-user">admin@baintegrate.com</div>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -336,17 +443,28 @@
     </div>
   </footer>
 
-  <!-- JavaScript - Load as modules -->
+  <!-- JavaScript -->
   <script type="module">
     import Navigation from '/assets/js/components/Navigation.js';
     import CONFIG from '/assets/js/core/config.js';
     
-    // Initialize navigation
+    // Check authentication
     document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
+      const userEmail = localStorage.getItem('bais_user_email') || sessionStorage.getItem('bais_user_email');
+      
+      if (!token) {
+        window.location.href = '/pages/login.html';
+        return;
+      }
+      
+      // Initialize navigation
       new Navigation('#main-nav');
       
-      // Check authentication
-      checkAuth();
+      // Set user name
+      if (userEmail) {
+        document.getElementById('user-name').textContent = userEmail;
+      }
       
       // Load dashboard data
       loadDashboardData();
@@ -355,23 +473,12 @@
       setupEventListeners();
     });
     
-    function checkAuth() {
+    async function loadDashboardData() {
       const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
       
-      if (!token) {
-        window.location.href = '/pages/login.html';
-        return;
-      }
-      
-      // Set user name (you would get this from API)
-      document.getElementById('user-name').textContent = 'Sample Business';
-    }
-    
-    async function loadDashboardData() {
       try {
-        const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
-        
-        const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/dashboard/metrics`, {
+        // Try to fetch real data from backend
+        const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/dashboard`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -380,61 +487,91 @@
         
         if (response.ok) {
           const data = await response.json();
-          updateDashboardMetrics(data);
+          updateDashboard(data);
         } else {
-          // Use mock data for demo
-          updateDashboardMetrics(getMockData());
+          // Fall back to demo data if backend is not available
+          loadDemoData();
         }
       } catch (error) {
-        console.error('Error loading dashboard data:', error);
-        // Use mock data for demo
-        updateDashboardMetrics(getMockData());
+        console.log('Using demo data:', error);
+        loadDemoData();
       }
     }
     
-    function getMockData() {
-      return {
-        hotel_bookings: 12,
-        restaurant_reservations: 8,
-        ecommerce_transactions: 24,
-        total_revenue: 2847.50,
-        hotel_change: 15.3,
-        restaurant_change: 8.7,
-        ecommerce_change: 22.1,
-        revenue_change: 18.5,
-        hotel_rooms: 45,
-        hotel_bookings_total: 156,
-        restaurant_tables: 32,
-        restaurant_reservations_total: 89,
-        ecommerce_products: 234,
-        ecommerce_transactions_total: 456,
-        api_requests: 1247
+    function loadDemoData() {
+      // Demo data for when backend is not available
+      const demoData = {
+        ecommerce: {
+          revenue: '$24,567',
+          orders: '1,247',
+          conversion: '3.2%',
+          avgOrder: '$89.45'
+        },
+        bi: {
+          responseTime: '142ms',
+          successRate: '99.2%',
+          uptime: '99.9%',
+          activeUsers: '2,847',
+          satisfaction: '4.8/5',
+          retention: '94.3%'
+        },
+        api: {
+          requests: '45,672',
+          rateLimit: '1,000/min',
+          successRate: '99.7%'
+        },
+        security: {
+          threats: '23',
+          failedLogins: '7',
+          lastScan: '2 min ago'
+        }
       };
+      
+      updateDashboard(demoData);
     }
     
-    function updateDashboardMetrics(data) {
-      // Update key metrics
-      document.getElementById('hotel-bookings').textContent = data.hotel_bookings || 0;
-      document.getElementById('restaurant-reservations').textContent = data.restaurant_reservations || 0;
-      document.getElementById('ecommerce-transactions').textContent = data.ecommerce_transactions || 0;
-      document.getElementById('total-revenue').textContent = `$${(data.total_revenue || 0).toLocaleString()}`;
+    function updateDashboard(data) {
+      // Update e-commerce metrics
+      if (data.ecommerce) {
+        document.getElementById('total-revenue').textContent = data.ecommerce.revenue || '$24,567';
+        document.getElementById('orders-processed').textContent = data.ecommerce.orders || '1,247';
+        document.getElementById('conversion-rate').textContent = data.ecommerce.conversion || '3.2%';
+        document.getElementById('avg-order-value').textContent = data.ecommerce.avgOrder || '$89.45';
+      }
       
-      // Update percentage changes
-      document.getElementById('hotel-change').textContent = `+${(data.hotel_change || 0).toFixed(1)}%`;
-      document.getElementById('restaurant-change').textContent = `+${(data.restaurant_change || 0).toFixed(1)}%`;
-      document.getElementById('ecommerce-change').textContent = `+${(data.ecommerce_change || 0).toFixed(1)}%`;
-      document.getElementById('revenue-change').textContent = `+${(data.revenue_change || 0).toFixed(1)}%`;
+      // Update business intelligence metrics
+      if (data.bi) {
+        // Update BI metrics in the DOM
+        const biMetrics = document.querySelectorAll('.bi-value');
+        if (biMetrics.length >= 6) {
+          biMetrics[0].textContent = data.bi.responseTime || '142ms';
+          biMetrics[1].textContent = data.bi.successRate || '99.2%';
+          biMetrics[2].textContent = data.bi.uptime || '99.9%';
+          biMetrics[3].textContent = data.bi.activeUsers || '2,847';
+          biMetrics[4].textContent = data.bi.satisfaction || '4.8/5';
+          biMetrics[5].textContent = data.bi.retention || '94.3%';
+        }
+      }
       
-      // Update service metrics
-      document.getElementById('hotel-rooms').textContent = data.hotel_rooms || 0;
-      document.getElementById('hotel-bookings-total').textContent = data.hotel_bookings_total || 0;
-      document.getElementById('restaurant-tables').textContent = data.restaurant_tables || 0;
-      document.getElementById('restaurant-reservations-total').textContent = data.restaurant_reservations_total || 0;
-      document.getElementById('ecommerce-products').textContent = data.ecommerce_products || 0;
-      document.getElementById('ecommerce-transactions-total').textContent = data.ecommerce_transactions_total || 0;
+      // Update API metrics
+      if (data.api) {
+        const apiStats = document.querySelectorAll('.api-value');
+        if (apiStats.length >= 3) {
+          apiStats[0].textContent = data.api.requests || '45,672';
+          apiStats[1].textContent = data.api.rateLimit || '1,000/min';
+          apiStats[2].textContent = data.api.successRate || '99.7%';
+        }
+      }
       
-      // Update API usage
-      document.getElementById('api-requests').textContent = (data.api_requests || 0).toLocaleString();
+      // Update security metrics
+      if (data.security) {
+        const securityMetrics = document.querySelectorAll('.security-value');
+        if (securityMetrics.length >= 3) {
+          securityMetrics[0].textContent = data.security.threats || '23';
+          securityMetrics[1].textContent = data.security.failedLogins || '7';
+          securityMetrics[2].textContent = data.security.lastScan || '2 min ago';
+        }
+      }
     }
     
     function setupEventListeners() {
@@ -442,6 +579,8 @@
       document.getElementById('logout-btn').addEventListener('click', () => {
         localStorage.removeItem('bais_auth_token');
         sessionStorage.removeItem('bais_auth_token');
+        localStorage.removeItem('bais_user_email');
+        sessionStorage.removeItem('bais_user_email');
         window.location.href = '/pages/login.html';
       });
       
@@ -453,20 +592,6 @@
       // Export button
       document.getElementById('export-btn').addEventListener('click', () => {
         exportReport();
-      });
-      
-      // Toggle API key visibility
-      document.getElementById('toggle-api-key').addEventListener('click', () => {
-        const display = document.getElementById('api-key-display');
-        const button = document.getElementById('toggle-api-key');
-        
-        if (display.textContent.includes('*')) {
-          display.textContent = 'bai_1234567890abcdef1234567890abcdef';
-          button.textContent = 'Hide';
-        } else {
-          display.textContent = 'bai_************************';
-          button.textContent = 'Show';
-        }
       });
     }
     
@@ -485,15 +610,15 @@
     }
     
     .dashboard-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--color-primary-600);
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-normal);
+      color: var(--color-text-primary);
       margin-bottom: var(--spacing-sm);
     }
     
     .dashboard-subtitle {
-      color: var(--color-neutral-600);
-      font-size: 1.1rem;
+      font-size: var(--font-size-lg);
+      color: var(--color-text-secondary);
     }
     
     .dashboard-actions {
@@ -508,29 +633,79 @@
     }
     
     .user-name {
-      color: var(--color-neutral-700);
-      font-weight: 500;
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
     }
     
-    .metrics-grid {
+    .dashboard-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+    }
+    
+    .dashboard-section {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-xl);
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .section-icon {
+      font-size: var(--font-size-2xl);
+      flex-shrink: 0;
+    }
+    
+    .section-title-group {
+      flex: 1;
+    }
+    
+    .section-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .section-subtitle {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-base);
+    }
+    
+    .analytics-grid,
+    .bi-grid,
+    .api-management-grid,
+    .security-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: var(--spacing-lg);
       margin-bottom: var(--spacing-xl);
     }
     
-    .metric-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
+    .metric-card,
+    .bi-card,
+    .api-card,
+    .security-card {
+      background: var(--color-background-light);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius);
       padding: var(--spacing-lg);
-      box-shadow: var(--shadow-md);
+    }
+    
+    .metric-card {
       display: flex;
-      gap: var(--spacing-md);
       align-items: center;
+      gap: var(--spacing-md);
     }
     
     .metric-icon {
-      font-size: 2rem;
+      font-size: var(--font-size-2xl);
       flex-shrink: 0;
     }
     
@@ -539,247 +714,255 @@
     }
     
     .metric-value {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-primary-600);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-primary);
       margin-bottom: var(--spacing-xs);
     }
     
     .metric-label {
-      color: var(--color-neutral-600);
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
       margin-bottom: var(--spacing-xs);
     }
     
     .metric-change {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
     }
     
     .metric-change.positive {
-      color: var(--color-success-600);
+      color: var(--color-success);
     }
     
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-lg);
+    .chart-container {
+      margin-top: var(--spacing-xl);
     }
     
-    .service-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-lg);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .service-header {
-      display: flex;
-      gap: var(--spacing-md);
-      align-items: center;
+    .chart-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-medium);
       margin-bottom: var(--spacing-lg);
     }
     
-    .service-icon {
-      font-size: 2rem;
-      flex-shrink: 0;
-    }
-    
-    .service-title {
-      font-weight: 600;
-      color: var(--color-neutral-800);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .service-status {
-      font-size: 0.9rem;
-      padding: 4px 8px;
-      border-radius: var(--border-radius-sm);
-      font-weight: 500;
-    }
-    
-    .service-status.active {
-      background: var(--color-success-100);
-      color: var(--color-success-700);
-    }
-    
-    .service-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .service-metric {
-      text-align: center;
-      padding: var(--spacing-sm);
-      background: var(--color-neutral-50);
+    .chart-placeholder {
+      height: 200px;
+      background: var(--color-background-light);
+      border: 1px solid var(--color-border);
       border-radius: var(--border-radius);
-    }
-    
-    .metric-number {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--color-primary-600);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .metric-text {
-      font-size: 0.9rem;
-      color: var(--color-neutral-600);
-    }
-    
-    .service-actions {
+      padding: var(--spacing-lg);
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .chart-bars {
+      display: flex;
+      align-items: end;
+      gap: var(--spacing-sm);
+      height: 120px;
+    }
+    
+    .chart-bar {
+      flex: 1;
+      background: var(--color-primary);
+      border-radius: 2px 2px 0 0;
+      min-height: 20px;
+    }
+    
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
+    }
+    
+    .bi-title,
+    .api-title,
+    .security-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-medium);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .bi-metrics,
+    .api-stats,
+    .security-metrics {
+      display: flex;
+      flex-direction: column;
       gap: var(--spacing-sm);
     }
     
-    .activity-list {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    
-    .activity-item {
+    .bi-metric,
+    .api-stat,
+    .security-metric {
       display: flex;
-      gap: var(--spacing-md);
+      justify-content: space-between;
       align-items: center;
-      padding: var(--spacing-lg);
-      border-bottom: 1px solid var(--color-neutral-200);
     }
     
-    .activity-item:last-child {
-      border-bottom: none;
+    .bi-label,
+    .api-label,
+    .security-label {
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-sm);
     }
     
-    .activity-icon {
-      font-size: 1.5rem;
+    .bi-value,
+    .api-value,
+    .security-value {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
+    }
+    
+    .insights-container,
+    .agent-configuration,
+    .audit-log {
+      margin-top: var(--spacing-xl);
+    }
+    
+    .insights-title,
+    .config-title,
+    .audit-title {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-medium);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .insights-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .insight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+    
+    .insight-icon {
+      font-size: var(--font-size-lg);
       flex-shrink: 0;
     }
     
-    .activity-content {
+    .insight-content p {
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+    
+    .api-key-list,
+    .agent-list,
+    .compliance-list,
+    .audit-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+    
+    .api-key-item,
+    .agent-item,
+    .compliance-item,
+    .audit-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      padding: var(--spacing-sm);
+      background: var(--color-background-light);
+      border-radius: var(--border-radius);
+    }
+    
+    .api-key-info,
+    .agent-info {
       flex: 1;
-    }
-    
-    .activity-title {
-      font-weight: 600;
-      color: var(--color-neutral-800);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .activity-description {
-      color: var(--color-neutral-600);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .activity-time {
-      font-size: 0.9rem;
-      color: var(--color-neutral-500);
-    }
-    
-    .activity-status {
-      font-size: 0.9rem;
-      padding: 4px 8px;
-      border-radius: var(--border-radius-sm);
-      font-weight: 500;
-    }
-    
-    .activity-status.success {
-      background: var(--color-success-100);
-      color: var(--color-success-700);
-    }
-    
-    .api-management {
-      max-width: 600px;
-    }
-    
-    .api-key-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-lg);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .api-key-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: var(--spacing-md);
     }
     
-    .api-key-status {
-      font-size: 0.9rem;
-      padding: 4px 8px;
+    .api-key-name,
+    .agent-name,
+    .compliance-name {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
+    }
+    
+    .api-key-status,
+    .agent-status,
+    .compliance-status {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      padding: 2px 8px;
       border-radius: var(--border-radius-sm);
-      font-weight: 500;
     }
     
-    .api-key-status.active {
-      background: var(--color-success-100);
-      color: var(--color-success-700);
+    .api-key-status.active,
+    .agent-status.enabled,
+    .compliance-status.compliant {
+      background: var(--color-success-light);
+      color: var(--color-success);
+    }
+    
+    .api-key-status.inactive,
+    .agent-status.disabled,
+    .compliance-status.pending {
+      background: var(--color-warning-light);
+      color: var(--color-warning);
     }
     
     .api-key-value {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-md);
+      font-family: monospace;
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
     }
     
-    .api-key-value code {
-      background: var(--color-neutral-100);
-      padding: var(--spacing-sm);
-      border-radius: var(--border-radius);
-      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-      flex: 1;
+    .audit-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
     }
     
-    .api-key-usage {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-md);
+    .audit-time {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-secondary);
     }
     
-    .usage-metric {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-sm);
-      background: var(--color-neutral-50);
-      border-radius: var(--border-radius);
+    .audit-event {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
     }
     
-    .usage-label {
-      color: var(--color-neutral-600);
+    .audit-user {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
     }
     
-    .usage-value {
-      font-weight: 600;
-      color: var(--color-primary-600);
+    @media (max-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .analytics-grid,
+      .bi-grid,
+      .api-management-grid,
+      .security-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
     @media (max-width: 768px) {
       .dashboard-header {
         flex-direction: column;
         gap: var(--spacing-lg);
-        text-align: center;
+        align-items: stretch;
       }
       
-      .metrics-grid {
-        grid-template-columns: 1fr;
+      .dashboard-actions {
+        justify-content: center;
       }
       
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .service-metrics {
-        grid-template-columns: 1fr;
-      }
-      
-      .api-key-usage {
-        grid-template-columns: 1fr;
+      .user-menu {
+        justify-content: center;
       }
     }
   </style>

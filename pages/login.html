@@ -61,6 +61,11 @@
             <div class="login-header">
               <h1 class="login-title">Customer Portal</h1>
               <p class="login-subtitle">Access your BAIS business integration dashboard</p>
+              <div class="demo-credentials">
+                <p class="demo-text">Demo Credentials:</p>
+                <p class="demo-email">Email: demo@baintegrate.com</p>
+                <p class="demo-password">Password: demo123</p>
+              </div>
             </div>
             
             <form id="login-form" class="login-form">
@@ -71,7 +76,7 @@
                   id="email" 
                   name="email" 
                   class="form-input" 
-                  placeholder="your-business@example.com"
+                  placeholder="demo@baintegrate.com"
                   required
                 >
               </div>
@@ -83,7 +88,7 @@
                   id="password" 
                   name="password" 
                   class="form-input" 
-                  placeholder="Enter your password"
+                  placeholder="demo123"
                   required
                 >
               </div>
@@ -109,21 +114,6 @@
           <div class="login-info">
             <h2 class="info-title">Customer Portal Features</h2>
             <div class="info-list">
-              <div class="info-item">
-                <div class="info-icon">🏨</div>
-                <div class="info-content">
-                  <h3>Hotel Management</h3>
-                  <p>Monitor bookings, manage room availability, and track guest interactions</p>
-                </div>
-              </div>
-              
-              <div class="info-item">
-                <div class="info-icon">🍽️</div>
-                <div class="info-content">
-                  <h3>Restaurant Operations</h3>
-                  <p>View reservations, manage table availability, and analyze dining patterns</p>
-                </div>
-              </div>
               
               <div class="info-item">
                 <div class="info-icon">🛒</div>
@@ -243,7 +233,26 @@
           submitBtn.textContent = 'Signing In...';
           submitBtn.disabled = true;
           
-          // Make API call to backend
+          // Check for demo credentials first
+          if (email === 'demo@baintegrate.com' && password === 'demo123') {
+            // Demo login - create mock token and redirect
+            const mockToken = 'demo_token_' + Date.now();
+            
+            // Store demo auth token
+            if (remember === 'on') {
+              localStorage.setItem('bais_auth_token', mockToken);
+              localStorage.setItem('bais_user_email', email);
+            } else {
+              sessionStorage.setItem('bais_auth_token', mockToken);
+              sessionStorage.setItem('bais_user_email', email);
+            }
+            
+            // Redirect to dashboard
+            window.location.href = '/pages/dashboard.html';
+            return;
+          }
+          
+          // Make API call to backend for real users
           const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/auth/login`, {
             method: 'POST',
             headers: {
@@ -262,8 +271,10 @@
             // Store auth token
             if (remember === 'on') {
               localStorage.setItem('bais_auth_token', data.token);
+              localStorage.setItem('bais_user_email', email);
             } else {
               sessionStorage.setItem('bais_auth_token', data.token);
+              sessionStorage.setItem('bais_user_email', email);
             }
             
             // Redirect to dashboard
@@ -347,6 +358,29 @@
     .login-subtitle {
       color: var(--color-neutral-600);
       font-size: 1.1rem;
+    }
+    
+    .demo-credentials {
+      background: var(--color-primary-50);
+      border: 1px solid var(--color-primary-200);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+    
+    .demo-text {
+      font-weight: 600;
+      color: var(--color-primary-700);
+      margin-bottom: var(--spacing-xs);
+      font-size: 0.9rem;
+    }
+    
+    .demo-email,
+    .demo-password {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--color-neutral-700);
+      margin: 0;
     }
     
     .login-form {
