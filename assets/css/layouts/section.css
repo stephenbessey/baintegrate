@@ -189,3 +189,54 @@
     font-size: var(--font-size-lg);
   }
 }
+
+/* All cards in grid layouts should center their content */
+.card-grid-2 .card,
+.card-grid-3 .card,
+.card-grid-4 .card,
+.grid .card {
+  text-align: center  ;
+}
+
+/* Card icons should be centered */
+.card-icon {
+  margin-left: auto  ;
+  margin-right: auto  ;
+  text-align: center  ;
+  display: flex  ;
+  align-items: center  ;
+  justify-content: center  ;
+}
+
+/* Card titles and text in grids */
+.card-grid-2 .card-title,
+.card-grid-3 .card-title,
+.card-grid-4 .card-title,
+.card-grid-2 .text-secondary,
+.card-grid-3 .text-secondary,
+.card-grid-4 .text-secondary {
+  text-align: center  ;
+}
+
+/* Specific card centering */
+.card-centered,
+.metric-card,
+.pricing-card,
+.feature-card {
+  text-align: center  ;
+}
+
+.card-centered *,
+.metric-card *,
+.pricing-card * {
+  text-align: center  ;
+}
+
+/* Cards with stats/metrics */
+.metric-value,
+.metric-label,
+.metric-change {
+  text-align: center  ;
+  display: block  ;
+  width: 100%  ;
+}
