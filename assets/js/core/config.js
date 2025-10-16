@@ -4,10 +4,10 @@
  */
 
 const CONFIG = {
-  // API Configuration
-  API_BASE_URL: import.meta.env.PROD 
-    ? 'https://api.baintegrate.com' 
-    : 'http://localhost:8000',
+  // API Configuration - Using window.location to determine environment
+  API_BASE_URL: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000' 
+    : 'https://api.baintegrate.com',
   API_VERSION: 'v1',
   
   // API Endpoints
@@ -22,7 +22,7 @@ const CONFIG = {
   FEATURES: {
     ANALYTICS_ENABLED: true,
     DEMO_MODE: false,
-    DEBUG_MODE: !import.meta.env.PROD,
+    DEBUG_MODE: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
   },
   
   // Contact Information
