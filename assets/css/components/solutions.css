@@ -1,0 +1,110 @@
+/* Solutions Component Styles */
+
+/* Card Content Styling */
+.solutions-card p {
+  margin-bottom: 1.5rem;
+}
+
+.solutions-card ul {
+  padding-left: 1.5rem;
+}
+
+/* Use Case Stats */
+.use-case-stats {
+  margin-top: 1.5rem;
+}
+
+/* Success Story Stats */
+.success-story-stats {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.success-story-stats > div {
+  margin-bottom: 0.5rem;
+}
+
+.success-story-stats > div:last-child {
+  margin-bottom: 0;
+}
+
+/* Contact Card Styling */
+.contact-card {
+  margin-top: 2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-method:last-child {
+  margin-bottom: 0;
+}
+
+.contact-link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.contact-help {
+  margin-top: 0.5rem;
+}
+
+/* FAQ Styling */
+.faq-card {
+  margin-top: 2rem;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Chart Bar Heights */
+.chart-bar-height-60 {
+  height: 60%;
+}
+
+.chart-bar-height-80 {
+  height: 80%;
+}
+
+.chart-bar-height-45 {
+  height: 45%;
+}
+
+.chart-bar-height-90 {
+  height: 90%;
+}
+
+.chart-bar-height-75 {
+  height: 75%;
+}
+
+.chart-bar-height-95 {
+  height: 95%;
+}
+
+.chart-bar-height-70 {
+  height: 70%;
+}
+
+/* Test Output Hidden State */
+.test-output-hidden {
+  display: none;
+}

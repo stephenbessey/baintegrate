@@ -1,0 +1,416 @@
+/* Dashboard Component Styles */
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.dashboard-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.dashboard-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.user-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.dashboard-section {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-icon {
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-light);
+  border-radius: var(--border-radius);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.section-title-group {
+  flex: 1;
+}
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+}
+
+/* Analytics Grid */
+.analytics-grid,
+.bi-grid,
+.api-management-grid,
+.security-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.metric-card,
+.bi-card,
+.api-card,
+.security-card {
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.metric-icon {
+  font-size: var(--font-size-2xl);
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary-light);
+  border-radius: var(--border-radius);
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-change {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-change.positive {
+  color: var(--color-success);
+}
+
+/* Charts */
+.chart-container {
+  margin-top: var(--spacing-xl);
+}
+
+.chart-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-lg);
+}
+
+.chart-placeholder {
+  height: 200px;
+  background: var(--color-background-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: end;
+  gap: var(--spacing-sm);
+  height: 120px;
+}
+
+.chart-bar {
+  flex: 1;
+  background: var(--color-primary);
+  border-radius: 2px 2px 0 0;
+  min-height: 20px;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* BI Cards */
+.bi-title,
+.api-title,
+.security-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-md);
+}
+
+.bi-metrics,
+.api-stats,
+.security-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.bi-metric,
+.api-stat,
+.security-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bi-label,
+.api-label,
+.security-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.bi-value,
+.api-value,
+.security-value {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+/* Insights */
+.insights-container,
+.agent-configuration,
+.audit-log {
+  margin-top: var(--spacing-xl);
+}
+
+.insights-title,
+.config-title,
+.audit-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-lg);
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.insight-icon {
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-success-light);
+  border-radius: var(--border-radius);
+  color: var(--color-success);
+  font-weight: var(--font-weight-bold);
+}
+
+.insight-content p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Lists */
+.api-key-list,
+.agent-list,
+.compliance-list,
+.audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.api-key-item,
+.agent-item,
+.compliance-item,
+.audit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--color-background-light);
+  border-radius: var(--border-radius);
+}
+
+.api-key-info,
+.agent-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.api-key-name,
+.agent-name,
+.compliance-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.api-key-status,
+.agent-status,
+.compliance-status {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-sm);
+}
+
+.api-key-status.active,
+.agent-status.enabled,
+.compliance-status.compliant {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.api-key-status.inactive,
+.agent-status.disabled,
+.compliance-status.pending {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.api-key-value {
+  font-family: monospace;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Agent Items */
+.agent-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-info-light);
+  border-radius: var(--border-radius);
+  color: var(--color-info);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+
+/* Audit Items */
+.audit-item {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.audit-time {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.audit-event {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.audit-user {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .analytics-grid,
+  .bi-grid,
+  .api-management-grid,
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: stretch;
+  }
+  
+  .dashboard-actions {
+    justify-content: center;
+  }
+  
+  .user-menu {
+    justify-content: center;
+  }
+}
