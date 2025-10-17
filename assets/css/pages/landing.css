@@ -1,0 +1,423 @@
+/* Landing Page Styles */
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 100px 24px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  color: white;
+}
+
+.hero p {
+  font-size: 22px;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.trust-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-number {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.trust-label {
+  font-size: 14px;
+  opacity: 0.9;
+  color: white;
+}
+
+/* Value Propositions */
+.value-props {
+  padding: 80px 24px;
+  background: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 20px;
+  color: #718096;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.props-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.prop-card {
+  text-align: center;
+  padding: 32px;
+}
+
+.prop-icon {
+  font-size: 18px;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prop-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 16px;
+}
+
+.prop-description {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Case Studies */
+.case-studies {
+  padding: 80px 24px;
+  background: #f8f9fa;
+}
+
+.case-studies-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 32px;
+}
+
+.case-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.case-business {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.case-type {
+  font-size: 14px;
+  color: #718096;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-quote {
+  color: #1a202c;
+  line-height: 1.8;
+  border-left: 3px solid #667eea;
+  padding-left: 16px;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: white;
+}
+
+.cta-section p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  color: white;
+}
+
+.contact-options {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.contact-option {
+  background: rgba(255,255,255,0.1);
+  padding: 24px;
+  border-radius: 12px;
+  min-width: 200px;
+}
+
+.contact-icon {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-label {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.contact-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+/* Transparent Navigation */
+.navigation-transparent {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navigation-transparent .nav-logo a {
+  color: white;
+}
+
+.navigation-transparent .nav-link {
+  color: white;
+  opacity: 0.9;
+}
+
+.navigation-transparent .nav-link:hover {
+  opacity: 1;
+}
+
+.navigation-transparent .btn-secondary {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+}
+
+.navigation-transparent .btn-secondary:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.navigation-transparent .btn-primary {
+  background: white;
+  color: #667eea;
+}
+
+.navigation-transparent .btn-primary:hover {
+  background: #f8f9fa;
+}
+
+/* Button Overrides for Landing */
+.hero .btn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero .btn-primary {
+  background: white;
+  color: #667eea;
+}
+
+.hero .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.hero .btn-secondary {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+}
+
+.hero .btn-secondary:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.cta-section .btn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-section .btn-primary {
+  background: white;
+  color: #667eea;
+}
+
+.cta-section .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.cta-section .btn-secondary {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-section .btn-secondary:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+  }
+  
+  .cta-section h2 {
+    font-size: 32px;
+  }
+  
+  .cta-section p {
+    font-size: 18px;
+  }
+  
+  .trust-indicators {
+    gap: 24px;
+  }
+  
+  .contact-options {
+    gap: 16px;
+  }
+  
+  .contact-option {
+    min-width: 150px;
+  }
+  
+  .props-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 16px;
+  }
+  
+  .value-props,
+  .case-studies,
+  .cta-section {
+    padding: 60px 16px;
+  }
+  
+  .prop-card,
+  .case-card {
+    padding: 24px;
+  }
+  
+  .trust-indicators {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .contact-options {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -8,6 +8,12 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.dashboard-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
 .dashboard-title {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-normal);

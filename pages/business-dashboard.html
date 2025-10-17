@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Business Dashboard - BAIS Platform">
+  <meta name="keywords" content="business dashboard, BAIS, AI transactions, customer engagement">
+  <meta name="author" content="BA Integrate">
+  
+  <title>Business Dashboard - BAIS</title>
+  
+  <!-- Favicon  -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  
+  <!-- CSS - Load in order of specificity -->
+  <link rel="stylesheet" href="/assets/css/base/variables.css">
+  <link rel="stylesheet" href="/assets/css/base/reset.css">
+  <link rel="stylesheet" href="/assets/css/base/typography.css">
+  <link rel="stylesheet" href="/assets/css/components/button.css">
+  <link rel="stylesheet" href="/assets/css/components/card.css">
+  <link rel="stylesheet" href="/assets/css/components/navigation.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/layouts/grid.css">
+  <link rel="stylesheet" href="/assets/css/layouts/section.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="business-navbar">
+    <div class="business-logo">BAIS</div>
+    <div class="business-user-menu">
+      <span class="business-name" id="business-name">Mario's Italian Restaurant</span>
+      <button class="btn btn-secondary" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="business-container">
+    <!-- Page Header -->
+    <div class="business-page-header">
+      <h1>Your Business Dashboard</h1>
+      <p>Track your AI-driven transactions and customer engagement</p>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="business-metrics-grid">
+      <div class="business-metric-card">
+        <div class="business-metric-header">
+          <span class="business-metric-icon">Revenue</span>
+          <span class="business-metric-label">Total Revenue</span>
+        </div>
+        <div class="business-metric-value">$12,450</div>
+        <div class="business-metric-change positive">↑ +18% this month</div>
+      </div>
+
+      <div class="business-metric-card">
+        <div class="business-metric-header">
+          <span class="business-metric-icon">Transaction</span>
+          <span class="business-metric-label">Transactions</span>
+        </div>
+        <div class="business-metric-value">570</div>
+        <div class="business-metric-change positive">↑ +42 new</div>
+      </div>
+
+      <div class="business-metric-card">
+        <div class="business-metric-header">
+          <span class="business-metric-icon">Conversion</span>
+          <span class="business-metric-label">Conversion Rate</span>
+        </div>
+        <div class="business-metric-value">68%</div>
+        <div class="business-metric-change positive">↑ +3.2%</div>
+      </div>
+
+      <div class="business-metric-card">
+        <div class="business-metric-header">
+          <span class="business-metric-icon">Rating</span>
+          <span class="business-metric-label">Avg Rating</span>
+        </div>
+        <div class="business-metric-value">4.8</div>
+        <div class="business-metric-change positive">↑ +0.3</div>
+      </div>
+    </div>
+
+    <!-- AI Traffic Sources -->
+    <div class="business-section">
+      <div class="business-section-header">
+        <h2 class="business-section-title">Traffic by AI Platform</h2>
+        <span class="business-section-subtitle">Last 30 Days</span>
+      </div>
+
+      <div class="business-llm-breakdown">
+        <div class="business-llm-card">
+          <div class="business-llm-logo">Claude</div>
+          <div class="business-llm-name">Anthropic</div>
+          <div class="business-llm-stat">247</div>
+          <div class="business-llm-label">transactions</div>
+          <div class="business-llm-label" style="margin-top: 8px;">43% of total</div>
+        </div>
+
+        <div class="business-llm-card">
+          <div class="business-llm-logo">ChatGPT</div>
+          <div class="business-llm-name">OpenAI</div>
+          <div class="business-llm-stat">189</div>
+          <div class="business-llm-label">transactions</div>
+          <div class="business-llm-label" style="margin-top: 8px;">33% of total</div>
+        </div>
+
+        <div class="business-llm-card">
+          <div class="business-llm-logo">Gemini</div>
+          <div class="business-llm-name">Google</div>
+          <div class="business-llm-stat">134</div>
+          <div class="business-llm-label">transactions</div>
+          <div class="business-llm-label" style="margin-top: 8px;">24% of total</div>
+        </div>
+      </div>
+
+      <div class="business-chart">
+        <div class="business-chart-bar" style="height: 85%;"></div>
+        <div class="business-chart-bar" style="height: 92%;"></div>
+        <div class="business-chart-bar" style="height: 78%;"></div>
+        <div class="business-chart-bar" style="height: 88%;"></div>
+        <div class="business-chart-bar" style="height: 95%;"></div>
+        <div class="business-chart-bar" style="height: 90%;"></div>
+        <div class="business-chart-bar" style="height: 98%;"></div>
+      </div>
+    </div>
+
+    <!-- Services Performance -->
+    <div class="business-section">
+      <div class="business-section-header">
+        <h2 class="business-section-title">Your Services</h2>
+        <button class="btn btn-primary" onclick="addService()">Add Service</button>
+      </div>
+
+      <div class="business-services-list">
+        <div class="business-service-item">
+          <div class="business-service-info">
+            <h3>Table Reservation</h3>
+            <p>Reserve a table at our restaurant</p>
+          </div>
+          <div class="business-service-stats">
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">342</span>
+              <span class="business-service-stat-label">Bookings</span>
+            </div>
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">$8,550</span>
+              <span class="business-service-stat-label">Revenue</span>
+            </div>
+            <button class="btn btn-secondary">Edit</button>
+          </div>
+        </div>
+
+        <div class="business-service-item">
+          <div class="business-service-info">
+            <h3>Takeout Order</h3>
+            <p>Order food for pickup</p>
+          </div>
+          <div class="business-service-stats">
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">156</span>
+              <span class="business-service-stat-label">Orders</span>
+            </div>
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">$2,340</span>
+              <span class="business-service-stat-label">Revenue</span>
+            </div>
+            <button class="btn btn-secondary">Edit</button>
+          </div>
+        </div>
+
+        <div class="business-service-item">
+          <div class="business-service-info">
+            <h3>Private Events</h3>
+            <p>Book private dining room</p>
+          </div>
+          <div class="business-service-stats">
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">72</span>
+              <span class="business-service-stat-label">Events</span>
+            </div>
+            <div class="business-service-stat">
+              <span class="business-service-stat-value">$1,560</span>
+              <span class="business-service-stat-label">Revenue</span>
+            </div>
+            <button class="btn btn-secondary">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="business-section">
+      <div class="business-section-header">
+        <h2 class="business-section-title">Recent Transactions</h2>
+        <button class="btn btn-secondary">View All</button>
+      </div>
+
+      <table class="business-transactions-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Service</th>
+            <th>Source</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Oct 16, 2025 2:45 PM</td>
+            <td>John D.</td>
+            <td>Table Reservation</td>
+            <td><span class="business-source-badge business-source-claude">Claude</span></td>
+            <td>$85.00</td>
+            <td class="business-status-completed">Completed</td>
+          </tr>
+          <tr>
+            <td>Oct 16, 2025 1:30 PM</td>
+            <td>Sarah M.</td>
+            <td>Takeout Order</td>
+            <td><span class="business-source-badge business-source-chatgpt">ChatGPT</span></td>
+            <td>$42.50</td>
+            <td class="business-status-completed">Completed</td>
+          </tr>
+          <tr>
+            <td>Oct 16, 2025 11:15 AM</td>
+            <td>Mike P.</td>
+            <td>Table Reservation</td>
+            <td><span class="business-source-badge business-source-gemini">Gemini</span></td>
+            <td>$120.00</td>
+            <td class="business-status-completed">Completed</td>
+          </tr>
+          <tr>
+            <td>Oct 15, 2025 7:20 PM</td>
+            <td>Emily R.</td>
+            <td>Private Events</td>
+            <td><span class="business-source-badge business-source-claude">Claude</span></td>
+            <td>$450.00</td>
+            <td class="business-status-completed">Completed</td>
+          </tr>
+          <tr>
+            <td>Oct 15, 2025 6:05 PM</td>
+            <td>David K.</td>
+            <td>Table Reservation</td>
+            <td><span class="business-source-badge business-source-chatgpt">ChatGPT</span></td>
+            <td>$95.00</td>
+            <td class="business-status-completed">Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Business Settings -->
+    <div class="business-section">
+      <div class="business-section-header">
+        <h2 class="business-section-title">Business Settings</h2>
+      </div>
+
+      <div class="business-settings-form">
+        <div class="business-form-group">
+          <label class="business-form-label">Business Name</label>
+          <input type="text" class="business-form-input" value="Mario's Italian Restaurant" readonly>
+        </div>
+
+        <div class="business-form-group">
+          <label class="business-form-label">Business ID</label>
+          <input type="text" class="business-form-input" value="biz_mario_sf_001" readonly>
+          <small class="business-form-help">This ID is used in all BAIS API calls</small>
+        </div>
+
+        <div class="business-form-group">
+          <label class="business-form-label">Contact Email</label>
+          <input type="email" class="business-form-input" value="contact@mariosrestaurant.com">
+        </div>
+
+        <div class="business-form-group">
+          <label class="business-form-label">Location</label>
+          <input type="text" class="business-form-input" value="San Francisco, CA">
+        </div>
+
+        <div class="business-form-actions">
+          <button class="btn btn-primary">Save Changes</button>
+          <button class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import CONFIG from '/assets/js/core/config.js';
+    
+    // Check authentication
+    document.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
+      const businessName = localStorage.getItem('bais_business_name') || sessionStorage.getItem('bais_business_name');
+      
+      if (!token) {
+        window.location.href = '/pages/login.html';
+        return;
+      }
+      
+      // Set business name
+      if (businessName) {
+        document.getElementById('business-name').textContent = businessName;
+      }
+      
+      // Load business dashboard data
+      loadBusinessDashboardData();
+    });
+    
+    async function loadBusinessDashboardData() {
+      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
+      
+      try {
+        // Try to fetch real data from backend
+        const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/business/dashboard`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          updateBusinessDashboard(data);
+        } else {
+          // Fall back to demo data if backend is not available
+          loadDemoBusinessData();
+        }
+      } catch (error) {
+        console.log('Using demo business data:', error);
+        loadDemoBusinessData();
+      }
+    }
+    
+    function loadDemoBusinessData() {
+      // Demo data for business dashboard
+      const demoData = {
+        revenue: '$12,450',
+        transactions: '570',
+        conversion: '68%',
+        rating: '4.8',
+        services: [
+          { name: 'Table Reservation', bookings: '342', revenue: '$8,550' },
+          { name: 'Takeout Order', orders: '156', revenue: '$2,340' },
+          { name: 'Private Events', events: '72', revenue: '$1,560' }
+        ]
+      };
+      
+      updateBusinessDashboard(demoData);
+    }
+    
+    function updateBusinessDashboard(data) {
+      // Update business dashboard with real or demo data
+      console.log('Business dashboard data updated:', data);
+    }
+    
+    // Global functions for button clicks
+    window.logout = function() {
+      if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('bais_auth_token');
+        sessionStorage.removeItem('bais_auth_token');
+        localStorage.removeItem('bais_user_email');
+        sessionStorage.removeItem('bais_user_email');
+        localStorage.removeItem('bais_business_name');
+        sessionStorage.removeItem('bais_business_name');
+        window.location.href = '/pages/login.html';
+      }
+    };
+    
+    window.addService = function() {
+      alert('Add Service functionality would open a form to create a new service offering');
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .business-navbar {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .business-logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #667eea;
+    }
+    
+    .business-user-menu {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .business-name {
+      font-size: 14px;
+      color: #4a5568;
+    }
+    
+    .business-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    .business-page-header {
+      margin-bottom: 32px;
+    }
+    
+    .business-page-header h1 {
+      font-size: 32px;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+    
+    .business-page-header p {
+      color: #718096;
+      font-size: 16px;
+    }
+    
+    .business-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    
+    .business-metric-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .business-metric-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .business-metric-icon {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .business-metric-label {
+      font-size: 14px;
+      color: #718096;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .business-metric-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+    
+    .business-metric-change {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    
+    .business-metric-change.positive {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .business-section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+    }
+    
+    .business-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .business-section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+    
+    .business-section-subtitle {
+      font-size: 14px;
+      color: #718096;
+    }
+    
+    .business-llm-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .business-llm-card {
+      padding: 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      text-align: center;
+    }
+    
+    .business-llm-logo {
+      font-size: 16px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 8px;
+    }
+    
+    .business-llm-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 12px;
+    }
+    
+    .business-llm-stat {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 4px;
+    }
+    
+    .business-llm-label {
+      font-size: 12px;
+      color: #718096;
+    }
+    
+    .business-chart {
+      height: 200px;
+      background: #f7fafc;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+    
+    .business-chart-bar {
+      flex: 1;
+      background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+      border-radius: 4px 4px 0 0;
+      transition: all 0.3s;
+    }
+    
+    .business-chart-bar:hover {
+      opacity: 0.8;
+    }
+    
+    .business-services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .business-service-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background: #f7fafc;
+      border-radius: 8px;
+    }
+    
+    .business-service-info h3 {
+      font-size: 16px;
+      color: #1a202c;
+      margin-bottom: 4px;
+    }
+    
+    .business-service-info p {
+      font-size: 13px;
+      color: #718096;
+    }
+    
+    .business-service-stats {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    .business-service-stat {
+      text-align: center;
+    }
+    
+    .business-service-stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a202c;
+      display: block;
+    }
+    
+    .business-service-stat-label {
+      font-size: 12px;
+      color: #718096;
+    }
+    
+    .business-transactions-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .business-transactions-table th {
+      text-align: left;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    
+    .business-transactions-table td {
+      padding: 12px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    
+    .business-source-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .business-source-claude {
+      background: #f0e6ff;
+      color: #6b2fb8;
+    }
+    
+    .business-source-chatgpt {
+      background: #d4f4dd;
+      color: #0f5323;
+    }
+    
+    .business-source-gemini {
+      background: #cfe2ff;
+      color: #002d72;
+    }
+    
+    .business-status-completed {
+      color: #155724;
+    }
+    
+    .business-settings-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .business-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .business-form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4a5568;
+    }
+    
+    .business-form-input {
+      padding: 10px 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+    
+    .business-form-input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .business-form-help {
+      font-size: 12px;
+      color: #718096;
+    }
+    
+    .business-form-actions {
+      display: flex;
+      gap: 12px;
+    }
+  </style>
+</body>
+</html>
