@@ -9,7 +9,7 @@
   
   <title>BAIS Platform Dashboard - BA Integrate</title>
   
-  <!-- Favicon  -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   
   <!-- CSS - Load in order of specificity -->
@@ -19,11 +19,11 @@
   <link rel="stylesheet" href="/assets/css/components/button.css">
   <link rel="stylesheet" href="/assets/css/components/card.css">
   <link rel="stylesheet" href="/assets/css/components/navigation.css">
-  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/components/platform-dashboard.css">
   <link rel="stylesheet" href="/assets/css/layouts/grid.css">
   <link rel="stylesheet" href="/assets/css/layouts/section.css">
 </head>
-<body>
+<body class="platform-dashboard">
   <!-- Navigation -->
   <nav id="main-nav" class="navigation">
     <div class="nav-container">
@@ -39,6 +39,7 @@
       
       <ul class="nav-links">
         <li><a href="/pages/dashboard.html" class="nav-link">Business Dashboard</a></li>
+        <li><a href="/pages/platform-dashboard.html" class="nav-link active">Platform Dashboard</a></li>
         <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
         <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
       </ul>
@@ -53,859 +54,276 @@
   </nav>
 
   <!-- Main Content -->
-  <main>
-    <!-- Platform Dashboard Header -->
-    <section class="section section-hero">
-      <div class="container">
-        <div class="platform-header">
-          <div>
-            <h1 class="platform-title">BAIS Platform Dashboard</h1>
-            <p class="platform-subtitle">Universal AI Integration Platform - Monitor all businesses and AI providers</p>
-          </div>
-          <div class="platform-status">
-            <div class="status-badge operational">
-              <div class="status-indicator"></div>
-              All Systems Operational
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Metrics -->
-    <section class="section">
-      <div class="container">
-        <div class="platform-metrics-grid">
-          <div class="platform-metric-card">
-            <div class="metric-header">
-              <div class="metric-icon">Business</div>
-              <div class="metric-label">Registered Businesses</div>
-            </div>
-            <div class="metric-large">1,247</div>
-            <div class="metric-description">Active on BAIS Platform</div>
-            <div class="metric-change positive">↑ +127 this month</div>
-          </div>
-
-          <div class="platform-metric-card">
-            <div class="metric-header">
-              <div class="metric-icon">Transaction</div>
-              <div class="metric-label">Total Transactions</div>
-            </div>
-            <div class="metric-large">45,892</div>
-            <div class="metric-description">Across All AI Providers</div>
-            <div class="metric-change positive">↑ +23% vs last month</div>
-          </div>
-
-          <div class="platform-metric-card">
-            <div class="metric-header">
-              <div class="metric-icon">User</div>
-              <div class="metric-label">Active Consumers</div>
-            </div>
-            <div class="metric-large">8,341</div>
-            <div class="metric-description">Using Claude/ChatGPT/Gemini</div>
-            <div class="metric-change positive">↑ +1,203 new</div>
-          </div>
-
-          <div class="platform-metric-card">
-            <div class="metric-header">
-              <div class="metric-icon">Revenue</div>
-              <div class="metric-label">Platform Revenue</div>
-            </div>
-            <div class="metric-large">$892K</div>
-            <div class="metric-description">From all AI transactions</div>
-            <div class="metric-change positive">↑ +31% growth</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI Provider Integration Status -->
-    <section class="section">
-      <div class="container">
-        <div class="provider-integration-section">
-          <div class="section-header">
-            <h2 class="section-title">AI Provider Integration Status</h2>
-            <p class="section-subtitle">Monitor AI provider performance and usage across the platform</p>
-          </div>
-          
-          <div class="provider-list">
-            <div class="provider-card">
-              <div class="provider-info">
-                <div class="provider-logo">Anthropic</div>
-                <div class="provider-details">
-                  <h3 class="provider-name">Claude</h3>
-                  <div class="provider-stats">
-                    <span>18,453 transactions</span>
-                    <span>•</span>
-                    <span>2,847 businesses accessed</span>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-status">
-                <div class="status-active">
-                  <div class="status-indicator"></div>
-                  Active
-                </div>
-                <span class="traffic-percentage">40.2% of traffic</span>
-              </div>
-            </div>
-
-            <div class="provider-card">
-              <div class="provider-info">
-                <div class="provider-logo">OpenAI</div>
-                <div class="provider-details">
-                  <h3 class="provider-name">ChatGPT</h3>
-                  <div class="provider-stats">
-                    <span>16,892 transactions</span>
-                    <span>•</span>
-                    <span>2,541 businesses accessed</span>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-status">
-                <div class="status-active">
-                  <div class="status-indicator"></div>
-                  Active
-                </div>
-                <span class="traffic-percentage">36.8% of traffic</span>
-              </div>
-            </div>
-
-            <div class="provider-card">
-              <div class="provider-info">
-                <div class="provider-logo">Google</div>
-                <div class="provider-details">
-                  <h3 class="provider-name">Gemini</h3>
-                  <div class="provider-stats">
-                    <span>10,547 transactions</span>
-                    <span>•</span>
-                    <span>1,923 businesses accessed</span>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-status">
-                <div class="status-active">
-                  <div class="status-indicator"></div>
-                  Active
-                </div>
-                <span class="traffic-percentage">23.0% of traffic</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Platform Tools Performance -->
-    <section class="section">
-      <div class="container">
-        <div class="platform-grid">
-          <div class="tools-performance-card">
-            <div class="card-header">
-              <h3 class="card-title">Universal Tools Performance</h3>
-              <p class="card-subtitle">BAIS platform tools and API endpoints</p>
-            </div>
-            
-            <div class="tools-metrics">
-              <div class="tool-metric">
-                <span class="tool-name">bais_search_businesses</span>
-                <span class="tool-value">34,827</span>
-              </div>
-              <div class="tool-metric">
-                <span class="tool-name">bais_get_business_services</span>
-                <span class="tool-value">52,104</span>
-              </div>
-              <div class="tool-metric">
-                <span class="tool-name">bais_execute_service</span>
-                <span class="tool-value">45,892</span>
-              </div>
-            </div>
-            
-            <div class="performance-chart">
-              <div class="chart-header">
-                <span class="chart-title">Success Rate: 98.7%</span>
-              </div>
-              <div class="chart-bars">
-                <div class="chart-bar" style="height: 95%;"></div>
-                <div class="chart-bar" style="height: 98%;"></div>
-                <div class="chart-bar" style="height: 97%;"></div>
-                <div class="chart-bar" style="height: 99%;"></div>
-              </div>
-              <div class="chart-labels">
-                <span>Search</span>
-                <span>Get Services</span>
-                <span>Execute</span>
-                <span>Overall</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="top-businesses-card">
-            <div class="card-header">
-              <h3 class="card-title">Top Businesses by AI Traffic</h3>
-              <p class="card-subtitle">Most active businesses on the platform</p>
-            </div>
-            
-            <div class="businesses-list">
-              <div class="business-item">
-                <div class="business-info">
-                  <div class="business-name">Mario's Italian Restaurant</div>
-                  <div class="business-location">San Francisco, CA</div>
-                </div>
-                <div class="business-transactions">
-                  <span class="ai-badge claude">247</span>
-                  <span class="ai-badge chatgpt">189</span>
-                  <span class="ai-badge gemini">134</span>
-                </div>
-              </div>
-              
-              <div class="business-item">
-                <div class="business-info">
-                  <div class="business-name">Grand Plaza Hotel</div>
-                  <div class="business-location">New York, NY</div>
-                </div>
-                <div class="business-transactions">
-                  <span class="ai-badge claude">312</span>
-                  <span class="ai-badge chatgpt">298</span>
-                  <span class="ai-badge gemini">156</span>
-                </div>
-              </div>
-              
-              <div class="business-item">
-                <div class="business-info">
-                  <div class="business-name">TechStore Electronics</div>
-                  <div class="business-location">Austin, TX</div>
-                </div>
-                <div class="business-transactions">
-                  <span class="ai-badge claude">189</span>
-                  <span class="ai-badge chatgpt">445</span>
-                  <span class="ai-badge gemini">234</span>
-                </div>
-              </div>
-              
-              <div class="business-item">
-                <div class="business-info">
-                  <div class="business-name">Bella Vista Restaurant</div>
-                  <div class="business-location">Miami, FL</div>
-                </div>
-                <div class="business-transactions">
-                  <span class="ai-badge claude">167</span>
-                  <span class="ai-badge chatgpt">143</span>
-                  <span class="ai-badge gemini">98</span>
-                </div>
-              </div>
-              
-              <div class="business-item">
-                <div class="business-info">
-                  <div class="business-name">Downtown Boutique Hotel</div>
-                  <div class="business-location">Seattle, WA</div>
-                </div>
-                <div class="business-transactions">
-                  <span class="ai-badge claude">234</span>
-                  <span class="ai-badge chatgpt">198</span>
-                  <span class="ai-badge gemini">145</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Consumer Search Trends -->
-    <section class="section">
-      <div class="container">
-        <div class="search-trends-card">
-          <div class="card-header">
-            <h3 class="card-title">Consumer Search Trends Across AI Providers</h3>
-            <p class="card-subtitle">Most searched business categories by AI consumers</p>
-          </div>
-          
-          <div class="trends-chart">
-            <div class="chart-bars">
-              <div class="chart-bar" style="height: 85%;"></div>
-              <div class="chart-bar" style="height: 72%;"></div>
-              <div class="chart-bar" style="height: 58%;"></div>
-              <div class="chart-bar" style="height: 45%;"></div>
-              <div class="chart-bar" style="height: 62%;"></div>
-              <div class="chart-bar" style="height: 78%;"></div>
-              <div class="chart-bar" style="height: 91%;"></div>
-            </div>
-            <div class="chart-labels">
-              <span>Restaurants</span>
-              <span>Hotels</span>
-              <span>Retail</span>
-              <span>Services</span>
-              <span>Entertainment</span>
-              <span>Health</span>
-              <span>Travel</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer id="main-footer" class="footer">
-    <div class="footer-container">
-      <div class="footer-grid">
+  <div class="platform-dashboard-container">
+    <!-- Platform Header -->
+    <div class="platform-dashboard-header">
+      <div class="platform-header-content">
         <div>
-          <div class="footer-brand">BA Integrate</div>
-          <p class="footer-description">
-            Business-Agent Integration Standard (BAIS) platform for hotels, restaurants, and e-commerce.
-          </p>
+          <h1>BAIS Platform Dashboard</h1>
+          <p class="platform-subtitle">Universal AI Integration Platform - Monitor all businesses and LLM providers</p>
         </div>
-        
-        <div>
-          <h4 class="footer-section-title">Platform</h4>
-          <ul class="footer-links">
-            <li><a href="/pages/platform.html">Features</a></li>
-            <li><a href="/pages/security.html">Security</a></li>
-            <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/pages/integrations.html">Integrations</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer-section-title">Resources</h4>
-          <ul class="footer-links">
-            <li><a href="/pages/guides.html">Guides</a></li>
-            <li><a href="/pages/api-reference.html">API Reference</a></li>
-            <li><a href="/pages/support.html">Support</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer-section-title">Company</h4>
-          <ul class="footer-links">
-            <li><a href="/pages/about.html">About</a></li>
-            <li><a href="/pages/careers.html">Careers</a></li>
-            <li><a href="/pages/blog.html">Blog</a></li>
-            <li><a href="/pages/contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="footer-copyright">
-          &copy; 2025 BA Integrate. All rights reserved.
-        </div>
-        <div class="footer-legal">
-          <a href="/pages/privacy.html">Privacy Policy</a>
-          <a href="/pages/terms.html">Terms of Service</a>
+        <div class="platform-status">
+          <div class="platform-status-badge operational">
+            <div class="platform-status-indicator"></div>
+            All Systems Operational
+          </div>
         </div>
       </div>
     </div>
-  </footer>
 
-  <!-- JavaScript -->
+    <!-- Key Metrics -->
+    <div class="platform-dashboard-grid">
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">🏢</div>
+          <div class="platform-card-title">Registered Businesses</div>
+        </div>
+        <div class="platform-metric-large">1,247</div>
+        <div class="platform-metric-label">Active on BAIS Platform</div>
+        <div class="platform-metric-change positive">↑ +127 this month</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">💰</div>
+          <div class="platform-card-title">Total Transactions</div>
+        </div>
+        <div class="platform-metric-large">45,892</div>
+        <div class="platform-metric-label">Across All LLMs</div>
+        <div class="platform-metric-change positive">↑ +23% vs last month</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">🤖</div>
+          <div class="platform-card-title">Active Consumers</div>
+        </div>
+        <div class="platform-metric-large">8,341</div>
+        <div class="platform-metric-label">Using Claude/ChatGPT/Gemini</div>
+        <div class="platform-metric-change positive">↑ +1,203 new</div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">📈</div>
+          <div class="platform-card-title">Platform Revenue</div>
+        </div>
+        <div class="platform-metric-large">$892K</div>
+        <div class="platform-metric-label">From all LLM transactions</div>
+        <div class="platform-metric-change positive">↑ +31% growth</div>
+      </div>
+    </div>
+
+    <!-- LLM Integration Status -->
+    <div class="platform-dashboard-grid">
+      <div class="platform-card platform-wide-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">🔗</div>
+          <div class="platform-card-title">LLM Provider Integration Status</div>
+        </div>
+        <div class="platform-llm-providers">
+          <div class="platform-llm-provider">
+            <div class="platform-llm-info">
+              <div class="platform-llm-logo">🤖</div>
+              <div class="platform-llm-details">
+                <h3>Anthropic Claude</h3>
+                <div class="platform-llm-stats">
+                  <span>18,453 transactions</span>
+                  <span>•</span>
+                  <span>2,847 businesses accessed</span>
+                </div>
+              </div>
+            </div>
+            <div class="platform-llm-status">
+              <div class="platform-status-active">
+                <div class="platform-status-indicator"></div>
+                Active
+              </div>
+              <span style="font-size: 13px; color: var(--color-text-secondary);">40.2% of traffic</span>
+            </div>
+          </div>
+
+          <div class="platform-llm-provider">
+            <div class="platform-llm-info">
+              <div class="platform-llm-logo">💬</div>
+              <div class="platform-llm-details">
+                <h3>OpenAI ChatGPT</h3>
+                <div class="platform-llm-stats">
+                  <span>16,892 transactions</span>
+                  <span>•</span>
+                  <span>2,541 businesses accessed</span>
+                </div>
+              </div>
+            </div>
+            <div class="platform-llm-status">
+              <div class="platform-status-active">
+                <div class="platform-status-indicator"></div>
+                Active
+              </div>
+              <span style="font-size: 13px; color: var(--color-text-secondary);">36.8% of traffic</span>
+            </div>
+          </div>
+
+          <div class="platform-llm-provider">
+            <div class="platform-llm-info">
+              <div class="platform-llm-logo">✨</div>
+              <div class="platform-llm-details">
+                <h3>Google Gemini</h3>
+                <div class="platform-llm-stats">
+                  <span>10,547 transactions</span>
+                  <span>•</span>
+                  <span>1,923 businesses accessed</span>
+                </div>
+              </div>
+            </div>
+            <div class="platform-llm-status">
+              <div class="platform-status-active">
+                <div class="platform-status-indicator"></div>
+                Active
+              </div>
+              <span style="font-size: 13px; color: var(--color-text-secondary);">23.0% of traffic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universal Tools Performance -->
+    <div class="platform-dashboard-grid">
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">🔧</div>
+          <div class="platform-card-title">Universal Tools Performance</div>
+        </div>
+        <div class="platform-tool-metrics">
+          <div class="platform-tool-metric">
+            <span class="platform-tool-name">bais_search_businesses</span>
+            <span class="platform-tool-value">34,827</span>
+          </div>
+          <div class="platform-tool-metric">
+            <span class="platform-tool-name">bais_get_business_services</span>
+            <span class="platform-tool-value">52,104</span>
+          </div>
+          <div class="platform-tool-metric">
+            <span class="platform-tool-name">bais_execute_service</span>
+            <span class="platform-tool-value">45,892</span>
+          </div>
+        </div>
+        <div class="platform-chart-container">
+          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 12px;">Success Rate: 98.7%</p>
+          <div class="platform-chart-bars">
+            <div class="platform-chart-bar" style="height: 95%;"></div>
+            <div class="platform-chart-bar" style="height: 98%;"></div>
+            <div class="platform-chart-bar" style="height: 97%;"></div>
+            <div class="platform-chart-bar" style="height: 99%;"></div>
+          </div>
+          <div class="platform-chart-labels">
+            <span>Search</span>
+            <span>Get Services</span>
+            <span>Execute</span>
+            <span>Overall</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">🏆</div>
+          <div class="platform-card-title">Top Businesses by AI Traffic</div>
+        </div>
+        <div class="platform-business-list">
+          <div class="platform-business-item">
+            <div class="platform-business-name">Mario's Italian Restaurant</div>
+            <div class="platform-business-transactions">
+              <span class="platform-llm-badge claude">247</span>
+              <span class="platform-llm-badge chatgpt">189</span>
+              <span class="platform-llm-badge gemini">134</span>
+            </div>
+          </div>
+          <div class="platform-business-item">
+            <div class="platform-business-name">Grand Plaza Hotel</div>
+            <div class="platform-business-transactions">
+              <span class="platform-llm-badge claude">312</span>
+              <span class="platform-llm-badge chatgpt">298</span>
+              <span class="platform-llm-badge gemini">156</span>
+            </div>
+          </div>
+          <div class="platform-business-item">
+            <div class="platform-business-name">TechStore Electronics</div>
+            <div class="platform-business-transactions">
+              <span class="platform-llm-badge claude">189</span>
+              <span class="platform-llm-badge chatgpt">445</span>
+              <span class="platform-llm-badge gemini">234</span>
+            </div>
+          </div>
+          <div class="platform-business-item">
+            <div class="platform-business-name">Bella Vista Restaurant</div>
+            <div class="platform-business-transactions">
+              <span class="platform-llm-badge claude">167</span>
+              <span class="platform-llm-badge chatgpt">143</span>
+              <span class="platform-llm-badge gemini">98</span>
+            </div>
+          </div>
+          <div class="platform-business-item">
+            <div class="platform-business-name">Downtown Boutique Hotel</div>
+            <div class="platform-business-transactions">
+              <span class="platform-llm-badge claude">234</span>
+              <span class="platform-llm-badge chatgpt">198</span>
+              <span class="platform-llm-badge gemini">145</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Categories -->
+    <div class="platform-dashboard-grid">
+      <div class="platform-card platform-wide-card">
+        <div class="platform-card-header">
+          <div class="platform-card-icon">📊</div>
+          <div class="platform-card-title">Consumer Search Trends Across LLMs</div>
+        </div>
+        <div class="platform-chart-container">
+          <div class="platform-chart-bars">
+            <div class="platform-chart-bar" style="height: 85%;"></div>
+            <div class="platform-chart-bar" style="height: 72%;"></div>
+            <div class="platform-chart-bar" style="height: 58%;"></div>
+            <div class="platform-chart-bar" style="height: 45%;"></div>
+            <div class="platform-chart-bar" style="height: 62%;"></div>
+            <div class="platform-chart-bar" style="height: 78%;"></div>
+            <div class="platform-chart-bar" style="height: 91%;"></div>
+          </div>
+          <div class="platform-chart-labels">
+            <span>Restaurants</span>
+            <span>Hotels</span>
+            <span>Retail</span>
+            <span>Services</span>
+            <span>Entertainment</span>
+            <span>Health</span>
+            <span>Travel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script type="module">
     import Navigation from '/assets/js/components/Navigation.js';
-    import CONFIG from '/assets/js/core/config.js';
     
-    // Check authentication
+    // Initialize navigation
     document.addEventListener('DOMContentLoaded', () => {
-      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
-      const userEmail = localStorage.getItem('bais_user_email') || sessionStorage.getItem('bais_user_email');
-      
-      if (!token) {
-        window.location.href = '/pages/login.html';
-        return;
-      }
-      
-      // Initialize navigation
       new Navigation('#main-nav');
       
-      // Set user name
-      if (userEmail) {
-        document.getElementById('user-name').textContent = userEmail;
-      }
-      
-      // Load platform dashboard data
-      loadPlatformDashboardData();
-      
-      // Setup event listeners
-      setupEventListeners();
-    });
-    
-    async function loadPlatformDashboardData() {
-      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
-      
-      try {
-        // Try to fetch real data from backend
-        const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/platform/dashboard`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+      // Logout functionality
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          if (confirm('Are you sure you want to logout?')) {
+            window.location.href = '/pages/login.html';
           }
         });
-        
-        if (response.ok) {
-          const data = await response.json();
-          updatePlatformDashboard(data);
-        } else {
-          // Fall back to demo data if backend is not available
-          loadDemoPlatformData();
-        }
-      } catch (error) {
-        console.log('Using demo platform data:', error);
-        loadDemoPlatformData();
       }
-    }
-    
-    function loadDemoPlatformData() {
-      // Demo data for platform dashboard
-      const demoData = {
-        businesses: {
-          total: '1,247',
-          growth: '+127 this month'
-        },
-        transactions: {
-          total: '45,892',
-          growth: '+23% vs last month'
-        },
-        consumers: {
-          total: '8,341',
-          growth: '+1,203 new'
-        },
-        revenue: {
-          total: '$892K',
-          growth: '+31% growth'
-        }
-      };
-      
-      updatePlatformDashboard(demoData);
-    }
-    
-    function updatePlatformDashboard(data) {
-      // Update platform metrics with real or demo data
-      // This would update the dashboard with actual platform statistics
-      console.log('Platform dashboard data updated:', data);
-    }
-    
-    function setupEventListeners() {
-      // Logout button
-      document.getElementById('logout-btn').addEventListener('click', () => {
-        localStorage.removeItem('bais_auth_token');
-        sessionStorage.removeItem('bais_auth_token');
-        localStorage.removeItem('bais_user_email');
-        sessionStorage.removeItem('bais_user_email');
-        window.location.href = '/pages/login.html';
-      });
-    }
+    });
   </script>
-
-  <style>
-    body {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-    }
-    
-    .platform-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .platform-title {
-      font-size: var(--font-size-4xl);
-      font-weight: var(--font-weight-normal);
-      color: var(--color-white);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .platform-subtitle {
-      font-size: var(--font-size-lg);
-      color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .platform-status {
-      display: flex;
-      gap: var(--spacing-md);
-      align-items: center;
-    }
-    
-    .status-badge {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-      padding: var(--spacing-sm) var(--spacing-md);
-      border-radius: var(--border-radius);
-      font-size: var(--font-size-sm);
-      font-weight: var(--font-weight-medium);
-    }
-    
-    .status-badge.operational {
-      background: rgba(212, 237, 218, 0.9);
-      color: #155724;
-    }
-    
-    .status-indicator {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #28a745;
-      animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    
-    .platform-metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-lg);
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .platform-metric-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    .metric-header {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .metric-icon {
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-primary);
-    }
-    
-    .metric-label {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-      font-weight: var(--font-weight-medium);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .metric-large {
-      font-size: 3rem;
-      font-weight: var(--font-weight-bold);
-      color: var(--color-text-primary);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .metric-description {
-      color: var(--color-text-secondary);
-      font-size: var(--font-size-sm);
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .metric-change {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-xs) var(--spacing-sm);
-      border-radius: var(--border-radius);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-medium);
-    }
-    
-    .metric-change.positive {
-      background: var(--color-success-light);
-      color: var(--color-success);
-    }
-    
-    .provider-integration-section {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .section-header {
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .section-title {
-      font-size: var(--font-size-2xl);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-text-primary);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .section-subtitle {
-      color: var(--color-text-secondary);
-      font-size: var(--font-size-base);
-    }
-    
-    .provider-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-    }
-    
-    .provider-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-lg);
-      border: 2px solid var(--color-border);
-      border-radius: var(--border-radius-lg);
-      transition: all 0.3s ease;
-    }
-    
-    .provider-card:hover {
-      border-color: var(--color-primary);
-      transform: translateY(-2px);
-    }
-    
-    .provider-info {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-    }
-    
-    .provider-logo {
-      font-size: var(--font-size-xl);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-primary);
-      width: 60px;
-      text-align: center;
-    }
-    
-    .provider-details h3 {
-      font-size: var(--font-size-lg);
-      color: var(--color-text-primary);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .provider-stats {
-      display: flex;
-      gap: var(--spacing-md);
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-    }
-    
-    .provider-status {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: var(--spacing-sm);
-    }
-    
-    .status-active {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-xs) var(--spacing-sm);
-      background: var(--color-success-light);
-      color: var(--color-success);
-      border-radius: var(--border-radius);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-medium);
-    }
-    
-    .traffic-percentage {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-    }
-    
-    .platform-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xl);
-      margin-bottom: var(--spacing-xl);
-    }
-    
-    .tools-performance-card,
-    .top-businesses-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    .card-header {
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .card-title {
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-medium);
-      color: var(--color-text-primary);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .card-subtitle {
-      color: var(--color-text-secondary);
-      font-size: var(--font-size-sm);
-    }
-    
-    .tools-metrics {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .tool-metric {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-sm);
-      background: var(--color-background-light);
-      border-radius: var(--border-radius);
-    }
-    
-    .tool-name {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-      font-family: monospace;
-    }
-    
-    .tool-value {
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-bold);
-      color: var(--color-text-primary);
-    }
-    
-    .performance-chart {
-      margin-top: var(--spacing-lg);
-      padding: var(--spacing-md);
-      background: var(--color-background-light);
-      border-radius: var(--border-radius-lg);
-    }
-    
-    .chart-header {
-      margin-bottom: var(--spacing-md);
-    }
-    
-    .chart-title {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-secondary);
-    }
-    
-    .chart-bars {
-      display: flex;
-      gap: var(--spacing-sm);
-      height: 120px;
-      align-items: flex-end;
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .chart-bar {
-      flex: 1;
-      background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-      border-radius: 4px 4px 0 0;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .chart-bar:hover {
-      opacity: 0.8;
-      transform: scaleY(1.05);
-    }
-    
-    .chart-labels {
-      display: flex;
-      justify-content: space-around;
-      font-size: var(--font-size-xs);
-      color: var(--color-text-secondary);
-    }
-    
-    .businesses-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      max-height: 400px;
-      overflow-y: auto;
-    }
-    
-    .business-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: var(--spacing-md);
-      background: var(--color-background-light);
-      border-radius: var(--border-radius);
-    }
-    
-    .business-info {
-      flex: 1;
-    }
-    
-    .business-name {
-      font-size: var(--font-size-sm);
-      color: var(--color-text-primary);
-      font-weight: var(--font-weight-medium);
-      margin-bottom: var(--spacing-xs);
-    }
-    
-    .business-location {
-      font-size: var(--font-size-xs);
-      color: var(--color-text-secondary);
-    }
-    
-    .business-transactions {
-      display: flex;
-      gap: var(--spacing-xs);
-    }
-    
-    .ai-badge {
-      padding: var(--spacing-xs) var(--spacing-sm);
-      border-radius: var(--border-radius-sm);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-medium);
-    }
-    
-    .ai-badge.claude {
-      background: #f0e6ff;
-      color: #6b2fb8;
-    }
-    
-    .ai-badge.chatgpt {
-      background: #d4f4dd;
-      color: #0f5323;
-    }
-    
-    .ai-badge.gemini {
-      background: #cfe2ff;
-      color: #002d72;
-    }
-    
-    .search-trends-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    
-    .trends-chart {
-      margin-top: var(--spacing-lg);
-      padding: var(--spacing-md);
-      background: var(--color-background-light);
-      border-radius: var(--border-radius-lg);
-    }
-    
-    @media (max-width: 768px) {
-      .platform-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .platform-header {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-        align-items: stretch;
-      }
-      
-      .platform-metrics-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </body>
 </html>
