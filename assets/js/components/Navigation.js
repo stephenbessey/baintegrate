@@ -76,65 +76,68 @@ export default class Navigation {
   }
   
   // Static method to get consistent navigation HTML
-  static getNavigationHTML(currentPage = 'home') {
-    const isLoggedIn = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
-    
-    if (isLoggedIn) {
+  static getNavigationHTML(isAuthenticated = false, userRole = 'public') {
+  const baseNav = `
+    <nav id="main-nav" class="navigation">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="/">BA Integrate</a>
+        </div>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+          <span class="nav-toggle-line"></span>
+        </button>
+        
+        <ul class="nav-links">
+          ${this.getNavLinks(isAuthenticated, userRole)}
+        </ul>
+        
+        ${this.getNavActions(isAuthenticated, userRole)}
+      </div>
+    </nav>
+  `;
+  return baseNav;
+}
+
+static getNavLinks(isAuthenticated, userRole) {
+  if (isAuthenticated) {
+    if (userRole === 'business') {
       return `
-        <nav id="main-nav" class="navigation">
-          <div class="nav-container">
-            <div class="nav-logo">
-              <a href="/">BA Integrate</a>
-            </div>
-            
-            <button class="nav-toggle" aria-label="Toggle navigation">
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-            </button>
-            
-            <ul class="nav-links">
-              <li><a href="/pages/dashboard.html" class="nav-link ${currentPage === 'dashboard' ? 'active' : ''}">Dashboard</a></li>
-              <li><a href="/pages/platform.html" class="nav-link ${currentPage === 'platform' ? 'active' : ''}">Platform</a></li>
-              <li><a href="/pages/solutions.html" class="nav-link ${currentPage === 'solutions' ? 'active' : ''}">Solutions</a></li>
-            </ul>
-            
-            <div class="nav-actions">
-              <div class="user-menu">
-                <span class="user-name" id="user-name">Customer</span>
-                <button class="btn btn-secondary" id="logout-btn">Logout</button>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <li><a href="/pages/business-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
+        <li><a href="/pages/support.html" class="nav-link">Support</a></li>
       `;
-    } else {
+    } else if (userRole === 'platform_admin') {
       return `
-        <nav id="main-nav" class="navigation">
-          <div class="nav-container">
-            <div class="nav-logo">
-              <a href="/">BA Integrate</a>
-            </div>
-            
-            <button class="nav-toggle" aria-label="Toggle navigation">
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-              <span class="nav-toggle-line"></span>
-            </button>
-            
-            <ul class="nav-links">
-              <li><a href="/pages/platform.html" class="nav-link ${currentPage === 'platform' ? 'active' : ''}">Platform</a></li>
-              <li><a href="/pages/solutions.html" class="nav-link ${currentPage === 'solutions' ? 'active' : ''}">Solutions</a></li>
-              <li><a href="/pages/contact.html" class="nav-link ${currentPage === 'contact' ? 'active' : ''}">Contact</a></li>
-            </ul>
-            
-            <div class="nav-actions">
-              <a href="/pages/login.html" class="btn btn-secondary nav-cta">Customer Login</a>
-              <a href="/pages/contact.html" class="btn btn-primary nav-cta">Get Started</a>
-            </div>
-          </div>
-        </nav>
+        <li><a href="/pages/platform-dashboard.html" class="nav-link">Platform Dashboard</a></li>
+        <li><a href="/pages/dashboard.html" class="nav-link">Customers</a></li>
+        <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
       `;
     }
   }
+  
+  return `
+    <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
+    <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+    <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+  `;
+}
+
+static getNavActions(isAuthenticated, userRole) {
+  if (isAuthenticated) {
+    return `
+      <div class="nav-actions">
+        <div class="user-menu">
+          <span class="user-name" id="user-name">User</span>
+          <button class="btn btn-secondary" id="logout-btn">Logout</button>
+        </div>
+      </div>
+    `;
+  }
+  
+  return `
+    <a href="/pages/contact.html" class="btn btn-primary nav-cta">Schedule Demo</a>
+  `;
 }
