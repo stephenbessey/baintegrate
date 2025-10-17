@@ -1,24 +1,15 @@
 /**
- * Navigation Component
- * Handles navigation functionality and consistency across all pages
+ * Layout Component
+ * Provides consistent layout structure across all pages
  */
 
-export default class Navigation {
-  constructor(selector = '#main-nav') {
-    this.nav = document.querySelector(selector);
-    this.navToggle = this.nav?.querySelector('.nav-toggle');
-    this.navLinks = this.nav?.querySelector('.nav-links');
+import Navigation from './Navigation.js';
+import Footer from './Footer.js';
+
+export default class Layout {
+  constructor() {
     this.currentPage = this.getCurrentPage();
-    
-    if (this.nav) {
-      this.init();
-    }
-  }
-  
-  init() {
-    this.setupToggle();
-    this.setActiveLink();
-    this.setupResponsive();
+    this.isLoggedIn = this.checkAuthentication();
   }
   
   getCurrentPage() {
@@ -31,54 +22,21 @@ export default class Navigation {
     return 'home';
   }
   
-  setActiveLink() {
-    const links = this.nav?.querySelectorAll('.nav-link');
-    links?.forEach(link => {
-      link.classList.remove('active');
-      const href = link.getAttribute('href');
-      
-      if (href === '/' && this.currentPage === 'home') {
-        link.classList.add('active');
-      } else if (href && href.includes(this.currentPage)) {
-        link.classList.add('active');
-      }
-    });
+  checkAuthentication() {
+    return !!(localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token'));
   }
   
-  setupToggle() {
-    if (this.navToggle && this.navLinks) {
-      this.navToggle.addEventListener('click', () => {
-        this.navLinks.classList.toggle('active');
-        this.navToggle.classList.toggle('active');
-        this.nav.classList.toggle('mobile-open');
-      });
-      
-      // Close mobile menu when clicking on a link
-      this.navLinks.addEventListener('click', (e) => {
-        if (e.target.classList.contains('nav-link')) {
-          this.navLinks.classList.remove('active');
-          this.navToggle.classList.remove('active');
-          this.nav.classList.remove('mobile-open');
-        }
-      });
-    }
-  }
-  
-  setupResponsive() {
-    // Handle window resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        this.navLinks?.classList.remove('active');
-        this.navToggle?.classList.remove('active');
-        this.nav?.classList.remove('mobile-open');
-      }
-    });
-  }
-  
-  // Static method to get consistent navigation HTML
-  static getNavigationHTML(currentPage = 'home') {
-    const isLoggedIn = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
+  // Static method to get complete page structure
+  static getPageStructure(pageType = 'public', currentPage = 'home') {
+    const isLoggedIn = !!(localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token'));
     
+    return {
+      navigation: this.getNavigationHTML(isLoggedIn, currentPage),
+      footer: Footer.getFooterHTML()
+    };
+  }
+  
+  static getNavigationHTML(isLoggedIn, currentPage) {
     if (isLoggedIn) {
       return `
         <nav id="main-nav" class="navigation">
@@ -136,5 +94,34 @@ export default class Navigation {
         </nav>
       `;
     }
+  }
+  
+  // Method to update navigation across all pages
+  static updateNavigation() {
+    const currentPage = this.getCurrentPage();
+    const isLoggedIn = this.checkAuthentication();
+    
+    // Update navigation in current page
+    const navElement = document.querySelector('#main-nav');
+    if (navElement) {
+      navElement.outerHTML = this.getNavigationHTML(isLoggedIn, currentPage);
+    }
+    
+    // Initialize new navigation
+    new Navigation('#main-nav');
+  }
+  
+  static getCurrentPage() {
+    const path = window.location.pathname;
+    if (path === '/' || path === '/index.html') return 'home';
+    if (path.includes('/pages/')) {
+      const page = path.split('/pages/')[1].replace('.html', '');
+      return page;
+    }
+    return 'home';
+  }
+  
+  static checkAuthentication() {
+    return !!(localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token'));
   }
 }

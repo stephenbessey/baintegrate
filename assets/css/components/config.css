@@ -247,6 +247,130 @@
   border: 1px solid var(--color-border);
 }
 
+/* Provider-specific styling */
+.provider-selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.provider-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.provider-option:hover {
+  border-color: var(--color-primary);
+  background: var(--color-background-light);
+}
+
+.provider-option.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.provider-info {
+  flex: 1;
+}
+
+.provider-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.provider-description {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.provider-models {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.model-tag {
+  background: var(--color-secondary-light);
+  color: var(--color-secondary);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Business Integration */
+.business-integration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.integration-group {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+}
+
+.integration-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.provider-assignment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.assignment-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.operation {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  flex: 1;
+}
+
+/* Radio groups */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+.radio-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
 /* Advanced Settings */
 .advanced-settings {
   display: flex;
