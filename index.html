@@ -9,7 +9,7 @@
   
   <title>BAIS - Let AI Users Buy From Your Business</title>
   
-  <!-- Favicon -->
+  <!-- Favicon  -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   
   <!-- CSS - Load in order of specificity -->
@@ -24,12 +24,12 @@
   <link rel="stylesheet" href="/assets/css/layouts/section.css">
   <link rel="stylesheet" href="/assets/css/pages/landing.css">
 </head>
-<body data-theme="light">
+<body>
   <!-- Navigation -->
   <nav id="main-nav" class="navigation navigation-transparent">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/">BAIS</a>
+        <a href="/">BA Integrate</a>
       </div>
       
       <button class="nav-toggle" aria-label="Toggle navigation">
@@ -45,8 +45,7 @@
       </ul>
       
       <div class="nav-actions">
-        <a href="/pages/login.html" class="btn btn-secondary nav-cta">Customer Login</a>
-        <a href="#contact" class="btn btn-primary nav-cta">Schedule Demo</a>
+        <a href="/pages/contact.html" class="btn btn-primary nav-cta">Schedule Demo</a>
       </div>
     </div>
   </nav>
@@ -56,201 +55,179 @@
     <div class="hero-content">
       <h1>Let AI Users Buy From Your Business</h1>
       <p>
-        34 million people use Claude, ChatGPT, and Gemini daily. 
-        Now they can discover and buy from your business - without leaving their AI conversation.
+        Register your business once. Be instantly discoverable and transactable through 
+        Claude, ChatGPT, and Gemini. No technical setup required.
       </p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary btn-lg">Get Started Free</a>
-        <a href="/pages/platform.html" class="btn btn-secondary btn-lg">See How It Works</a>
+      <div class="cta-buttons">
+        <a href="/pages/contact.html" class="btn btn-primary">Register Your Business</a>
+        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-value">34M+</div>
-          <div class="hero-stat-label">Daily AI Users</div>
+      
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <div class="trust-number">34M+</div>
+          <div class="trust-label">Daily AI Users</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">3</div>
-          <div class="hero-stat-label">Major AI Platforms</div>
+        <div class="trust-item">
+          <div class="trust-number">3</div>
+          <div class="trust-label">AI Platforms</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value">24/7</div>
-          <div class="hero-stat-label">Always Available</div>
+        <div class="trust-item">
+          <div class="trust-number">5 min</div>
+          <div class="trust-label">Setup Time</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-number">98.7%</div>
+          <div class="trust-label">Success Rate</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works Section -->
-  <section class="section">
+  <section id="how-it-works" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Simple Integration</span>
-        <h2 class="section-title">Three Steps to AI Commerce</h2>
+        <h2 class="section-title">How BAIS Works</h2>
         <p class="section-description">
-          Start accepting bookings and sales from AI users in minutes, not months
+          The universal connector between AI platforms and your business
         </p>
       </div>
-
-      <div class="steps-grid">
-        <div class="step-card">
-          <div class="step-number">1</div>
-          <h3>List Your Services</h3>
-          <p>Tell us what your business offers - reservations, appointments, orders, whatever you sell</p>
+      
+      <div class="card-grid-3">
+        <!-- For Your Business -->
+        <div class="card card-elevated">
+          <h3 class="card-title">For Your Business</h3>
+          <div style="margin-top: var(--spacing-lg); text-align: left;">
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">1</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Register</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">Create your account and add your services. Takes about 10 minutes.</p>
+            </div>
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">2</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Go Live</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">You're instantly accessible through Claude, ChatGPT, and Gemini.</p>
+            </div>
+            <div style="position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">3</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Receive Bookings</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">Consumers book through AI. You get confirmed transactions in your dashboard.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="step-card">
-          <div class="step-number">2</div>
-          <h3>We Handle the AI</h3>
-          <p>Your business becomes discoverable across Claude, ChatGPT, and Gemini automatically</p>
+        <!-- For Your Customers -->
+        <div class="card card-elevated">
+          <h3 class="card-title">For Your Customers</h3>
+          <div style="margin-top: var(--spacing-lg); text-align: left;">
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">1</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Ask AI</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">"I need a hotel in San Francisco" - natural conversation with their AI.</p>
+            </div>
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">2</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">AI Searches BAIS</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">Claude/ChatGPT/Gemini finds your business and shows availability.</p>
+            </div>
+            <div style="position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">3</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Complete Purchase</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">Booking confirmed, payment processed - all without leaving their AI chat.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="step-card">
-          <div class="step-number">3</div>
-          <h3>Start Getting Customers</h3>
-          <p>AI users find you, book with you, and you get paid - all tracked in your dashboard</p>
+        <!-- The Magic -->
+        <div class="card card-elevated">
+          <h3 class="card-title">The Magic</h3>
+          <div style="margin-top: var(--spacing-lg); text-align: left;">
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">⚡</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Universal Integration</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">BAIS maintains ONE integration with each AI platform.</p>
+            </div>
+            <div style="margin-bottom: var(--spacing-lg); position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">🚀</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">Instant Access</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">ALL businesses get instant access to millions of AI users.</p>
+            </div>
+            <div style="position: relative; padding-left: 40px;">
+              <div style="position: absolute; left: 0; top: 0; width: 28px; height: 28px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px;">💰</div>
+              <div style="font-weight: 600; margin-bottom: var(--spacing-xs);">New Revenue</div>
+              <p class="text-secondary" style="font-size: 15px; margin: 0;">Capture transactions from a completely new channel - AI conversations.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof Section -->
-  <section class="section section-dark">
+  <!-- AI Platforms Section -->
+  <section class="section section-light">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Trusted by Forward-Thinking Businesses</h2>
+        <h2 class="section-title">One Registration, Three Platforms</h2>
+        <p class="section-description">
+          Your business becomes instantly accessible across all major AI platforms
+        </p>
       </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "BAIS transformed how customers find us. We're now getting bookings from AI users we never would have reached before."
+      
+      <div class="card-grid-3">
+        <div class="card card-elevated">
+          <div class="card-icon" style="font-size: 64px;">🤖</div>
+          <h3 class="card-title">Claude</h3>
+          <div style="font-size: 32px; font-weight: 700; color: var(--color-primary); margin: var(--spacing-md) 0;">12M+</div>
+          <p class="text-secondary" style="font-size: 14px; margin-bottom: var(--spacing-sm);">Daily Active Users</p>
+          <p class="text-secondary" style="font-size: 14px;">
+            Best for complex bookings and detailed service requests
           </p>
-          <div class="testimonial-author">
-            <strong>Sarah Chen</strong>
-            <span>Owner, Mario's Italian Restaurant</span>
-          </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "The integration was seamless. Within a week, we were accepting reservations through Claude and ChatGPT."
+        <div class="card card-elevated">
+          <div class="card-icon" style="font-size: 64px;">💬</div>
+          <h3 class="card-title">ChatGPT</h3>
+          <div style="font-size: 32px; font-weight: 700; color: var(--color-primary); margin: var(--spacing-md) 0;">15M+</div>
+          <p class="text-secondary" style="font-size: 14px; margin-bottom: var(--spacing-sm);">Daily Active Users</p>
+          <p class="text-secondary" style="font-size: 14px;">
+            Best for product discovery and e-commerce transactions
           </p>
-          <div class="testimonial-author">
-            <strong>Michael Rodriguez</strong>
-            <span>Manager, Grand Plaza Hotel</span>
-          </div>
         </div>
 
-        <div class="testimonial-card">
-          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-text">
-            "Game changer for our business. AI users are now 40% of our new customer bookings."
+        <div class="card card-elevated">
+          <div class="card-icon" style="font-size: 64px;">✨</div>
+          <h3 class="card-title">Gemini</h3>
+          <div style="font-size: 32px; font-weight: 700; color: var(--color-primary); margin: var(--spacing-md) 0;">7M+</div>
+          <p class="text-secondary" style="font-size: 14px; margin-bottom: var(--spacing-sm);">Daily Active Users</p>
+          <p class="text-secondary" style="font-size: 14px;">
+            Best for quick reservations and availability checks
           </p>
-          <div class="testimonial-author">
-            <strong>Jessica Park</strong>
-            <span>CEO, Wellness Studio</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Platform Features</span>
-        <h2 class="section-title">Everything You Need to Succeed</h2>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Universal Discovery</h3>
-          <p>Your business appears in Claude, ChatGPT, and Gemini searches automatically</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Real-Time Bookings</h3>
-          <p>Customers book instantly through AI conversations - no app switching required</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Analytics Dashboard</h3>
-          <p>Track which AI platform drives your sales and optimize your presence</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>Secure & Reliable</h3>
-          <p>Enterprise-grade security with 99.9% uptime guarantee</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">💳</div>
-          <h3>Payment Integration</h3>
-          <p>Accept payments seamlessly through your existing payment processor</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🤝</div>
-          <h3>White-Glove Support</h3>
-          <p>Dedicated support team to help you maximize AI commerce</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="section section-gradient">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-value">34M+</div>
-          <div class="stat-label">Daily AI Users</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">3</div>
-          <div class="stat-label">AI Platforms</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">99.9%</div>
-          <div class="stat-label">Uptime</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value">24/7</div>
-          <div class="stat-label">Support</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="section" id="contact">
+  <section class="cta-section">
     <div class="container">
-      <div class="cta-card">
-        <h2>Ready to Reach 34 Million AI Users?</h2>
-        <p>Join forward-thinking businesses already succeeding with BAIS</p>
-        <div class="cta-actions">
-          <a href="/pages/contact.html" class="btn btn-primary btn-lg">Schedule Demo</a>
-          <a href="/pages/login.html" class="btn btn-secondary btn-lg">Customer Login</a>
-        </div>
+      <h2>Ready to Reach 34M AI Users?</h2>
+      <p>Join businesses already serving customers through Claude, ChatGPT, and Gemini</p>
+      <div class="cta-buttons">
+        <a href="/pages/contact.html" class="btn btn-primary btn-lg">Schedule Demo</a>
+        <a href="/pages/platform.html" class="btn btn-secondary btn-lg">View Platform</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer id="main-footer" class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div>
-          <div class="footer-logo">BAIS</div>
+          <div class="footer-brand">BA Integrate</div>
           <p class="footer-description">
-            Let AI users buy from your business. Universal integration platform for Claude, ChatGPT, and Gemini.
+            Enterprise AI agent integration platform enabling businesses to connect to the autonomous economy.
           </p>
         </div>
         
@@ -258,9 +235,9 @@
           <h4 class="footer-section-title">Platform</h4>
           <ul class="footer-links">
             <li><a href="/pages/platform.html">Features</a></li>
+            <li><a href="/pages/security.html">Security</a></li>
             <li><a href="/pages/pricing.html">Pricing</a></li>
             <li><a href="/pages/integrations.html">Integrations</a></li>
-            <li><a href="/pages/security.html">Security</a></li>
           </ul>
         </div>
         
@@ -270,7 +247,6 @@
             <li><a href="/pages/guides.html">Guides</a></li>
             <li><a href="/pages/api-reference.html">API Reference</a></li>
             <li><a href="/pages/support.html">Support</a></li>
-            <li><a href="/pages/solutions.html">Solutions</a></li>
           </ul>
         </div>
         
@@ -297,7 +273,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- JavaScript - Load as modules -->
   <script type="module">
     import Navigation from '/assets/js/components/Navigation.js';
     
@@ -317,24 +293,6 @@
             });
           }
         });
-      });
-      
-      // Navigation background on scroll
-      const nav = document.getElementById('main-nav');
-      let lastScroll = 0;
-      
-      window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-          nav.classList.remove('navigation-transparent');
-          nav.style.background = 'var(--color-background-white)';
-        } else {
-          nav.classList.add('navigation-transparent');
-          nav.style.background = 'transparent';
-        }
-        
-        lastScroll = currentScroll;
       });
     });
   </script>
