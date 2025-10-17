@@ -26,13 +26,32 @@
 </head>
 <body data-theme="light">
   <!-- Navigation -->
-  <div class="business-navbar">
-    <div class="business-logo">BAIS</div>
-    <div class="business-user-menu">
-      <span class="business-name" id="business-name">Mario's Italian Restaurant</span>
-      <button class="btn btn-secondary" onclick="logout()">Logout</button>
+  <nav id="main-nav" class="navigation">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a href="/">BA Integrate</a>
+    </div>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+    
+    <ul class="nav-links">
+      <li><a href="/pages/business-dashboard.html" class="nav-link">Dashboard</a></li>
+      <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
+      <li><a href="/pages/support.html" class="nav-link">Support</a></li>
+    </ul>
+    
+    <div class="nav-actions">
+      <div class="user-menu">
+        <span class="user-name" id="business-name">Mario's Italian Restaurant</span>
+        <button class="btn btn-secondary" onclick="logout()">Logout</button>
+      </div>
     </div>
   </div>
+</nav>
 
   <!-- Main Content -->
   <div class="business-container">
