@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact BA Integrate - Get in touch for demos, support, and partnership inquiries">
-  <title>Contact - BA Integrate</title>
+  <meta name="description" content="Contact BA Integrate - Schedule a demo and learn how to reach 34M+ AI users">
+  <meta name="keywords" content="contact, demo, BAIS, AI integration, customer support">
+  <meta name="author" content="BA Integrate">
   
-  <!-- CSS  -->
+  <title>Contact Us - BA Integrate</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+  
+  <!-- CSS - Load in order of specificity -->
   <link rel="stylesheet" href="/assets/css/base/variables.css">
   <link rel="stylesheet" href="/assets/css/base/reset.css">
   <link rel="stylesheet" href="/assets/css/base/typography.css">
@@ -18,7 +24,7 @@
   <link rel="stylesheet" href="/assets/css/layouts/grid.css">
   <link rel="stylesheet" href="/assets/css/layouts/section.css">
 </head>
-<body>
+<body data-theme="light">
   <!-- Navigation -->
   <nav id="main-nav" class="navigation">
     <div class="nav-container">
@@ -35,127 +41,134 @@
       <ul class="nav-links">
         <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
         <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
-        <li><a href="/pages/contact.html" class="nav-link nav-link-active">Contact</a></li>
+        <li><a href="/pages/contact.html" class="nav-link active">Contact</a></li>
       </ul>
       
-      <a href="#demo" class="btn btn-primary nav-cta">Schedule Demo</a>
+      <div class="nav-actions">
+        <a href="/pages/login.html" class="btn btn-secondary nav-cta">Customer Login</a>
+        <a href="/pages/contact.html" class="btn btn-primary nav-cta">Schedule Demo</a>
+      </div>
     </div>
   </nav>
 
+  <!-- Main Content -->
   <main>
-    <!-- Hero -->
-    <section class="section-hero">
+    <!-- Page Header -->
+    <section class="section section-hero">
       <div class="container">
-        <h1 class="heading-1">Ready to Reach 34M AI Users?</h1>
-        <p class="text-large text-secondary">
-          Schedule a demo and see how AI users can book with your business in real-time
-        </p>
+        <div class="section-header">
+          <span class="section-label">Get In Touch</span>
+          <h1 class="section-title">Let's Talk About Your AI Commerce Strategy</h1>
+          <p class="section-description">
+            Schedule a demo and discover how BAIS can help you reach 34 million daily AI users
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Form Section -->
     <section class="section">
       <div class="container">
-        <div class="grid grid-cols-2">
-          <!-- Contact Information -->
-          <div>
-            <h2 class="heading-2">Schedule Your Demo</h2>
-            <p class="text-secondary">
-              During your demo call, we'll show you a live AI booking happening in real-time. No slides, no mockups - just a real demonstration of how this works.
-            </p>
-
-            <div class="card" style="margin-top: 2rem;">
-              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
-                <div class="card-icon">Demo</div>
-                <div>
-                  <h3 class="heading-5">Schedule Demo</h3>
-                  <a href="mailto:hello@baintegrate.com" style="color: var(--color-primary);">hello@baintegrate.com</a>
-                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">See a live AI booking in action</p>
-                </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto;">
+          <!-- Contact Form -->
+          <div class="card">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Schedule a Demo</h2>
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name *</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
               </div>
 
-              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
-                <div class="card-icon">Call</div>
-                <div>
-                  <h3 class="heading-5">Call Us</h3>
-                  <a href="tel:+15551234567" style="color: var(--color-primary);">(555) 123-4567</a>
-                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">Available 9AM-5PM PT</p>
-                </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="john@business.com" required>
               </div>
 
-              <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem;">
-                <div class="card-icon">Chat</div>
-                <div>
-                  <h3 class="heading-5">Live Chat</h3>
-                  <a href="#" onclick="alert('Live chat coming soon!')" style="color: var(--color-primary);">Start Chat</a>
-                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">Available 9AM-5PM PT</p>
-                </div>
+              <div class="form-group">
+                <label class="form-label" for="company">Company Name *</label>
+                <input type="text" id="company" name="company" class="form-input" placeholder="Your Business Inc." required>
               </div>
 
-              <div style="display: flex; align-items: flex-start; gap: 1.5rem;">
-                <div class="card-icon">Partner</div>
-                <div>
-                  <h3 class="heading-5">Launch Partners</h3>
-                  <a href="mailto:hello@baintegrate.com" style="color: var(--color-primary);">hello@baintegrate.com</a>
-                  <p class="text-small text-secondary" style="margin-top: 0.5rem;">Join our early adopter program</p>
-                </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
               </div>
-            </div>
 
-            <div class="card" style="margin-top: 2rem;">
-              <h3 class="heading-5">Office</h3>
-              <p class="text-secondary">
-                Saint George, Utah<br>
-                United States
+              <div class="form-group">
+                <label class="form-label" for="business-type">Business Type *</label>
+                <select id="business-type" name="business-type" class="form-select" required>
+                  <option value="">Select your industry</option>
+                  <option value="restaurant">Restaurant / Food Service</option>
+                  <option value="hotel">Hotel / Hospitality</option>
+                  <option value="retail">Retail / E-commerce</option>
+                  <option value="services">Professional Services</option>
+                  <option value="health">Healthcare / Wellness</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Tell us about your needs *</label>
+                <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="What are you hoping to achieve with AI commerce?" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">Schedule Demo</button>
+
+              <p style="font-size: 0.875rem; color: var(--color-text-secondary); text-align: center;">
+                We'll respond within 24 hours
               </p>
-            </div>
+            </form>
           </div>
 
-          <!-- Contact Form -->
+          <!-- Contact Information -->
           <div>
+            <div class="card" style="margin-bottom: 2rem;">
+              <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Get in Touch</h2>
+              <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                  <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Sales</h3>
+                  <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">For new business inquiries and demos</p>
+                  <a href="mailto:sales@baintegrate.com" style="color: var(--color-primary); text-decoration: none;">sales@baintegrate.com</a>
+                </div>
+
+                <div>
+                  <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Support</h3>
+                  <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">For existing customer support</p>
+                  <a href="mailto:support@baintegrate.com" style="color: var(--color-primary); text-decoration: none;">support@baintegrate.com</a>
+                </div>
+
+                <div>
+                  <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Partnerships</h3>
+                  <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">For integration and partnership opportunities</p>
+                  <a href="mailto:partnerships@baintegrate.com" style="color: var(--color-primary); text-decoration: none;">partnerships@baintegrate.com</a>
+                </div>
+              </div>
+            </div>
+
             <div class="card">
-              <h3 class="heading-3" style="margin-bottom: 2rem;">Send us a Message</h3>
-              
-              <form id="contact-form">
-                <div class="form-group">
-                  <label for="name" class="form-label form-label-required">Name</label>
-                  <input type="text" id="name" name="name" class="form-input" required>
-                  <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="email" class="form-label form-label-required">Email</label>
-                  <input type="email" id="email" name="email" class="form-input" required>
-                  <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="company" class="form-label">Company</label>
-                  <input type="text" id="company" name="company" class="form-input">
-                  <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="inquiry" class="form-label form-label-required">Inquiry Type</label>
-                  <select id="inquiry" name="inquiry" class="form-select" required>
-                    <option value="">Select an option</option>
-                    <option value="demo">Schedule a Demo</option>
-                    <option value="launch-partner">Join Launch Partners</option>
-                    <option value="technical">Technical Question</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <span class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="message" class="form-label form-label-required">Message</label>
-                  <textarea id="message" name="message" class="form-textarea" rows="6" required minlength="10" maxlength="1000"></textarea>
-                  <span class="error-message"></span>
-                  <span class="help-text">10-1000 characters</span>
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-full-width">Send Message</button>
-              </form>
+              <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Why Choose BAIS?</h2>
+              <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0;">✓</span>
+                  <span style="color: var(--color-text-secondary);">Reach 34M+ daily AI users across Claude, ChatGPT, and Gemini</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0;">✓</span>
+                  <span style="color: var(--color-text-secondary);">Quick setup - go live in days, not months</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0;">✓</span>
+                  <span style="color: var(--color-text-secondary);">Real-time analytics and insights dashboard</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0;">✓</span>
+                  <span style="color: var(--color-text-secondary);">Enterprise-grade security and reliability</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                  <span style="color: var(--color-primary); font-size: 1.25rem; flex-shrink: 0;">✓</span>
+                  <span style="color: var(--color-text-secondary);">Dedicated support team to maximize your success</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -163,64 +176,46 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section section-light">
+    <section class="section" style="background: var(--color-background-light);">
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Frequently Asked Questions</h2>
         </div>
-        
-        <div class="card-grid-2">
-          <div class="card">
-            <h3 class="heading-5">How many businesses are currently using BAIS?</h3>
-            <p class="text-secondary">
-              We're in our launch phase and working closely with our first group of partner businesses. This is your opportunity to be an early adopter and gain first-mover advantage in AI commerce.
-            </p>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem;">How long does integration take?</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">Most businesses are live within 1-2 weeks. We handle all the technical integration, so you don't need any development resources.</p>
+          </div>
+
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem;">What types of businesses work best with BAIS?</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">Any business that takes bookings, reservations, appointments, or orders. Restaurants, hotels, salons, professional services, and retail all see great results.</p>
+          </div>
+
+          <div class="card" style="margin-bottom: 1rem;">
+            <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem;">How much does BAIS cost?</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">Pricing starts at $99/month for small businesses. We offer custom enterprise plans for larger operations. Schedule a demo to discuss your specific needs.</p>
           </div>
 
           <div class="card">
-            <h3 class="heading-5">Do you have case studies or proven results?</h3>
-            <p class="text-secondary">
-              Not yet - we're too new! But here's what we CAN show you: A live demonstration of AI commerce working, the technology that makes it possible, and the massive market opportunity (34M+ daily AI users).
-            </p>
+            <h3 style="font-size: 1.125rem; margin-bottom: 0.75rem;">Do I need technical knowledge to use BAIS?</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">No! We handle all the technical details. You just provide your business information and we take care of the rest.</p>
           </div>
-
-          <div class="card">
-            <h3 class="heading-5">What kind of support do you provide?</h3>
-            <p class="text-secondary">
-              We offer 24/7 technical support for Enterprise customers, with email support and documentation access for all tiers.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 class="heading-5">Can you integrate with our existing systems?</h3>
-            <p class="text-secondary">
-              Yes! BA Integrate is designed to work with major platforms including AWS, Google Cloud, Shopify, Salesforce, and custom APIs.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>Ready to Get Started?</h2>
-        <p>Join leading enterprises transforming their operations with AI agents</p>
-        <div class="btn-group">
-          <a href="/pages/documentation.html" class="btn btn-primary btn-lg">View Documentation</a>
-          <a href="/pages/pricing.html" class="btn btn-secondary btn-lg">See Pricing</a>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer id="main-footer" class="footer">
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div>
-          <div class="footer-brand">BA Integrate</div>
-          <p class="footer-description">Enterprise AI agent integration platform</p>
+          <div class="footer-logo">BA Integrate</div>
+          <p class="footer-description">
+            Enterprise AI Agent Integration Platform - Connect your business to the autonomous economy
+          </p>
         </div>
         
         <div>
@@ -229,14 +224,16 @@
             <li><a href="/pages/platform.html">Features</a></li>
             <li><a href="/pages/security.html">Security</a></li>
             <li><a href="/pages/pricing.html">Pricing</a></li>
+            <li><a href="/pages/integrations.html">Integrations</a></li>
           </ul>
         </div>
         
         <div>
           <h4 class="footer-section-title">Resources</h4>
           <ul class="footer-links">
-            <li><a href="/pages/documentation.html">Documentation</a></li>
+            <li><a href="/pages/guides.html">Guides</a></li>
             <li><a href="/pages/api-reference.html">API Reference</a></li>
+            <li><a href="/pages/support.html">Support</a></li>
           </ul>
         </div>
         
@@ -244,13 +241,17 @@
           <h4 class="footer-section-title">Company</h4>
           <ul class="footer-links">
             <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/careers.html">Careers</a></li>
+            <li><a href="/pages/blog.html">Blog</a></li>
             <li><a href="/pages/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       
       <div class="footer-bottom">
-        <div class="footer-copyright">&copy; 2025 BA Integrate. All rights reserved.</div>
+        <div class="footer-copyright">
+          &copy; 2025 BA Integrate. All rights reserved.
+        </div>
         <div class="footer-legal">
           <a href="/pages/privacy.html">Privacy Policy</a>
           <a href="/pages/terms.html">Terms of Service</a>
@@ -262,11 +263,64 @@
   <!-- JavaScript -->
   <script type="module">
     import Navigation from '/assets/js/components/Navigation.js';
-    import ContactForm from '/assets/js/components/ContactForm.js';
+    import CONFIG from '/assets/js/core/config.js';
     
     document.addEventListener('DOMContentLoaded', () => {
       new Navigation('#main-nav');
-      new ContactForm('#contact-form');
+      
+      // Handle contact form submission
+      const contactForm = document.getElementById('contact-form');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Sending...';
+          submitBtn.disabled = true;
+          
+          // Simulate form submission
+          setTimeout(() => {
+            showMessage('Thank you! We\'ll be in touch within 24 hours.', 'success');
+            contactForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }, 1000);
+        });
+      }
+      
+      function showMessage(message, type) {
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'form-message';
+        messageDiv.textContent = message;
+        
+        if (type === 'success') {
+          messageDiv.style.cssText = `
+            background: var(--color-success-light);
+            color: var(--color-success);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--color-success);
+            text-align: center;
+            font-weight: 600;
+          `;
+        }
+        
+        contactForm.insertBefore(messageDiv, contactForm.firstChild);
+        
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.remove();
+          }
+        }, 5000);
+      }
     });
   </script>
 </body>
