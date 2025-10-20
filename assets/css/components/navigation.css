@@ -116,22 +116,50 @@
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-  .navigation {
-    padding-top: var(--spacing-md);
-    padding-bottom: var(--spacing-md);
-  }
-  
+  /* Make hamburger visible on all pages */
   .nav-toggle {
     display: flex;
     order: 3;
     margin-left: auto;
+    z-index: 1001;
   }
-
-  .nav-logo{
+  
+  /* Fix hamburger color for transparent nav */
+  .navigation-transparent .nav-toggle-line {
+    background-color: white;
+  }
+  
+  /* Default dark hamburger for other pages */
+  .nav-toggle-line {
+    background-color: var(--color-text-primary);
+  }
+  
+  .nav-logo {
     order: 1;
   }
   
-  .nav-links.active ~ .nav-actions,
+  .nav-actions {
+    order: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    background-color: var(--color-background);
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    z-index: 999;
+  }
+
+  /* Show actions when menu is active */
   .navigation.mobile-open .nav-actions {
     transform: translateY(0);
     opacity: 1;
@@ -154,6 +182,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
+    z-index: 999;
   }
   
   .nav-links.active {
@@ -162,7 +191,7 @@
     visibility: visible;
   }
   
-  /* Increase tap target size */
+  /* Increase tap target size for better mobile UX */
   .nav-link {
     padding: var(--spacing-lg);
     width: 100%;
@@ -171,30 +200,11 @@
     min-height: 48px;
     display: flex;
     align-items: center;
+    color: var(--color-text-primary);
   }
   
   .nav-link:last-child {
     border-bottom: none;
-  }
-  
-  .nav-actions {
-    order: 2;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin-left: 0;
-    margin-top: 0;
-    width: 100%;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    background-color: var(--color-background);
-    padding: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-border);
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-base);
   }
   
   .nav-cta {
@@ -206,6 +216,20 @@
   
   .nav-container {
     padding: 0 var(--spacing-lg);
+  }
+  
+  /* Override transparent nav styles for mobile */
+  .navigation-transparent .nav-link {
+    color: var(--color-text-primary);
+    opacity: 1;
+  }
+  
+  .navigation-transparent .nav-actions {
+    background-color: var(--color-background);
+  }
+  
+  .navigation-transparent .nav-links {
+    background-color: var(--color-background);
   }
 }
 
