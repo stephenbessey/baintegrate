@@ -47,42 +47,42 @@ export default class Navigation {
   }
   
   setupToggle() {
-    if (this.navToggle && this.navLinks) {
-      this.navToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isActive = this.navLinks.classList.contains('active');
-        
-        // Toggle classes
-        this.navLinks.classList.toggle('active');
-        this.navToggle.classList.toggle('active');
-        this.nav.classList.toggle('mobile-open');
-        
-        // Prevent body scroll when menu is open
-        if (!isActive) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
-      });
+  if (this.navToggle && this.navLinks) {
+    this.navToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       
-      // Close mobile menu when clicking on a link
-      this.navLinks.addEventListener('click', (e) => {
-        if (e.target.classList.contains('nav-link')) {
-          this.closeMenu();
-        }
-      });
+      const isActive = this.navLinks.classList.contains('active');
       
-      // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (this.nav.classList.contains('mobile-open') && 
-            !this.nav.contains(e.target)) {
-          this.closeMenu();
-        }
-      });
-    }
+      // Toggle classes
+      this.navLinks.classList.toggle('active');
+      this.navToggle.classList.toggle('active');
+      this.nav.classList.toggle('mobile-open');
+      
+      // Prevent body scroll when menu is open
+      if (!isActive) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close mobile menu when clicking on a link
+    this.navLinks.addEventListener('click', (e) => {
+      if (e.target.classList.contains('nav-link')) {
+        this.closeMenu();
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (this.nav.classList.contains('mobile-open') && 
+          !this.nav.contains(e.target)) {
+        this.closeMenu();
+      }
+    });
   }
+}
 
   closeMenu() {
     this.navLinks?.classList.remove('active');
