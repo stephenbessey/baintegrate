@@ -239,6 +239,10 @@
   z-index: 1000;
 }
 
+.navigation-transparent .nav-toggle-line {
+  background-color: white;
+}
+
 .navigation-transparent .nav-logo a {
   color: white;
 }
@@ -269,6 +273,10 @@
 
 .navigation-transparent .btn-primary:hover {
   background: #f8f9fa;
+}
+
+body:has(.navigation-transparent) {
+  padding-top: 0;
 }
 
 /* Button Overrides for Landing */
@@ -397,7 +405,7 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding: 60px 16px;
+    padding: 120px 16px;
   }
   
   .value-props,
