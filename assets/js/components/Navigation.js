@@ -47,45 +47,45 @@ export default class Navigation {
   }
   
   setupToggle() {
-  if (this.navToggle) {
-    this.navToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+    if (this.navToggle && this.navLinks) {
+      this.navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isActive = this.navLinks.classList.contains('active');
+        
+        this.navLinks.classList.toggle('active');
+        this.navToggle.classList.toggle('active');
+        this.nav.classList.toggle('mobile-open');
+        
+        if (!isActive) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
       
-      const isOpen = this.nav.classList.contains('mobile-open');
+      this.navLinks.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link')) {
+          this.closeMenu();
+        }
+      });
       
-      // Toggle classes on all relevant elements
-      this.nav.classList.toggle('mobile-open');
-      this.navToggle.classList.toggle('active');
-      this.navLinks?.classList.toggle('active');
-      
-      // Manage body scroll
-      document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-    
-    // Close mobile menu when clicking on a link
-    this.navLinks?.addEventListener('click', (e) => {
-      if (e.target.classList.contains('nav-link')) {
-        this.closeMenu();
-      }
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (this.nav.classList.contains('mobile-open') && 
-          !this.nav.contains(e.target)) {
-        this.closeMenu();
-      }
-    });
+      document.addEventListener('click', (e) => {
+        if (this.nav.classList.contains('mobile-open') && 
+            !this.nav.contains(e.target)) {
+          this.closeMenu();
+        }
+      });
+    }
   }
-}
 
-closeMenu() {
-  this.nav?.classList.remove('mobile-open');
-  this.navToggle?.classList.remove('active');
-  this.navLinks?.classList.remove('active');
-  document.body.style.overflow = '';
-}
+  closeMenu() {
+    this.navLinks?.classList.remove('active');
+    this.navToggle?.classList.remove('active');
+    this.nav?.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+  }
   
   setupResponsive() {
     window.addEventListener('resize', () => {
@@ -95,7 +95,6 @@ closeMenu() {
     });
   }
   
-  // Static method to get consistent navigation HTML
   static getNavigationHTML(isAuthenticated = false, userRole = 'public') {
     const baseNav = `
       <nav id="main-nav" class="navigation">
