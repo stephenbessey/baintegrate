@@ -8,6 +8,7 @@ export default class Navigation {
     this.nav = document.querySelector(selector);
     this.navToggle = this.nav?.querySelector('.nav-toggle');
     this.navLinks = this.nav?.querySelector('.nav-links');
+    this.navActions = this.nav?.querySelector('.nav-actions');
     this.currentPage = this.getCurrentPage();
     
     if (this.nav) {
@@ -47,30 +48,53 @@ export default class Navigation {
   
   setupToggle() {
     if (this.navToggle && this.navLinks) {
-      this.navToggle.addEventListener('click', () => {
+      this.navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isActive = this.navLinks.classList.contains('active');
+        
+        // Toggle classes
         this.navLinks.classList.toggle('active');
         this.navToggle.classList.toggle('active');
         this.nav.classList.toggle('mobile-open');
+        
+        // Prevent body scroll when menu is open
+        if (!isActive) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = '';
+        }
       });
       
       // Close mobile menu when clicking on a link
       this.navLinks.addEventListener('click', (e) => {
         if (e.target.classList.contains('nav-link')) {
-          this.navLinks.classList.remove('active');
-          this.navToggle.classList.remove('active');
-          this.nav.classList.remove('mobile-open');
+          this.closeMenu();
+        }
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (this.nav.classList.contains('mobile-open') && 
+            !this.nav.contains(e.target)) {
+          this.closeMenu();
         }
       });
     }
   }
+
+  closeMenu() {
+    this.navLinks?.classList.remove('active');
+    this.navToggle?.classList.remove('active');
+    this.nav?.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+  }
   
   setupResponsive() {
-    // Handle window resize
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
-        this.navLinks?.classList.remove('active');
-        this.navToggle?.classList.remove('active');
-        this.nav?.classList.remove('mobile-open');
+        this.closeMenu();
       }
     });
   }
