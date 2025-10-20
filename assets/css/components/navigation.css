@@ -116,20 +116,40 @@
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: flex;
+  .navigation {
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
   }
   
+  .nav-toggle {
+    display: flex;
+    order: 3;
+    margin-left: auto;
+  }
+
+  .nav-logo{
+    order: 1;
+  }
+  
+  .nav-links.active ~ .nav-actions,
+  .navigation.mobile-open .nav-actions {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
   .nav-links {
     position: fixed;
-    top: 4rem;
+    top: 4.5rem;
     left: 0;
     right: 0;
     flex-direction: column;
     gap: 0;
     background-color: var(--color-background);
     border-bottom: 1px solid var(--color-border);
-    padding: var(--spacing-lg) var(--container-padding);
+    padding: 0;
+    max-height: calc(100vh - 4.5rem);
+    overflow-y: auto;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -142,10 +162,15 @@
     visibility: visible;
   }
   
+  /* Increase tap target size */
   .nav-link {
-    padding: var(--spacing-md) 0;
+    padding: var(--spacing-lg);
     width: 100%;
     border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-base);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
   }
   
   .nav-link:last-child {
@@ -153,16 +178,30 @@
   }
   
   .nav-actions {
+    order: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     margin-left: 0;
-    margin-top: var(--spacing-md);
+    margin-top: 0;
     width: 100%;
     flex-direction: column;
     gap: var(--spacing-sm);
+    background-color: var(--color-background);
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
   }
   
   .nav-cta {
     margin-left: 0;
     width: 100%;
+    min-height: 48px;
+    font-size: var(--font-size-base);
   }
   
   .nav-container {
