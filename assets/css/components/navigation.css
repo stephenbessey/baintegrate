@@ -47,7 +47,7 @@
 }
 
 .nav-link {
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary-600);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
   transition: color var(--transition-base);
