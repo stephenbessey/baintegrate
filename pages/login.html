@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Customer Login - BA Integrate Business-Agent Integration Standard Platform">
-  <meta name="keywords" content="customer login, BAIS, business portal, agent integration">
+  <meta name="description" content="Sign in to your BA Integrate business dashboard">
   <meta name="author" content="BA Integrate">
   
-  <title>Customer Login - BA Integrate</title>
+  <title>Sign In - BA Integrate</title>
   
-  <!-- Favicon  -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
   
-  <!-- CSS - Load in order of specificity -->
+  <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/base/variables.css">
   <link rel="stylesheet" href="/assets/css/base/reset.css">
   <link rel="stylesheet" href="/assets/css/base/typography.css">
@@ -21,125 +19,181 @@
   <link rel="stylesheet" href="/assets/css/components/form.css">
   <link rel="stylesheet" href="/assets/css/components/navigation.css">
   <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/components/notifications.css">
   <link rel="stylesheet" href="/assets/css/layouts/grid.css">
   <link rel="stylesheet" href="/assets/css/layouts/section.css">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Navigation -->
-  <nav id="main-nav" class="navigation">
+  <nav id="main-nav" class="navigation" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/">BA Integrate</a>
+        <a href="/" aria-label="BA Integrate - Home">BA Integrate</a>
       </div>
       
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
         <span class="nav-toggle-line"></span>
       </button>
       
       <ul class="nav-links">
-        <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
-        <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+        <li><a href="/pages/platform.html" class="nav-link">How It Works</a></li>
+        <li><a href="/pages/solutions.html" class="nav-link">For Your Industry</a></li>
+        <li><a href="/pages/pricing.html" class="nav-link">Pricing</a></li>
         <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
       </ul>
       
       <div class="nav-actions">
-        <a href="/pages/login.html" class="btn btn-secondary nav-cta nav-cta-active">Customer Login</a>
-        <a href="/pages/contact.html" class="btn btn-primary nav-cta">Schedule Demo</a>
+        <a href="/pages/login.html" class="nav-utility-link" style="font-weight: 600;">Sign In</a>
+        <a href="/pages/contact.html" class="btn btn-primary btn-cta">Get Started</a>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main>
+  <main id="main-content">
     <!-- Login Section -->
     <section class="section section-hero">
       <div class="container">
-        <div class="login-container">
-          <div class="login-card">
-            <div class="login-header">
-              <h1 class="login-title">Business Dashboard</h1>
-              <p class="login-subtitle">Access your AI commerce dashboard and track transactions</p>
+        <div class="login-layout">
+          <!-- Login Form -->
+          <div class="login-card-wrapper">
+            <div class="card login-card">
+              <div class="login-header">
+                <h1 class="login-title">Welcome Back</h1>
+                <p class="login-subtitle">Sign in to access your business dashboard</p>
+              </div>
+              
+              <!-- Demo Credentials Callout -->
+              <div class="demo-callout">
+                <div class="demo-callout-icon">💡</div>
+                <div class="demo-callout-content">
+                  <strong>Try the Demo</strong>
+                  <p>Use these credentials to explore the dashboard:</p>
+                  <div class="demo-credentials">
+                    <code>demo@baintegrate.com</code>
+                    <code>demo1234</code>
+                  </div>
+                </div>
+              </div>
+              
+              <form id="login-form" class="login-form" novalidate>
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    Email Address <span class="required">*</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="form-input" 
+                    placeholder="you@yourcompany.com"
+                    required
+                    autocomplete="email"
+                    autofocus
+                  >
+                  <div class="form-error" role="alert"></div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="password" class="form-label">
+                    Password <span class="required">*</span>
+                  </label>
+                  <div class="password-input-wrapper">
+                    <input 
+                      type="password" 
+                      id="password" 
+                      name="password" 
+                      class="form-input" 
+                      placeholder="Enter your password"
+                      required
+                      autocomplete="current-password"
+                    >
+                    <button 
+                      type="button" 
+                      class="password-toggle" 
+                      aria-label="Show password"
+                      tabindex="-1"
+                    >
+                      <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="form-error" role="alert"></div>
+                </div>
+                
+                <div class="form-row">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="remember" name="remember">
+                    <span class="checkbox-text">Remember me</span>
+                  </label>
+                  
+                  <a href="/pages/forgot-password.html" class="link-small">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block btn-lg">
+                  Sign In
+                </button>
+              </form>
+              
+              <div class="login-footer">
+                <p>Don't have an account? <a href="/pages/contact.html" class="link">Get Started</a></p>
+              </div>
             </div>
-            
-            <form id="login-form" class="login-form">
-              <div class="form-group">
-                <label for="email" class="form-label">Business Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email" 
-                  class="form-input" 
-                  placeholder="demo@baintegrate.com"
-                  required
-                >
-              </div>
-              
-              <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input 
-                  type="password" 
-                  id="password" 
-                  name="password" 
-                  class="form-input" 
-                  placeholder="demo1234"
-                  required
-                >
-              </div>
-              
-              <div class="form-group form-group-checkbox">
-                <label class="checkbox-label">
-                  <input type="checkbox" id="remember" name="remember">
-                  <span class="checkbox-text">Remember me</span>
-                </label>
-              </div>
-              
-              <button type="submit" class="btn btn-primary btn-block btn-lg">
-                Sign In
-              </button>
-              
-              <div class="login-links">
-                <a href="#" class="link">Forgot your password?</a>
-                <a href="/pages/contact.html" class="link">Need access? Contact us</a>
-              </div>
-            </form>
           </div>
           
-          <div class="login-info">
-            <h2 class="info-title">Customer Portal Features</h2>
-            <div class="info-list">
-              
-              <div class="info-item">
-                <div class="info-icon">🛒</div>
-                <div class="info-content">
-                  <h3>E-commerce Analytics</h3>
-                  <p>Track transactions, monitor inventory, and analyze sales performance</p>
+          <!-- Benefits Sidebar -->
+          <div class="login-benefits">
+            <h2 class="benefits-title">Your Business Dashboard</h2>
+            <p class="benefits-subtitle">Everything you need to manage your AI commerce presence</p>
+            
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <div class="benefit-content">
+                  <h3>Real-Time Analytics</h3>
+                  <p>Track bookings, revenue, and customer insights as they happen</p>
                 </div>
               </div>
               
-              <div class="info-item">
-                <div class="info-icon">📊</div>
-                <div class="info-content">
-                  <h3>Business Intelligence</h3>
-                  <p>Comprehensive dashboards with real-time metrics and insights</p>
+              <div class="benefit-item">
+                <div class="benefit-icon">🤖</div>
+                <div class="benefit-content">
+                  <h3>AI Integration Status</h3>
+                  <p>Monitor your presence across Claude, ChatGPT, and Gemini</p>
                 </div>
               </div>
               
-              <div class="info-item">
-                <div class="info-icon">🔧</div>
-                <div class="info-content">
-                  <h3>API Management</h3>
-                  <p>Manage API keys, monitor usage, and configure agent integrations</p>
+              <div class="benefit-item">
+                <div class="benefit-icon">💳</div>
+                <div class="benefit-content">
+                  <h3>Transaction History</h3>
+                  <p>View all bookings and payments in one central location</p>
                 </div>
               </div>
               
-              <div class="info-item">
-                <div class="info-icon">🔒</div>
-                <div class="info-content">
-                  <h3>Security & Compliance</h3>
-                  <p>Access audit logs, manage permissions, and monitor security events</p>
+              <div class="benefit-item">
+                <div class="benefit-icon">⚙️</div>
+                <div class="benefit-content">
+                  <h3>Easy Management</h3>
+                  <p>Update services, availability, and pricing with a few clicks</p>
                 </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-mini">
+              <div class="testimonial-rating">★★★★★</div>
+              <p class="testimonial-text">
+                "The dashboard makes it so easy to see what's working. I can track every booking from AI assistants."
+              </p>
+              <div class="testimonial-author-mini">
+                <strong>Maria Rodriguez</strong>
+                <span>Mario's Italian Restaurant</span>
               </div>
             </div>
           </div>
@@ -149,30 +203,21 @@
   </main>
 
   <!-- Footer -->
-  <footer id="main-footer" class="footer">
+  <footer id="main-footer" class="footer" role="contentinfo">
     <div class="footer-container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand">BA Integrate</div>
           <p class="footer-description">
-            Business-Agent Integration Standard (BAIS) platform for hotels, restaurants, and e-commerce.
+            Connecting businesses to the autonomous economy through AI assistant integration.
           </p>
         </div>
         
         <div>
-          <h4 class="footer-section-title">Platform</h4>
+          <h4 class="footer-section-title">Product</h4>
           <ul class="footer-links">
-            <li><a href="/pages/platform.html">Features</a></li>
-            <li><a href="/pages/security.html">Security</a></li>
-            <li><a href="/pages/integrations.html">Integrations</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="footer-section-title">Resources</h4>
-          <ul class="footer-links">
-            <li><a href="/pages/guides.html">Guides</a></li>
-            <li><a href="/pages/api-reference.html">API Reference</a></li>
+            <li><a href="/pages/platform.html">How It Works</a></li>
+            <li><a href="/pages/pricing.html">Pricing</a></li>
             <li><a href="/pages/support.html">Support</a></li>
           </ul>
         </div>
@@ -181,8 +226,6 @@
           <h4 class="footer-section-title">Company</h4>
           <ul class="footer-links">
             <li><a href="/pages/about.html">About</a></li>
-            <li><a href="/pages/careers.html">Careers</a></li>
-            <li><a href="/pages/blog.html">Blog</a></li>
             <li><a href="/pages/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -193,24 +236,31 @@
           &copy; 2025 BA Integrate. All rights reserved.
         </div>
         <div class="footer-legal">
-          <a href="/pages/privacy.html">Privacy Policy</a>
-          <a href="/pages/terms.html">Terms of Service</a>
+          <a href="/pages/privacy.html">Privacy</a>
+          <a href="/pages/terms.html">Terms</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Simplified JavaScript without module imports -->
-  <script>
+  <!-- JavaScript -->
+  <script type="module">
+    import Navigation from '/assets/js/components/Navigation.js';
+    
     document.addEventListener('DOMContentLoaded', () => {
-      // Simple navigation toggle
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
+      new Navigation('#main-nav');
       
-      if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-          navToggle.classList.toggle('active');
-          navLinks.classList.toggle('active');
+      // Password toggle functionality
+      const passwordToggle = document.querySelector('.password-toggle');
+      const passwordInput = document.getElementById('password');
+      
+      if (passwordToggle && passwordInput) {
+        passwordToggle.addEventListener('click', () => {
+          const type = passwordInput.type === 'password' ? 'text' : 'password';
+          passwordInput.type = type;
+          
+          const label = type === 'password' ? 'Show password' : 'Hide password';
+          passwordToggle.setAttribute('aria-label', label);
         });
       }
       
@@ -222,282 +272,326 @@
           e.preventDefault();
           
           const formData = new FormData(loginForm);
-          const email = formData.get('email');
+          const email = formData.get('email').trim();
           const password = formData.get('password');
           const remember = formData.get('remember');
           
+          // Basic validation
+          if (!email || !password) {
+            showNotification('Please fill in all fields', 'error');
+            return;
+          }
+          
           // Show loading state
           const submitBtn = loginForm.querySelector('button[type="submit"]');
-          const originalText = submitBtn.textContent;
-          submitBtn.textContent = 'Signing In...';
+          const originalText = submitBtn.innerHTML;
+          submitBtn.classList.add('btn-loading');
           submitBtn.disabled = true;
           
-          // Simulate a small delay to make it feel more realistic
+          // Simulate API call
           setTimeout(() => {
             // Check for demo credentials
-            if (email === 'demo@baintegrate.com' && password === 'demo123') {
-              // Demo login - create mock token and redirect
+            if (email === 'demo@baintegrate.com' && password === 'demo1234') {
+              // Demo login - create mock token
               const mockToken = 'demo_token_' + Date.now();
               
-              // Store demo auth token
-              if (remember === 'on') {
-                localStorage.setItem('bais_auth_token', mockToken);
-                localStorage.setItem('bais_user_email', email);
-              } else {
-                sessionStorage.setItem('bais_auth_token', mockToken);
-                sessionStorage.setItem('bais_user_email', email);
-              }
+              // Store auth token
+              const storage = remember ? localStorage : sessionStorage;
+              storage.setItem('bais_auth_token', mockToken);
+              storage.setItem('bais_user_email', email);
               
-              // Show success message
-              showMessage('Login successful! Redirecting to dashboard...', 'success');
+              // Show success
+              showNotification('Sign in successful! Redirecting...', 'success');
               
-              // Redirect to dashboard after a short delay
+              // Redirect after short delay
               setTimeout(() => {
                 window.location.href = '/pages/business-dashboard.html';
-              }, 100);
+              }, 1000);
             } else {
-              // Show error for non-demo credentials
-              showMessage('Invalid credentials. Please use the demo credentials shown above.', 'error');
-              
-              // Reset button
-              submitBtn.textContent = originalText;
+              // Show error
+              submitBtn.classList.remove('btn-loading');
               submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+              
+              showNotification('Invalid email or password. Try the demo credentials above.', 'error');
             }
-          }, 500);
+          }, 800);
         });
       }
-      
-      function showMessage(message, type) {
-        // Remove existing messages
-        const existingMessage = document.querySelector('.login-message');
-        if (existingMessage) {
-          existingMessage.remove();
-        }
-        
-        // Create message element
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'login-message';
-        messageDiv.textContent = message;
-        
-        // Style based on type
-        if (type === 'success') {
-          messageDiv.style.cssText = `
-            background: #d4edda;
-            color: #155724;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 16px;
-            border: 1px solid #c3e6cb;
-            text-align: center;
-          `;
-        } else {
-          messageDiv.style.cssText = `
-            background: #fee2e2;
-            color: #dc2626;
-            padding: 12px;
-            border-radius: 6px;
-            margin-bottom: 16px;
-            border: 1px solid #fecaca;
-            text-align: center;
-          `;
-        }
-        
-        // Insert before form
-        loginForm.insertBefore(messageDiv, loginForm.firstChild);
-        
-        // Auto-remove error messages after 5 seconds
-        if (type === 'error') {
-          setTimeout(() => {
-            if (messageDiv.parentNode) {
-              messageDiv.remove();
-            }
-          }, 5000);
-        }
-      }
     });
+    
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.setAttribute('role', 'alert');
+      notification.textContent = message;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 4000);
+    }
   </script>
 
   <style>
-    .login-container {
+    .login-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-4xl);
       max-width: 1200px;
       margin: 0 auto;
+      align-items: start;
+    }
+    
+    .login-card-wrapper {
+      position: sticky;
+      top: 6rem;
     }
     
     .login-card {
-      background: var(--color-white);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-      box-shadow: var(--shadow-lg);
+      max-width: 480px;
+      margin: 0 auto;
     }
     
     .login-header {
       text-align: center;
-      margin-bottom: var(--spacing-xl);
+      margin-bottom: var(--spacing-2xl);
     }
     
     .login-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--color-primary-600);
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-dark);
       margin-bottom: var(--spacing-sm);
     }
     
     .login-subtitle {
-      color: var(--color-neutral-600);
-      font-size: 1.1rem;
+      font-size: var(--font-size-lg);
+      color: var(--color-text-secondary);
     }
     
-    .demo-credentials {
-      background: var(--color-primary-50);
-      border: 1px solid var(--color-primary-200);
-      border-radius: var(--border-radius);
-      padding: var(--spacing-md);
-      margin-top: var(--spacing-lg);
-    }
-    
-    .demo-text {
-      font-weight: 600;
-      color: var(--color-primary-700);
-      margin-bottom: var(--spacing-xs);
-      font-size: 0.9rem;
-    }
-    
-    .demo-email,
-    .demo-password {
-      font-family: monospace;
-      font-size: 0.85rem;
-      color: var(--color-neutral-700);
-      margin: 0;
-    }
-    
-    .login-form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg);
-    }
-    
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
-    }
-    
-    .form-label {
-      font-weight: 500;
-      color: var(--color-neutral-700);
-    }
-    
-    .form-input {
-      padding: var(--spacing-sm);
-      border: 1px solid var(--color-neutral-300);
-      border-radius: var(--border-radius);
-      font-size: 1rem;
-      transition: border-color 0.2s ease;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: var(--color-primary-500);
-      box-shadow: 0 0 0 3px var(--color-primary-100);
-    }
-    
-    .form-group-checkbox {
-      flex-direction: row;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-    
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      cursor: pointer;
-    }
-    
-    .checkbox-text {
-      color: var(--color-neutral-600);
-    }
-    
-    .btn-block {
-      width: 100%;
-      text-align: center;
-    }
-    
-    .login-links {
-      display: flex;
-      justify-content: space-between;
-      margin-top: var(--spacing-md);
-    }
-    
-    .link {
-      color: var(--color-primary-600);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    
-    .link:hover {
-      text-decoration: underline;
-    }
-    
-    .login-info {
-      background: var(--color-neutral-50);
-      border-radius: var(--border-radius-lg);
-      padding: var(--spacing-xl);
-    }
-    
-    .info-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--color-primary-600);
-      margin-bottom: var(--spacing-lg);
-    }
-    
-    .info-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg);
-    }
-    
-    .info-item {
+    .demo-callout {
       display: flex;
       gap: var(--spacing-md);
-      align-items: flex-start;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: var(--border-radius-md);
+      border: 2px solid #fbbf24;
+      margin-bottom: var(--spacing-xl);
     }
     
-    .info-icon {
+    .demo-callout-icon {
       font-size: 1.5rem;
       flex-shrink: 0;
     }
     
-    .info-content h3 {
-      font-weight: 600;
-      color: var(--color-neutral-800);
+    .demo-callout-content strong {
+      display: block;
+      color: var(--color-text-dark);
+      font-weight: var(--font-weight-semibold);
       margin-bottom: var(--spacing-xs);
     }
     
-    .info-content p {
-      color: var(--color-neutral-600);
-      font-size: 0.9rem;
-      margin: 0;
+    .demo-callout-content p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-sm);
     }
     
-    .nav-cta-active {
-      background: var(--color-primary-600);
-      color: var(--color-white);
+    .demo-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+    
+    .demo-credentials code {
+      background: rgba(255, 255, 255, 0.8);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--border-radius-sm);
+      font-family: var(--font-family-mono);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-dark);
+    }
+    
+    .password-input-wrapper {
+      position: relative;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: var(--color-text-tertiary);
+      transition: color var(--transition-base);
+    }
+    
+    .password-toggle:hover {
+      color: var(--color-text-dark);
+    }
+    
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-xl);
+    }
+    
+    .link-small {
+      font-size: var(--font-size-sm);
+      color: var(--color-primary);
+      font-weight: var(--font-weight-medium);
+      transition: color var(--transition-base);
+    }
+    
+    .link-small:hover {
+      color: var(--color-primary-dark);
+      text-decoration: underline;
+    }
+    
+    .login-footer {
+      text-align: center;
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-xl);
+      border-top: 1px solid var(--color-border);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+    }
+    
+    .login-footer .link {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+    
+    /* Benefits Sidebar */
+    .login-benefits {
+      padding: var(--spacing-2xl);
+    }
+    
+    .benefits-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text-dark);
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .benefits-subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-3xl);
+    }
+    
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2xl);
+      margin-bottom: var(--spacing-3xl);
+    }
+    
+    .benefit-item {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+    
+    .benefit-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    
+    .benefit-content h3 {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-dark);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    .benefit-content p {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    
+    .testimonial-mini {
+      padding: var(--spacing-xl);
+      background: var(--color-background-light);
+      border-radius: var(--border-radius-lg);
+      border-left: 4px solid var(--color-primary);
+    }
+    
+    .testimonial-mini .testimonial-rating {
+      color: #fbbf24;
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .testimonial-mini .testimonial-text {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      margin-bottom: var(--spacing-md);
+      font-style: italic;
+    }
+    
+    .testimonial-author-mini {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+    
+    .testimonial-author-mini strong {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-dark);
+    }
+    
+    .testimonial-author-mini span {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-tertiary);
+    }
+    
+    @media (max-width: 1024px) {
+      .login-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-3xl);
+      }
+      
+      .login-card-wrapper {
+        position: static;
+      }
+      
+      .login-benefits {
+        order: -1;
+        padding: 0;
+      }
     }
     
     @media (max-width: 768px) {
-      .login-container {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
+      .login-title {
+        font-size: var(--font-size-3xl);
       }
       
-      .login-links {
+      .demo-callout {
         flex-direction: column;
-        gap: var(--spacing-sm);
+      }
+      
+      .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+      }
+      
+      .benefits-title {
+        font-size: var(--font-size-2xl);
       }
     }
   </style>
