@@ -203,12 +203,48 @@ export default class FormValidation {
     const currentStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
     if (!currentStepEl) return true;
     
-    const fields = currentStepEl.querySelectorAll('input, select, textarea');
+    // Special handling for step 1 (role selection with radio buttons)
+    if (this.currentStep === 1) {
+      const radioGroup = currentStepEl.querySelectorAll('input[type="radio"][name="business_type"]');
+      const isChecked = Array.from(radioGroup).some(radio => radio.checked);
+      
+      if (!isChecked) {
+        // Show error in the role-options container
+        const roleOptions = currentStepEl.querySelector('.role-options');
+        let errorDiv = roleOptions.querySelector('.form-error');
+        
+        if (!errorDiv) {
+          errorDiv = document.createElement('div');
+          errorDiv.className = 'form-error';
+          errorDiv.setAttribute('role', 'alert');
+          roleOptions.appendChild(errorDiv);
+        }
+        
+        errorDiv.textContent = 'Please select a business type to continue';
+        errorDiv.style.textAlign = 'center';
+        errorDiv.style.marginTop = 'var(--spacing-lg)';
+        
+        return false;
+      } else {
+        // Clear any error messages
+        const roleOptions = currentStepEl.querySelector('.role-options');
+        const errorDiv = roleOptions.querySelector('.form-error');
+        if (errorDiv) {
+          errorDiv.textContent = '';
+        }
+        return true;
+      }
+    }
+    
+    // For other steps, validate all fields
+    const fields = currentStepEl.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea');
     let isStepValid = true;
     
     fields.forEach(field => {
-      if (!this.validateField(field)) {
-        isStepValid = false;
+      if (field.hasAttribute('required')) {
+        if (!this.validateField(field)) {
+          isStepValid = false;
+        }
       }
     });
     
