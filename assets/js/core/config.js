@@ -16,6 +16,8 @@ const CONFIG = {
     DEMO_REQUEST: '/api/v1/demo-generation/generate',
     NEWSLETTER: '/api/v1/newsletter/subscribe',
     BUSINESSES: '/api/v1/businesses',
+    BUSINESS_DASHBOARD: '/api/v1/dashboard/business',
+    PLATFORM_DASHBOARD: '/api/v1/dashboard/platform',
   },
   
   // Feature Flags

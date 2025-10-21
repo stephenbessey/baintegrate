@@ -19,16 +19,16 @@
   <link rel="stylesheet" href="/assets/css/components/button.css">
   <link rel="stylesheet" href="/assets/css/components/card.css">
   <link rel="stylesheet" href="/assets/css/components/navigation.css">
-  <link rel="stylesheet" href="/assets/css/components/platform-dashboard.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
   <link rel="stylesheet" href="/assets/css/layouts/grid.css">
   <link rel="stylesheet" href="/assets/css/layouts/section.css">
 </head>
-<body class="platform-dashboard">
+<body>
   <!-- Navigation -->
   <nav id="main-nav" class="navigation">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/">BA Integrate</a>
+        <a href="/">BAIS</a>
       </div>
       
       <button class="nav-toggle" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
       </button>
       
       <ul class="nav-links">
-        <li><a href="/pages/dashboard.html" class="nav-link">Business Dashboard</a></li>
+        <li><a href="/pages/business-dashboard.html" class="nav-link">Business Dashboard</a></li>
         <li><a href="/pages/platform-dashboard.html" class="nav-link active">Platform Dashboard</a></li>
         <li><a href="/pages/platform.html" class="nav-link">Platform</a></li>
         <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
@@ -54,253 +54,267 @@
   </nav>
 
   <!-- Main Content -->
-  <div class="platform-dashboard-container">
+  <div class="platform-container">
     <!-- Platform Header -->
-    <div class="platform-dashboard-header">
+    <div class="platform-header">
       <div class="platform-header-content">
         <div>
-          <h1>BAIS Platform Dashboard</h1>
-          <p class="platform-subtitle">Universal AI Integration Platform - Monitor all businesses and LLM providers</p>
+          <h1>Platform Overview</h1>
+          <p class="platform-subtitle">Universal AI Integration Platform Monitoring</p>
         </div>
         <div class="platform-status">
-          <div class="platform-status-badge operational">
-            <div class="platform-status-indicator"></div>
+          <div class="status-badge operational">
+            <div class="status-indicator"></div>
             All Systems Operational
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Key Metrics -->
-    <div class="platform-dashboard-grid">
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">🏢</div>
-          <div class="platform-card-title">Registered Businesses</div>
-        </div>
-        <div class="platform-metric-large">1,247</div>
-        <div class="platform-metric-label">Active on BAIS Platform</div>
-        <div class="platform-metric-change positive">↑ +127 this month</div>
+    <!-- Key Metrics - Compact -->
+    <div class="platform-metrics-grid">
+      <div class="metric-card">
+        <div class="metric-icon">Businesses</div>
+        <div class="metric-value">1,247</div>
+        <div class="metric-label">Registered</div>
+        <div class="metric-change positive">↑ +127</div>
       </div>
 
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">💰</div>
-          <div class="platform-card-title">Total Transactions</div>
-        </div>
-        <div class="platform-metric-large">45,892</div>
-        <div class="platform-metric-label">Across All LLMs</div>
-        <div class="platform-metric-change positive">↑ +23% vs last month</div>
+      <div class="metric-card">
+        <div class="metric-icon">Transactions</div>
+        <div class="metric-value">45,892</div>
+        <div class="metric-label">Total</div>
+        <div class="metric-change positive">↑ +23%</div>
       </div>
 
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">🤖</div>
-          <div class="platform-card-title">Active Consumers</div>
-        </div>
-        <div class="platform-metric-large">8,341</div>
-        <div class="platform-metric-label">Using Claude/ChatGPT/Gemini</div>
-        <div class="platform-metric-change positive">↑ +1,203 new</div>
+      <div class="metric-card">
+        <div class="metric-icon">Consumers</div>
+        <div class="metric-value">8,341</div>
+        <div class="metric-label">Active</div>
+        <div class="metric-change positive">↑ +1,203</div>
       </div>
 
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">📈</div>
-          <div class="platform-card-title">Platform Revenue</div>
-        </div>
-        <div class="platform-metric-large">$892K</div>
-        <div class="platform-metric-label">From all LLM transactions</div>
-        <div class="platform-metric-change positive">↑ +31% growth</div>
+      <div class="metric-card">
+        <div class="metric-icon">Revenue</div>
+        <div class="metric-value">$892K</div>
+        <div class="metric-label">Platform</div>
+        <div class="metric-change positive">↑ +31%</div>
       </div>
     </div>
 
-    <!-- LLM Integration Status -->
-    <div class="platform-dashboard-grid">
-      <div class="platform-card platform-wide-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">🔗</div>
-          <div class="platform-card-title">LLM Provider Integration Status</div>
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- LLM Provider Status -->
+      <div class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">LLM Provider Status</h2>
+          <span class="section-subtitle">Real-time Integration Health</span>
         </div>
-        <div class="platform-llm-providers">
-          <div class="platform-llm-provider">
-            <div class="platform-llm-info">
-              <div class="platform-llm-logo">🤖</div>
-              <div class="platform-llm-details">
-                <h3>Anthropic Claude</h3>
-                <div class="platform-llm-stats">
-                  <span>18,453 transactions</span>
-                  <span>•</span>
-                  <span>2,847 businesses accessed</span>
-                </div>
+
+        <div class="llm-providers-grid">
+          <div class="llm-provider-card claude">
+            <div class="provider-header">
+              <div class="provider-name">Anthropic Claude</div>
+              <div class="provider-status active">Active</div>
+            </div>
+            <div class="provider-stats">
+              <div class="stat-item">
+                <span class="stat-value">18,453</span>
+                <span class="stat-label">Transactions</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">40.2%</span>
+                <span class="stat-label">Traffic</span>
               </div>
             </div>
-            <div class="platform-llm-status">
-              <div class="platform-status-active">
-                <div class="platform-status-indicator"></div>
-                Active
-              </div>
-              <span style="font-size: 13px; color: var(--color-text-secondary);">40.2% of traffic</span>
+            <div class="provider-progress">
+              <div class="progress-bar" style="width: 40.2%; background: #667eea;"></div>
             </div>
           </div>
 
-          <div class="platform-llm-provider">
-            <div class="platform-llm-info">
-              <div class="platform-llm-logo">💬</div>
-              <div class="platform-llm-details">
-                <h3>OpenAI ChatGPT</h3>
-                <div class="platform-llm-stats">
-                  <span>16,892 transactions</span>
-                  <span>•</span>
-                  <span>2,541 businesses accessed</span>
-                </div>
+          <div class="llm-provider-card chatgpt">
+            <div class="provider-header">
+              <div class="provider-name">OpenAI ChatGPT</div>
+              <div class="provider-status active">Active</div>
+            </div>
+            <div class="provider-stats">
+              <div class="stat-item">
+                <span class="stat-value">16,892</span>
+                <span class="stat-label">Transactions</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">36.8%</span>
+                <span class="stat-label">Traffic</span>
               </div>
             </div>
-            <div class="platform-llm-status">
-              <div class="platform-status-active">
-                <div class="platform-status-indicator"></div>
-                Active
-              </div>
-              <span style="font-size: 13px; color: var(--color-text-secondary);">36.8% of traffic</span>
+            <div class="provider-progress">
+              <div class="progress-bar" style="width: 36.8%; background: #10b981;"></div>
             </div>
           </div>
 
-          <div class="platform-llm-provider">
-            <div class="platform-llm-info">
-              <div class="platform-llm-logo">✨</div>
-              <div class="platform-llm-details">
-                <h3>Google Gemini</h3>
-                <div class="platform-llm-stats">
-                  <span>10,547 transactions</span>
-                  <span>•</span>
-                  <span>1,923 businesses accessed</span>
-                </div>
+          <div class="llm-provider-card gemini">
+            <div class="provider-header">
+              <div class="provider-name">Google Gemini</div>
+              <div class="provider-status active">Active</div>
+            </div>
+            <div class="provider-stats">
+              <div class="stat-item">
+                <span class="stat-value">10,547</span>
+                <span class="stat-label">Transactions</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value">23.0%</span>
+                <span class="stat-label">Traffic</span>
               </div>
             </div>
-            <div class="platform-llm-status">
-              <div class="platform-status-active">
-                <div class="platform-status-indicator"></div>
-                Active
-              </div>
-              <span style="font-size: 13px; color: var(--color-text-secondary);">23.0% of traffic</span>
+            <div class="provider-progress">
+              <div class="progress-bar" style="width: 23.0%; background: #3b82f6;"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Universal Tools Performance -->
-    <div class="platform-dashboard-grid">
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">🔧</div>
-          <div class="platform-card-title">Universal Tools Performance</div>
+      <!-- Platform Tools Performance -->
+      <div class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Platform Tools</h2>
+          <span class="section-subtitle">Success Rate: 98.7%</span>
         </div>
-        <div class="platform-tool-metrics">
-          <div class="platform-tool-metric">
-            <span class="platform-tool-name">bais_search_businesses</span>
-            <span class="platform-tool-value">34,827</span>
-          </div>
-          <div class="platform-tool-metric">
-            <span class="platform-tool-name">bais_get_business_services</span>
-            <span class="platform-tool-value">52,104</span>
-          </div>
-          <div class="platform-tool-metric">
-            <span class="platform-tool-name">bais_execute_service</span>
-            <span class="platform-tool-value">45,892</span>
-          </div>
-        </div>
-        <div class="platform-chart-container">
-          <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 12px;">Success Rate: 98.7%</p>
-          <div class="platform-chart-bars">
-            <div class="platform-chart-bar" style="height: 95%;"></div>
-            <div class="platform-chart-bar" style="height: 98%;"></div>
-            <div class="platform-chart-bar" style="height: 97%;"></div>
-            <div class="platform-chart-bar" style="height: 99%;"></div>
-          </div>
-          <div class="platform-chart-labels">
-            <span>Search</span>
-            <span>Get Services</span>
-            <span>Execute</span>
-            <span>Overall</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="platform-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">🏆</div>
-          <div class="platform-card-title">Top Businesses by AI Traffic</div>
-        </div>
-        <div class="platform-business-list">
-          <div class="platform-business-item">
-            <div class="platform-business-name">Mario's Italian Restaurant</div>
-            <div class="platform-business-transactions">
-              <span class="platform-llm-badge claude">247</span>
-              <span class="platform-llm-badge chatgpt">189</span>
-              <span class="platform-llm-badge gemini">134</span>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-name">bais_search_businesses</div>
+            <div class="tool-metric">
+              <span class="tool-value">34,827</span>
+              <span class="tool-label">calls</span>
             </div>
           </div>
-          <div class="platform-business-item">
-            <div class="platform-business-name">Grand Plaza Hotel</div>
-            <div class="platform-business-transactions">
-              <span class="platform-llm-badge claude">312</span>
-              <span class="platform-llm-badge chatgpt">298</span>
-              <span class="platform-llm-badge gemini">156</span>
+
+          <div class="tool-item">
+            <div class="tool-name">bais_get_business_services</div>
+            <div class="tool-metric">
+              <span class="tool-value">52,104</span>
+              <span class="tool-label">calls</span>
             </div>
           </div>
-          <div class="platform-business-item">
-            <div class="platform-business-name">TechStore Electronics</div>
-            <div class="platform-business-transactions">
-              <span class="platform-llm-badge claude">189</span>
-              <span class="platform-llm-badge chatgpt">445</span>
-              <span class="platform-llm-badge gemini">234</span>
-            </div>
-          </div>
-          <div class="platform-business-item">
-            <div class="platform-business-name">Bella Vista Restaurant</div>
-            <div class="platform-business-transactions">
-              <span class="platform-llm-badge claude">167</span>
-              <span class="platform-llm-badge chatgpt">143</span>
-              <span class="platform-llm-badge gemini">98</span>
-            </div>
-          </div>
-          <div class="platform-business-item">
-            <div class="platform-business-name">Downtown Boutique Hotel</div>
-            <div class="platform-business-transactions">
-              <span class="platform-llm-badge claude">234</span>
-              <span class="platform-llm-badge chatgpt">198</span>
-              <span class="platform-llm-badge gemini">145</span>
+
+          <div class="tool-item">
+            <div class="tool-name">bais_execute_service</div>
+            <div class="tool-metric">
+              <span class="tool-value">45,892</span>
+              <span class="tool-label">calls</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Business Categories -->
-    <div class="platform-dashboard-grid">
-      <div class="platform-card platform-wide-card">
-        <div class="platform-card-header">
-          <div class="platform-card-icon">📊</div>
-          <div class="platform-card-title">Consumer Search Trends Across LLMs</div>
-        </div>
-        <div class="platform-chart-container">
-          <div class="platform-chart-bars">
-            <div class="platform-chart-bar" style="height: 85%;"></div>
-            <div class="platform-chart-bar" style="height: 72%;"></div>
-            <div class="platform-chart-bar" style="height: 58%;"></div>
-            <div class="platform-chart-bar" style="height: 45%;"></div>
-            <div class="platform-chart-bar" style="height: 62%;"></div>
-            <div class="platform-chart-bar" style="height: 78%;"></div>
-            <div class="platform-chart-bar" style="height: 91%;"></div>
+    <!-- Top Businesses -->
+    <div class="dashboard-section">
+      <div class="section-header">
+        <h2 class="section-title">Top Businesses by AI Traffic</h2>
+        <button class="btn btn-secondary btn-sm">View All</button>
+      </div>
+
+      <div class="businesses-list">
+        <div class="business-item">
+          <div class="business-info">
+            <div class="business-name">Mario's Italian Restaurant</div>
+            <div class="business-type">Restaurant</div>
           </div>
-          <div class="platform-chart-labels">
-            <span>Restaurants</span>
-            <span>Hotels</span>
-            <span>Retail</span>
-            <span>Services</span>
-            <span>Entertainment</span>
-            <span>Health</span>
-            <span>Travel</span>
+          <div class="business-traffic">
+            <span class="traffic-badge claude">247</span>
+            <span class="traffic-badge chatgpt">189</span>
+            <span class="traffic-badge gemini">134</span>
+          </div>
+        </div>
+
+        <div class="business-item">
+          <div class="business-info">
+            <div class="business-name">Grand Plaza Hotel</div>
+            <div class="business-type">Hotel</div>
+          </div>
+          <div class="business-traffic">
+            <span class="traffic-badge claude">312</span>
+            <span class="traffic-badge chatgpt">298</span>
+            <span class="traffic-badge gemini">156</span>
+          </div>
+        </div>
+
+        <div class="business-item">
+          <div class="business-info">
+            <div class="business-name">TechStore Electronics</div>
+            <div class="business-type">Retail</div>
+          </div>
+          <div class="business-traffic">
+            <span class="traffic-badge claude">189</span>
+            <span class="traffic-badge chatgpt">445</span>
+            <span class="traffic-badge gemini">234</span>
+          </div>
+        </div>
+
+        <div class="business-item">
+          <div class="business-info">
+            <div class="business-name">Bella Vista Restaurant</div>
+            <div class="business-type">Restaurant</div>
+          </div>
+          <div class="business-traffic">
+            <span class="traffic-badge claude">167</span>
+            <span class="traffic-badge chatgpt">143</span>
+            <span class="traffic-badge gemini">98</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Categories Performance -->
+    <div class="dashboard-section">
+      <div class="section-header">
+        <h2 class="section-title">Business Categories Performance</h2>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-item">
+          <div class="category-name">Restaurants</div>
+          <div class="category-stats">
+            <span class="category-transactions">12,847</span>
+            <span class="category-percentage">28%</span>
+          </div>
+          <div class="category-progress">
+            <div class="progress-bar" style="width: 28%; background: #667eea;"></div>
+          </div>
+        </div>
+
+        <div class="category-item">
+          <div class="category-name">Hotels</div>
+          <div class="category-stats">
+            <span class="category-transactions">8,923</span>
+            <span class="category-percentage">19%</span>
+          </div>
+          <div class="category-progress">
+            <div class="progress-bar" style="width: 19%; background: #10b981;"></div>
+          </div>
+        </div>
+
+        <div class="category-item">
+          <div class="category-name">Retail</div>
+          <div class="category-stats">
+            <span class="category-transactions">7,456</span>
+            <span class="category-percentage">16%</span>
+          </div>
+          <div class="category-progress">
+            <div class="progress-bar" style="width: 16%; background: #3b82f6;"></div>
+          </div>
+        </div>
+
+        <div class="category-item">
+          <div class="category-name">Services</div>
+          <div class="category-stats">
+            <span class="category-transactions">5,234</span>
+            <span class="category-percentage">11%</span>
+          </div>
+          <div class="category-progress">
+            <div class="progress-bar" style="width: 11%; background: #f59e0b;"></div>
           </div>
         </div>
       </div>
@@ -308,22 +322,490 @@
   </div>
 
   <script type="module">
-    import Navigation from '/assets/js/components/Navigation.js';
+    import CONFIG from '/assets/js/core/config.js';
     
-    // Initialize navigation
+    // Check authentication
     document.addEventListener('DOMContentLoaded', () => {
-      new Navigation('#main-nav');
+      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
       
-      // Logout functionality
-      const logoutBtn = document.getElementById('logout-btn');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-          if (confirm('Are you sure you want to logout?')) {
-            window.location.href = '/pages/login.html';
+      if (!token) {
+        window.location.href = '/pages/login.html';
+        return;
+      }
+      
+      // Load platform dashboard data
+      loadPlatformDashboardData();
+    });
+    
+    async function loadPlatformDashboardData() {
+      const token = localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token');
+      
+      try {
+        // Try to fetch real data from backend
+        const response = await fetch(`${CONFIG.API_BASE_URL}/api/v1/platform/dashboard`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
           }
         });
+        
+        if (response.ok) {
+          const data = await response.json();
+          updatePlatformDashboard(data);
+        } else {
+          // Fall back to demo data if backend is not available
+          loadDemoPlatformData();
+        }
+      } catch (error) {
+        console.log('Using demo platform data:', error);
+        loadDemoPlatformData();
       }
-    });
+    }
+    
+    function loadDemoPlatformData() {
+      // Demo data for platform dashboard
+      const demoData = {
+        businesses: '1,247',
+        transactions: '45,892',
+        consumers: '8,341',
+        revenue: '$892K',
+        successRate: '98.7%'
+      };
+      
+      updatePlatformDashboard(demoData);
+    }
+    
+    function updatePlatformDashboard(data) {
+      // Update platform dashboard with real or demo data
+      console.log('Platform dashboard data updated:', data);
+    }
+    
+    // Global functions for button clicks
+    window.logout = function() {
+      if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('bais_auth_token');
+        sessionStorage.removeItem('bais_auth_token');
+        localStorage.removeItem('bais_user_email');
+        sessionStorage.removeItem('bais_user_email');
+        window.location.href = '/pages/login.html';
+      }
+    };
+    
+    // Add logout functionality to button
+    document.getElementById('logout-btn').addEventListener('click', window.logout);
   </script>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .platform-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .platform-header {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .platform-header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .platform-header h1 {
+      font-size: 28px;
+      color: #1a202c;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    
+    .platform-subtitle {
+      color: #718096;
+      font-size: 16px;
+    }
+    
+    .platform-status {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .status-badge.operational {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #28a745;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Platform Metrics Grid */
+    .platform-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .metric-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    
+    .metric-icon {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4a5568;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 4px;
+    }
+    
+    .metric-label {
+      font-size: 12px;
+      color: #718096;
+      margin-bottom: 8px;
+    }
+    
+    .metric-change {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    
+    .metric-change.positive {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    /* Dashboard Sections */
+    .dashboard-section {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+    }
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+    
+    .section-subtitle {
+      font-size: 12px;
+      color: #718096;
+    }
+    
+    /* LLM Providers Grid */
+    .llm-providers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .llm-provider-card {
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid;
+    }
+    
+    .llm-provider-card.claude {
+      border-left-color: #667eea;
+      background: #f8f9ff;
+    }
+    
+    .llm-provider-card.chatgpt {
+      border-left-color: #10b981;
+      background: #f0fdf4;
+    }
+    
+    .llm-provider-card.gemini {
+      border-left-color: #3b82f6;
+      background: #eff6ff;
+    }
+    
+    .provider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .provider-name {
+      font-weight: 600;
+      color: #1a202c;
+      font-size: 14px;
+    }
+    
+    .provider-status {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    
+    .provider-status.active {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .provider-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+    
+    .stat-label {
+      font-size: 11px;
+      color: #718096;
+    }
+    
+    .provider-progress {
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+    
+    /* Tools Grid */
+    .tools-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .tool-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #f7fafc;
+      border-radius: 6px;
+    }
+    
+    .tool-name {
+      font-size: 12px;
+      color: #4a5568;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .tool-metric {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    
+    .tool-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+    
+    .tool-label {
+      font-size: 10px;
+      color: #718096;
+    }
+    
+    /* Businesses List */
+    .businesses-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .business-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #f7fafc;
+      border-radius: 6px;
+    }
+    
+    .business-info {
+      flex: 1;
+    }
+    
+    .business-name {
+      font-size: 14px;
+      color: #1a202c;
+      font-weight: 600;
+    }
+    
+    .business-type {
+      font-size: 11px;
+      color: #718096;
+    }
+    
+    .business-traffic {
+      display: flex;
+      gap: 6px;
+    }
+    
+    .traffic-badge {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    
+    .traffic-badge.claude {
+      background: #e6edff;
+      color: #667eea;
+    }
+    
+    .traffic-badge.chatgpt {
+      background: #dcfce7;
+      color: #10b981;
+    }
+    
+    .traffic-badge.gemini {
+      background: #dbeafe;
+      color: #3b82f6;
+    }
+    
+    /* Categories Grid */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    
+    .category-item {
+      padding: 12px;
+      background: #f7fafc;
+      border-radius: 6px;
+    }
+    
+    .category-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+    
+    .category-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    
+    .category-transactions {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a202c;
+    }
+    
+    .category-percentage {
+      font-size: 12px;
+      color: #718096;
+    }
+    
+    .category-progress {
+      height: 3px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .platform-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .platform-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </body>
 </html>
