@@ -47,6 +47,21 @@ export default class FormValidation {
     const inputs = this.form.querySelectorAll('input, select, textarea');
     
     inputs.forEach(input => {
+      // Special handling for radio buttons
+      if (input.type === 'radio') {
+        input.addEventListener('change', () => {
+          // Clear error message when a radio is selected
+          const roleOptions = input.closest('.role-options');
+          if (roleOptions) {
+            const errorDiv = roleOptions.querySelector('.form-error');
+            if (errorDiv) {
+              errorDiv.textContent = '';
+            }
+          }
+        });
+        return;
+      }
+      
       // Validate on blur
       if (this.options.validateOnBlur) {
         input.addEventListener('blur', () => {
