@@ -348,7 +348,7 @@
 
 .testimonial-text {
   font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  color: #374151;
   line-height: 1.6;
   margin-bottom: var(--spacing-xl);
   font-style: italic;
@@ -370,13 +370,13 @@
 
 .author-name {
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-dark);
+  color: #111827;
   font-size: var(--font-size-base);
 }
 
 .author-title {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: #6b7280;
 }
 
 /* Features Section */
