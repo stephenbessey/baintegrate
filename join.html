@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join BAIS - Launch Partner Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .opportunity-banner {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 2rem 0;
+            border-radius: 4px;
+        }
+
+        .opportunity-banner h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .opportunity-banner p {
+            color: #856404;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .form-content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #495057;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #dc3545;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+
+        .service-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .service-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-number {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .remove-service {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s ease;
+        }
+
+        .remove-service:hover {
+            background: #c82333;
+        }
+
+        .add-service-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-service-btn:hover {
+            background: #218838;
+            transform: translateY(-1px);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .submit-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e9ecef;
+            text-align: center;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .submit-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Join BAIS Launch Partners</h1>
+            <p class="tagline">Be among the first businesses accessible through AI</p>
+        </div>
+
+        <div class="opportunity-banner">
+            <h3>💡 Early Partner Opportunity</h3>
+            <p>34+ million people use Claude, ChatGPT, and Gemini daily. We're building the platform that lets them discover and buy from your business. Join us in pioneering AI commerce.</p>
+        </div>
+
+        <div class="form-content">
+            <div id="message" class="message"></div>
+
+            <form id="intakeForm">
+                <!-- Business Information -->
+                <div class="section">
+                    <h2 class="section-title">Business Information</h2>
+
+                    <div class="form-group">
+                        <label for="businessName">Business Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="businessType">Business Type <span class="required">*</span></label>
+                            <select id="businessType" name="businessType" required>
+                                <option value="">Select type...</option>
+                                <option value="hospitality">🏨 Hotels & Accommodations</option>
+                                <option value="food_service">🍽️ Restaurants & Food Service</option>
+                                <option value="retail">🛍️ Retail & E-commerce</option>
+                                <option value="services">⚙️ Professional Services</option>
+                                <option value="healthcare">⚕️ Healthcare & Wellness</option>
+                                <option value="entertainment">🎭 Entertainment & Events</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Business Description <span class="required">*</span></label>
+                        <textarea id="description" name="description" required placeholder="Tell us about your business and what makes it unique..."></textarea>
+                        <p class="help-text">This helps us understand how AI users will discover you</p>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="section">
+                    <h2 class="section-title">Location</h2>
+
+                    <div class="form-group">
+                        <label for="address">Street Address <span class="required">*</span></label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State/Province <span class="required">*</span></label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postalCode">Postal Code</label>
+                            <input type="text" id="postalCode" name="postalCode">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Country <span class="required">*</span></label>
+                            <input type="text" id="country" name="country" required value="United States">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="section">
+                    <h2 class="section-title">Contact Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Contact Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactTitle">Title/Position</label>
+                            <input type="text" id="contactTitle" name="contactTitle" placeholder="e.g., Owner, Manager">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                            <p class="help-text">We'll use this for your BAIS account setup</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Offered -->
+                <div class="section">
+                    <h2 class="section-title">Services You Offer</h2>
+                    <p class="help-text" style="margin-bottom: 1.5rem;">What services do you want AI users to discover and book? Add at least one service.</p>
+
+                    <div id="servicesContainer">
+                        <!-- Service items will be added here -->
+                    </div>
+
+                    <button type="button" class="add-service-btn" onclick="addService()">
+                        <span>+ Add Service</span>
+                    </button>
+                </div>
+
+                <!-- Integration Preferences -->
+                <div class="section">
+                    <h2 class="section-title">Integration Details</h2>
+
+                    <div class="form-group">
+                        <label>Which AI platforms are you most interested in? <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="platformClaude" name="platforms" value="claude">
+                            <label for="platformClaude">Claude (Anthropic)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="platformChatGPT" name="platforms" value="chatgpt">
+                            <label for="platformChatGPT">ChatGPT (OpenAI)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="platformGemini" name="platforms" value="gemini">
+                            <label for="platformGemini">Gemini (Google)</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="platformAll" name="platforms" value="all" checked>
+                            <label for="platformAll">All platforms</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="existingBooking">Do you have an existing booking/reservation system?</label>
+                        <select id="existingBooking" name="existingBooking">
+                            <option value="">Select...</option>
+                            <option value="yes_api">Yes, with API access</option>
+                            <option value="yes_no_api">Yes, but no API</option>
+                            <option value="no">No, I need help setting one up</option>
+                        </select>
+                        <p class="help-text">If yes, we can integrate with it. If no, we'll help you get started.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="technicalContact">Technical Contact (if different from above)</label>
+                        <input type="text" id="technicalContact" name="technicalContact" placeholder="Name and email">
+                    </div>
+                </div>
+
+                <!-- Timeline & Goals -->
+                <div class="section">
+                    <h2 class="section-title">Your Goals</h2>
+
+                    <div class="form-group">
+                        <label for="timeline">When would you like to go live? <span class="required">*</span></label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="asap">As soon as possible</option>
+                            <option value="1-2weeks">1-2 weeks</option>
+                            <option value="3-4weeks">3-4 weeks</option>
+                            <option value="1-2months">1-2 months</option>
+                            <option value="exploring">Just exploring</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goals">What are you hoping to achieve with AI commerce?</label>
+                        <textarea id="goals" name="goals" placeholder="e.g., Reach new customers, automate bookings, be first in my market..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="questions">Questions or special requirements?</label>
+                        <textarea id="questions" name="questions" placeholder="Anything else we should know?"></textarea>
+                    </div>
+                </div>
+
+                <!-- Agreement -->
+                <div class="section">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        <label for="agreement">
+                            <span class="required">*</span> I understand that BAIS is a new platform in its launch phase. I'm interested in being an early partner and seeing the live demo.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Schedule Demo & Get Started
+                    </button>
+                    <p class="help-text" style="margin-top: 1rem;">We'll review your application and reach out within 24 hours to schedule your live demo.</p>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer-note">
+            <p><strong>BAIS is pioneering AI commerce.</strong> We're honest about being new and excited about building the future with visionary partners like you.</p>
+        </div>
+    </div>
+
+    <script>
+        let serviceCount = 0;
+
+        function initializeForm() {
+            addService();
+
+            const form = document.getElementById('intakeForm');
+            form.addEventListener('submit', handleSubmit);
+        }
+
+        function addService() {
+            serviceCount++;
+            const container = document.getElementById('servicesContainer');
+            const serviceHtml = createServiceItemHtml(serviceCount);
+            container.insertAdjacentHTML('beforeend', serviceHtml);
+        }
+
+        function createServiceItemHtml(number) {
+            return `
+                <div class="service-item" id="service-${number}">
+                    <div class="service-item-header">
+                        <span class="service-number">Service #${number}</span>
+                        ${number > 1 ? `<button type="button" class="remove-service" onclick="removeService(${number})">Remove</button>` : ''}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceName-${number}">Service Name <span class="required">*</span></label>
+                        <input type="text" id="serviceName-${number}" name="services[${number}][name]" required placeholder="e.g., Hotel Room Booking, Table Reservation">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceDescription-${number}">Description</label>
+                        <textarea id="serviceDescription-${number}" name="services[${number}][description]" placeholder="Brief description of what this service offers..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="serviceCategory-${number}">Category</label>
+                            <input type="text" id="serviceCategory-${number}" name="services[${number}][category]" placeholder="e.g., Accommodation, Dining">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servicePricing-${number}">Typical Price Range</label>
+                            <input type="text" id="servicePricing-${number}" name="services[${number}][pricing]" placeholder="e.g., $100-$300">
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function removeService(number) {
+            const serviceItem = document.getElementById(`service-${number}`);
+            if (serviceItem) {
+                serviceItem.remove();
+            }
+        }
+
+        function validateForm(formData) {
+            const requiredFields = ['businessName', 'businessType', 'description', 'address', 'city', 'state', 'country', 'contactName', 'email', 'phone', 'timeline'];
+
+            for (const field of requiredFields) {
+                if (!formData.get(field)) {
+                    return { isValid: false, message: `Please fill in all required fields.` };
+                }
+            }
+
+            if (!formData.get('agreement')) {
+                return { isValid: false, message: 'Please acknowledge that you understand BAIS is a new platform.' };
+            }
+
+            const platforms = formData.getAll('platforms');
+            if (platforms.length === 0) {
+                return { isValid: false, message: 'Please select at least one AI platform.' };
+            }
+
+            const services = Array.from(document.querySelectorAll('[name^="services"][name$="[name]"]'));
+            if (services.length === 0 || !services[0].value) {
+                return { isValid: false, message: 'Please add at least one service.' };
+            }
+
+            return { isValid: true };
+        }
+
+        function showMessage(message, type) {
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = message;
+            messageElement.className = `message ${type}`;
+            messageElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('submitBtn');
+
+            const validation = validateForm(formData);
+            if (!validation.isValid) {
+                showMessage(validation.message, 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            try {
+                const response = await submitFormData(formData);
+
+                if (response.success) {
+                    // Redirect to thank you page
+                    window.location.href = '/join/thank-you.html';
+                } else {
+                    showMessage('There was an issue submitting your application. Please try again or contact us directly.', 'error');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                showMessage('There was an issue submitting your application. Please try again or contact us directly at hello@baintegrate.com', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Schedule Demo & Get Started';
+            }
+        }
+
+        async function submitFormData(formData) {
+            const data = extractFormData(formData);
+
+            console.log('Form submission data:', data);
+
+            // TODO: Replace with actual API endpoint
+            // const response = await fetch('/api/customer-intake', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+            // return await response.json();
+
+            // Temporary success response for testing
+            return new Promise(resolve => {
+                setTimeout(() => resolve({ success: true }), 1000);
+            });
+        }
+
+        function extractFormData(formData) {
+            const data = {
+                business: {
+                    name: formData.get('businessName'),
+                    type: formData.get('businessType'),
+                    description: formData.get('description'),
+                    website: formData.get('website')
+                },
+                location: {
+                    address: formData.get('address'),
+                    city: formData.get('city'),
+                    state: formData.get('state'),
+                    postalCode: formData.get('postalCode'),
+                    country: formData.get('country')
+                },
+                contact: {
+                    name: formData.get('contactName'),
+                    title: formData.get('contactTitle'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone')
+                },
+                services: extractServices(formData),
+                integration: {
+                    platforms: formData.getAll('platforms'),
+                    existingBooking: formData.get('existingBooking'),
+                    technicalContact: formData.get('technicalContact')
+                },
+                goals: {
+                    timeline: formData.get('timeline'),
+                    objectives: formData.get('goals'),
+                    questions: formData.get('questions')
+                },
+                submittedAt: new Date().toISOString()
+            };
+
+            return data;
+        }
+
+        function extractServices(formData) {
+            const services = [];
+            const entries = Array.from(formData.entries());
+
+            entries.forEach(([key, value]) => {
+                if (key.startsWith('services[') && value) {
+                    const match = key.match(/services\[(\d+)\]\[(\w+)\]/);
+                    if (match) {
+                        const index = parseInt(match[1]);
+                        const field = match[2];
+
+                        if (!services[index]) {
+                            services[index] = {};
+                        }
+                        services[index][field] = value;
+                    }
+                }
+            });
+
+            return services.filter(service => service && service.name);
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeForm);
+    </script>
+</body>
+</html>
