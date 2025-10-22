@@ -1,141 +1,192 @@
 /**
  * FormValidation Component
  * Multi-step form with real-time validation and accessibility
+ * Following Clean Code principles with single responsibility methods
  */
+
+import CONFIG from '../core/config.js';
 
 export default class FormValidation {
   constructor(selector, options = {}) {
-    this.form = document.querySelector(selector);
-    if (!this.form) return;
+    this.formElement = document.querySelector(selector);
+    if (!this.formElement) return;
     
-    this.options = {
+    this.configuration = this.createConfiguration(options);
+    this.currentStepNumber = 1;
+    this.totalStepCount = this.calculateTotalSteps();
+    this.formData = {};
+    
+    this.initialize();
+  }
+  
+  createConfiguration(options) {
+    return {
       onSuccess: options.onSuccess || (() => {}),
       onError: options.onError || (() => {}),
       validateOnBlur: options.validateOnBlur !== false,
       validateOnInput: options.validateOnInput !== false
     };
-    
-    this.currentStep = 1;
-    this.totalSteps = this.form.querySelectorAll('.form-step:not([data-step="success"])').length;
-    this.formData = {};
-    
-    this.init();
   }
-  
-  init() {
+
+  calculateTotalSteps() {
+    return this.formElement.querySelectorAll('.form-step:not([data-step="success"])').length;
+  }
+
+  initialize() {
     this.setupStepNavigation();
-    this.setupValidation();
+    this.setupFieldValidation();
     this.setupFormSubmission();
-    this.updateProgress();
+    this.updateProgressIndicator();
   }
   
   setupStepNavigation() {
-    // Next step buttons
-    const nextButtons = this.form.querySelectorAll('[data-next-step]');
-    nextButtons.forEach(btn => {
-      btn.addEventListener('click', () => this.nextStep());
+    this.attachNextStepListeners();
+    this.attachPreviousStepListeners();
+  }
+
+  attachNextStepListeners() {
+    const nextStepButtons = this.formElement.querySelectorAll('[data-next-step]');
+    nextStepButtons.forEach(button => {
+      button.addEventListener('click', () => this.navigateToNextStep());
     });
-    
-    // Previous step buttons
-    const prevButtons = this.form.querySelectorAll('[data-prev-step]');
-    prevButtons.forEach(btn => {
-      btn.addEventListener('click', () => this.prevStep());
+  }
+
+  attachPreviousStepListeners() {
+    const previousStepButtons = this.formElement.querySelectorAll('[data-prev-step]');
+    previousStepButtons.forEach(button => {
+      button.addEventListener('click', () => this.navigateToPreviousStep());
     });
   }
   
-  setupValidation() {
-    const inputs = this.form.querySelectorAll('input, select, textarea');
+  setupFieldValidation() {
+    const inputElements = this.formElement.querySelectorAll('input, select, textarea');
     
-    inputs.forEach(input => {
-      // Special handling for radio buttons
-      if (input.type === 'radio') {
-        input.addEventListener('change', () => {
-          // Clear error message when a radio is selected
-          const roleOptions = input.closest('.role-options');
-          if (roleOptions) {
-            const errorDiv = roleOptions.querySelector('.form-error');
-            if (errorDiv) {
-              errorDiv.textContent = '';
-            }
-          }
-        });
-        return;
-      }
-      
-      // Validate on blur
-      if (this.options.validateOnBlur) {
-        input.addEventListener('blur', () => {
-          this.validateField(input);
-        });
-      }
-      
-      // Validate on input (with debounce)
-      if (this.options.validateOnInput) {
-        let timeout;
-        input.addEventListener('input', () => {
-          clearTimeout(timeout);
-          
-          // Clear error immediately if user is typing
-          const errorDiv = input.closest('.form-group')?.querySelector('.form-error');
-          if (errorDiv && input.value) {
-            errorDiv.textContent = '';
-            input.classList.remove('error');
-            input.classList.add('valid');
-          }
-          
-          // Validate after 500ms of no typing
-          timeout = setTimeout(() => {
-            this.validateField(input);
-          }, 500);
-        });
-      }
-      
-      // Auto-format phone numbers
-      if (input.type === 'tel') {
-        input.addEventListener('input', (e) => {
-          this.formatPhoneNumber(e.target);
-        });
-      }
+    inputElements.forEach(input => {
+      this.setupInputValidation(input);
     });
+  }
+
+  setupInputValidation(input) {
+    if (this.isRadioButton(input)) {
+      this.setupRadioButtonValidation(input);
+      return;
+    }
+    
+    this.setupStandardInputValidation(input);
+    this.setupPhoneNumberFormatting(input);
+  }
+
+  isRadioButton(input) {
+    return input.type === 'radio';
+  }
+
+  setupRadioButtonValidation(input) {
+    input.addEventListener('change', () => {
+      this.clearRadioButtonError(input);
+    });
+  }
+
+  clearRadioButtonError(input) {
+    const roleOptions = input.closest('.role-options');
+    if (roleOptions) {
+      const errorElement = roleOptions.querySelector('.form-error');
+      if (errorElement) {
+        errorElement.textContent = '';
+      }
+    }
+  }
+
+  setupStandardInputValidation(input) {
+    if (this.configuration.validateOnBlur) {
+      input.addEventListener('blur', () => {
+        this.validateField(input);
+      });
+    }
+    
+    if (this.configuration.validateOnInput) {
+      this.setupInputValidationWithDebounce(input);
+    }
+  }
+
+  setupInputValidationWithDebounce(input) {
+    let debounceTimeout;
+    
+    input.addEventListener('input', () => {
+      clearTimeout(debounceTimeout);
+      this.clearInputErrorOnTyping(input);
+      
+      debounceTimeout = setTimeout(() => {
+        this.validateField(input);
+      }, CONFIG.UI.PHONE_FORMAT_DEBOUNCE);
+    });
+  }
+
+  clearInputErrorOnTyping(input) {
+    const errorElement = input.closest('.form-group')?.querySelector('.form-error');
+    if (errorElement && input.value) {
+      errorElement.textContent = '';
+      input.classList.remove('error');
+      input.classList.add('valid');
+    }
+  }
+
+  setupPhoneNumberFormatting(input) {
+    if (input.type === 'tel') {
+      input.addEventListener('input', (event) => {
+        this.formatPhoneNumber(event.target);
+      });
+    }
   }
   
   setupFormSubmission() {
-    this.form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    this.formElement.addEventListener('submit', async (event) => {
+      event.preventDefault();
       
-      if (!this.validateCurrentStep()) {
+      if (!this.isCurrentStepValid()) {
         return;
       }
       
-      // Collect all form data
-      const formData = new FormData(this.form);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Show loading state
-      const submitBtn = this.form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.classList.add('btn-loading');
-      
-      try {
-        // Simulate API call
-        await this.submitForm(data);
-        
-        // Call success callback
-        this.options.onSuccess(data);
-      } catch (error) {
-        console.error('Form submission error:', error);
-        this.showNotification('Something went wrong. Please try again.', 'error');
-        this.options.onError(error);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('btn-loading');
-        submitBtn.innerHTML = originalText;
-      }
+      await this.handleFormSubmission();
     });
   }
+
+  async handleFormSubmission() {
+    const formData = this.collectFormData();
+    const submitButton = this.getSubmitButton();
+    const originalButtonText = submitButton.innerHTML;
+    
+    try {
+      this.setSubmitButtonLoadingState(submitButton, true);
+      await this.submitFormData(formData);
+      this.configuration.onSuccess(formData);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      this.showNotification('Something went wrong. Please try again.', 'error');
+      this.configuration.onError(error);
+    } finally {
+      this.setSubmitButtonLoadingState(submitButton, false, originalButtonText);
+    }
+  }
+
+  collectFormData() {
+    const formData = new FormData(this.formElement);
+    return Object.fromEntries(formData.entries());
+  }
+
+  getSubmitButton() {
+    return this.formElement.querySelector('button[type="submit"]');
+  }
+
+  setSubmitButtonLoadingState(submitButton, isLoading, originalText = null) {
+    submitButton.disabled = isLoading;
+    submitButton.classList.toggle('btn-loading', isLoading);
+    
+    if (!isLoading && originalText) {
+      submitButton.innerHTML = originalText;
+    }
+  }
   
-  async submitForm(data) {
+  async submitFormData(data) {
     // Simulate API call
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -146,48 +197,59 @@ export default class FormValidation {
   }
   
   validateField(field) {
-    const value = field.value.trim();
-    const type = field.type;
-    const name = field.name;
-    let isValid = true;
-    let errorMessage = '';
+    const fieldValue = field.value.trim();
+    const fieldType = field.type;
+    const fieldName = field.name;
     
-    // Required field validation
-    if (field.hasAttribute('required') && !value) {
-      isValid = false;
-      errorMessage = 'This field is required';
+    const validationResult = this.performFieldValidation(field, fieldValue, fieldType, fieldName);
+    this.setFieldState(field, validationResult.isValid, validationResult.errorMessage);
+    
+    return validationResult.isValid;
+  }
+
+  performFieldValidation(field, value, type, name) {
+    if (this.isRequiredFieldEmpty(field, value)) {
+      return { isValid: false, errorMessage: 'This field is required' };
     }
     
-    // Email validation
-    else if (type === 'email' && value) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        isValid = false;
-        errorMessage = 'Please enter a valid email address';
-      }
+    if (this.isEmailFieldInvalid(type, value)) {
+      return { isValid: false, errorMessage: 'Please enter a valid email address' };
     }
     
-    // Phone validation
-    else if (type === 'tel' && value) {
-      const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
-      if (!phoneRegex.test(value)) {
-        isValid = false;
-        errorMessage = 'Please enter a valid phone number';
-      }
+    if (this.isPhoneFieldInvalid(type, value)) {
+      return { isValid: false, errorMessage: 'Please enter a valid phone number' };
     }
     
-    // Radio button validation
-    else if (type === 'radio' && field.hasAttribute('required')) {
-      const radioGroup = this.form.querySelectorAll(`input[name="${name}"]`);
-      const isChecked = Array.from(radioGroup).some(radio => radio.checked);
-      if (!isChecked) {
-        isValid = false;
-        errorMessage = 'Please select an option';
-      }
+    if (this.isRadioGroupInvalid(type, name, field)) {
+      return { isValid: false, errorMessage: 'Please select an option' };
     }
     
-    this.setFieldState(field, isValid, errorMessage);
-    return isValid;
+    return { isValid: true, errorMessage: '' };
+  }
+
+  isRequiredFieldEmpty(field, value) {
+    return field.hasAttribute('required') && !value;
+  }
+
+  isEmailFieldInvalid(type, value) {
+    if (type !== 'email' || !value) return false;
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return !emailRegex.test(value);
+  }
+
+  isPhoneFieldInvalid(type, value) {
+    if (type !== 'tel' || !value) return false;
+    
+    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+    return !phoneRegex.test(value);
+  }
+
+  isRadioGroupInvalid(type, name, field) {
+    if (type !== 'radio' || !field.hasAttribute('required')) return false;
+    
+    const radioGroup = this.formElement.querySelectorAll(`input[name="${name}"]`);
+    return !Array.from(radioGroup).some(radio => radio.checked);
   }
   
   setFieldState(field, isValid, errorMessage) {
@@ -214,177 +276,235 @@ export default class FormValidation {
     }
   }
   
-  validateCurrentStep() {
-    const currentStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-    if (!currentStepEl) return true;
+  isCurrentStepValid() {
+    const currentStepElement = this.getCurrentStepElement();
+    if (!currentStepElement) return true;
     
-    // Special handling for step 1 (role selection with radio buttons)
-    if (this.currentStep === 1) {
-      const radioGroup = currentStepEl.querySelectorAll('input[type="radio"][name="business_type"]');
-      const isChecked = Array.from(radioGroup).some(radio => radio.checked);
-      
-      if (!isChecked) {
-        // Show error in the role-options container
-        const roleOptions = currentStepEl.querySelector('.role-options');
-        let errorDiv = roleOptions.querySelector('.form-error');
-        
-        if (!errorDiv) {
-          errorDiv = document.createElement('div');
-          errorDiv.className = 'form-error';
-          errorDiv.setAttribute('role', 'alert');
-          roleOptions.appendChild(errorDiv);
-        }
-        
-        errorDiv.textContent = 'Please select a business type to continue';
-        errorDiv.style.textAlign = 'center';
-        errorDiv.style.marginTop = 'var(--spacing-lg)';
-        
-        return false;
-      } else {
-        // Clear any error messages
-        const roleOptions = currentStepEl.querySelector('.role-options');
-        const errorDiv = roleOptions.querySelector('.form-error');
-        if (errorDiv) {
-          errorDiv.textContent = '';
-        }
-        return true;
-      }
+    if (this.isFirstStep()) {
+      return this.validateFirstStep(currentStepElement);
     }
     
-    // For other steps, validate all fields
-    const fields = currentStepEl.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea');
+    return this.validateOtherSteps(currentStepElement);
+  }
+
+  getCurrentStepElement() {
+    return this.formElement.querySelector(`.form-step[data-step="${this.currentStepNumber}"]`);
+  }
+
+  isFirstStep() {
+    return this.currentStepNumber === 1;
+  }
+
+  validateFirstStep(stepElement) {
+    const radioGroup = stepElement.querySelectorAll('input[type="radio"][name="business_type"]');
+    const isRadioSelected = Array.from(radioGroup).some(radio => radio.checked);
+    
+    if (!isRadioSelected) {
+      this.showRadioButtonError(stepElement);
+      return false;
+    }
+    
+    this.clearRadioButtonError(stepElement);
+    return true;
+  }
+
+  showRadioButtonError(stepElement) {
+    const roleOptions = stepElement.querySelector('.role-options');
+    let errorElement = roleOptions.querySelector('.form-error');
+    
+    if (!errorElement) {
+      errorElement = this.createErrorElement();
+      roleOptions.appendChild(errorElement);
+    }
+    
+    errorElement.textContent = 'Please select a business type to continue';
+    errorElement.style.textAlign = 'center';
+    errorElement.style.marginTop = 'var(--spacing-lg)';
+  }
+
+  createErrorElement() {
+    const errorElement = document.createElement('div');
+    errorElement.className = 'form-error';
+    errorElement.setAttribute('role', 'alert');
+    return errorElement;
+  }
+
+  validateOtherSteps(stepElement) {
+    const requiredFields = stepElement.querySelectorAll('input:not([type="radio"]):not([type="checkbox"]), select, textarea');
     let isStepValid = true;
     
-    fields.forEach(field => {
-      if (field.hasAttribute('required')) {
-        if (!this.validateField(field)) {
-          isStepValid = false;
-        }
+    requiredFields.forEach(field => {
+      if (field.hasAttribute('required') && !this.validateField(field)) {
+        isStepValid = false;
       }
     });
     
     if (!isStepValid) {
-      // Focus first invalid field
-      const firstInvalid = currentStepEl.querySelector('.error');
-      if (firstInvalid) {
-        firstInvalid.focus();
-      }
+      this.focusFirstInvalidField(stepElement);
     }
     
     return isStepValid;
   }
+
+  focusFirstInvalidField(stepElement) {
+    const firstInvalidField = stepElement.querySelector('.error');
+    if (firstInvalidField) {
+      firstInvalidField.focus();
+    }
+  }
   
-  nextStep() {
-    if (!this.validateCurrentStep()) {
+  navigateToNextStep() {
+    if (!this.isCurrentStepValid()) {
       return;
     }
     
-    if (this.currentStep < this.totalSteps) {
-      // Hide current step
-      const currentStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-      currentStepEl.classList.remove('active');
-      
-      // Show next step
-      this.currentStep++;
-      const nextStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-      nextStepEl.classList.add('active');
-      
-      // Update progress
-      this.updateProgress();
-      
-      // Scroll to top of form
-      this.form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
-      // Focus first input in next step
-      const firstInput = nextStepEl.querySelector('input, select, textarea');
-      if (firstInput) {
-        setTimeout(() => firstInput.focus(), 300);
-      }
+    if (this.canNavigateToNextStep()) {
+      this.hideCurrentStep();
+      this.incrementStepNumber();
+      this.showCurrentStep();
+      this.updateProgressIndicator();
+      this.scrollToFormTop();
+      this.focusFirstInputInCurrentStep();
     }
   }
   
-  prevStep() {
-    if (this.currentStep > 1) {
-      // Hide current step
-      const currentStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-      currentStepEl.classList.remove('active');
-      
-      // Show previous step
-      this.currentStep--;
-      const prevStepEl = this.form.querySelector(`.form-step[data-step="${this.currentStep}"]`);
-      prevStepEl.classList.add('active');
-      
-      // Update progress
-      this.updateProgress();
-      
-      // Scroll to top of form
-      this.form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  navigateToPreviousStep() {
+    if (this.canNavigateToPreviousStep()) {
+      this.hideCurrentStep();
+      this.decrementStepNumber();
+      this.showCurrentStep();
+      this.updateProgressIndicator();
+      this.scrollToFormTop();
+    }
+  }
+
+  canNavigateToNextStep() {
+    return this.currentStepNumber < this.totalStepCount;
+  }
+
+  canNavigateToPreviousStep() {
+    return this.currentStepNumber > 1;
+  }
+
+  hideCurrentStep() {
+    const currentStepElement = this.getCurrentStepElement();
+    currentStepElement.classList.remove('active');
+  }
+
+  showCurrentStep() {
+    const currentStepElement = this.getCurrentStepElement();
+    currentStepElement.classList.add('active');
+  }
+
+  incrementStepNumber() {
+    this.currentStepNumber++;
+  }
+
+  decrementStepNumber() {
+    this.currentStepNumber--;
+  }
+
+  scrollToFormTop() {
+    this.formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  focusFirstInputInCurrentStep() {
+    const currentStepElement = this.getCurrentStepElement();
+    const firstInput = currentStepElement.querySelector('input, select, textarea');
+    if (firstInput) {
+      setTimeout(() => firstInput.focus(), CONFIG.UI.FOCUS_DELAY);
     }
   }
   
-  updateProgress() {
+  updateProgressIndicator() {
     const progressSteps = document.querySelectorAll('.progress-step');
     const progressBar = document.querySelector('.form-progress');
     
+    this.updateProgressBar(progressBar);
+    this.updateProgressSteps(progressSteps);
+  }
+
+  updateProgressBar(progressBar) {
     if (progressBar) {
-      progressBar.setAttribute('aria-valuenow', this.currentStep);
+      progressBar.setAttribute('aria-valuenow', this.currentStepNumber);
     }
-    
+  }
+
+  updateProgressSteps(progressSteps) {
     progressSteps.forEach((step, index) => {
       const stepNumber = index + 1;
-      
-      if (stepNumber < this.currentStep) {
-        step.classList.add('completed');
-        step.classList.remove('active');
-      } else if (stepNumber === this.currentStep) {
-        step.classList.add('active');
-        step.classList.remove('completed');
-      } else {
-        step.classList.remove('active', 'completed');
-      }
+      this.updateProgressStep(step, stepNumber);
     });
+  }
+
+  updateProgressStep(step, stepNumber) {
+    if (stepNumber < this.currentStepNumber) {
+      step.classList.add('completed');
+      step.classList.remove('active');
+    } else if (stepNumber === this.currentStepNumber) {
+      step.classList.add('active');
+      step.classList.remove('completed');
+    } else {
+      step.classList.remove('active', 'completed');
+    }
   }
   
   formatPhoneNumber(input) {
-    // Remove all non-digits
-    let value = input.value.replace(/\D/g, '');
+    const digitsOnly = this.extractDigitsFromInput(input.value);
+    const limitedDigits = this.limitDigitsToTen(digitsOnly);
+    const formattedNumber = this.formatPhoneNumberString(limitedDigits);
     
-    // Limit to 10 digits
-    value = value.substring(0, 10);
-    
-    // Format as (XXX) XXX-XXXX
-    if (value.length >= 6) {
-      value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6)}`;
-    } else if (value.length >= 3) {
-      value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
-    } else if (value.length > 0) {
-      value = `(${value}`;
+    input.value = formattedNumber;
+  }
+
+  extractDigitsFromInput(value) {
+    return value.replace(/\D/g, '');
+  }
+
+  limitDigitsToTen(digits) {
+    return digits.substring(0, 10);
+  }
+
+  formatPhoneNumberString(digits) {
+    if (digits.length >= 6) {
+      return `(${digits.substring(0, 3)}) ${digits.substring(3, 6)}-${digits.substring(6)}`;
+    } else if (digits.length >= 3) {
+      return `(${digits.substring(0, 3)}) ${digits.substring(3)}`;
+    } else if (digits.length > 0) {
+      return `(${digits}`;
     }
-    
-    input.value = value;
+    return digits;
   }
   
   showNotification(message, type = 'info') {
-    // Create notification element
+    const notificationElement = this.createNotificationElement(message, type);
+    this.displayNotification(notificationElement);
+  }
+
+  createNotificationElement(message, type) {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.setAttribute('role', 'alert');
     notification.textContent = message;
-    
-    // Add to page
+    return notification;
+  }
+
+  displayNotification(notification) {
     document.body.appendChild(notification);
     
-    // Animate in
     setTimeout(() => {
       notification.classList.add('show');
-    }, 100);
+    }, CONFIG.UI.SCROLL_BEHAVIOR_DELAY);
     
-    // Remove after 5 seconds
     setTimeout(() => {
-      notification.classList.remove('show');
-      setTimeout(() => {
-        notification.remove();
-      }, 300);
-    }, 5000);
+      this.removeNotification(notification);
+    }, CONFIG.UI.NOTIFICATION_DISPLAY_DURATION);
+  }
+
+  removeNotification(notification) {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      notification.remove();
+    }, CONFIG.UI.NOTIFICATION_FADE_DURATION);
   }
 }

@@ -13,17 +13,11 @@ export default class Layout {
   }
   
   getCurrentPage() {
-    const path = window.location.pathname;
-    if (path === '/' || path === '/index.html') return 'home';
-    if (path.includes('/pages/')) {
-      const page = path.split('/pages/')[1].replace('.html', '');
-      return page;
-    }
-    return 'home';
+    return Layout.getCurrentPage();
   }
   
   checkAuthentication() {
-    return !!(localStorage.getItem('bais_auth_token') || sessionStorage.getItem('bais_auth_token'));
+    return Layout.checkAuthentication();
   }
   
   // Static method to get complete page structure
