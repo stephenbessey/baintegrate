@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Received - BAIS Launch Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounceIn 0.6s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .divider {
+            width: 80%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 1.5rem auto;
+        }
+
+        .content {
+            padding: 2.5rem 2rem;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .next-steps {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .next-steps h2 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-description {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        .contact-info p {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info strong {
+            color: #664d03;
+        }
+
+        .contact-info a {
+            color: #856404;
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .footer-note {
+            background: #f8f9fa;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer-note strong {
+            color: #495057;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .success-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="success-icon">✅</div>
+            <h1>Application Received!</h1>
+            <div class="divider"></div>
+            <p style="font-size: 1.05rem; opacity: 0.95;">We'll reach out within 24 hours to schedule your live demo</p>
+        </div>
+
+        <div class="content">
+            <p class="message">
+                Thank you for your interest in becoming a BAIS launch partner. We're excited to show you how AI commerce can transform your business!
+            </p>
+
+            <div class="next-steps">
+                <h2>What Happens Next</h2>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">We'll review your application</div>
+                        <div class="step-description">Our team will look over your details and prepare a customized demo</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Schedule a 30-minute demo call</div>
+                        <div class="step-description">We'll send you a calendar link to pick a time that works for you</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Show you AI commerce working in real-time</div>
+                        <div class="step-description">See how customers will discover and book your services through Claude, ChatGPT, and Gemini</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Discuss your integration timeline</div>
+                        <div class="step-description">We'll create a custom plan to get you live and reaching AI users</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Questions?</strong></p>
+                <p>Email us at <a href="mailto:hello@baintegrate.com">hello@baintegrate.com</a></p>
+                <p>We typically respond within 2 hours during business hours.</p>
+            </div>
+
+            <a href="/" class="btn">Return to Homepage</a>
+        </div>
+
+        <div class="footer-note">
+            <p><strong>What makes BAIS different?</strong></p>
+            <p>We're pioneering AI commerce with transparency and honesty. As a launch partner, you'll help shape the future of how businesses connect with AI users.</p>
+        </div>
+    </div>
+</body>
+</html>
