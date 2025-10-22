@@ -13,6 +13,7 @@ const CONFIG = {
   // API Endpoints
   ENDPOINTS: {
     CONTACT: '/api/v1/contact',
+    BUSINESS_REGISTRATION: '/api/v1/business-registration',
     DEMO_REQUEST: '/api/v1/demo-generation/generate',
     NEWSLETTER: '/api/v1/newsletter/subscribe',
     BUSINESSES: '/api/v1/businesses',

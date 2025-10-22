@@ -175,7 +175,7 @@ class ContactForm {
     
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.message || 'Submission failed');
+      throw new Error(error.detail || error.message || 'Submission failed');
     }
     
     return response;

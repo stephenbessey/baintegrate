@@ -187,13 +187,27 @@ export default class FormValidation {
   }
   
   async submitFormData(data) {
-    // Simulate API call
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log('Form submitted:', data);
-        resolve(data);
-      }, 1000);
-    });
+    try {
+      const response = await fetch(`${CONFIG.API_BASE_URL}${CONFIG.ENDPOINTS.BUSINESS_REGISTRATION}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.detail || 'Submission failed');
+      }
+
+      const result = await response.json();
+      console.log('Form submitted successfully:', result);
+      return result;
+    } catch (error) {
+      console.error('Form submission error:', error);
+      throw error;
+    }
   }
   
   validateField(field) {
