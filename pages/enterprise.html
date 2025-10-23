@@ -210,33 +210,72 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>BA Integrate</h3>
-        <p>Enterprise AI Integration Platform</p>
+  <footer id="main-footer" class="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">BA Integrate</div>
+          <p class="footer-description">
+            Connecting businesses to the autonomous economy through AI assistant integration.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/platform.html">How It Works</a></li>
+            <li><a href="/pages/integrations.html">Integrations</a></li>
+            <li><a href="/pages/security.html">Security</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/solutions.html#restaurants">Restaurants</a></li>
+            <li><a href="/pages/solutions.html#hotels">Hotels</a></li>
+            <li><a href="/pages/solutions.html#retail">Retail</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/guides.html">Guides</a></li>
+            <li><a href="/pages/support.html">Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-section-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-section">
-        <h4>Platform</h4>
-        <ul>
-          <li><a href="/pages/platform.html">Platform</a></li>
-          <li><a href="/pages/solutions.html">Solutions</a></li>
-          <li><a href="/pages/enterprise.html">Enterprise</a></li>
-          <li><a href="/pages/pricing.html">Pricing</a></li>
-        </ul>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2025 BA Integrate. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="/pages/privacy.html">Privacy</a>
+          <a href="/pages/terms.html">Terms</a>
+          <a href="/pages/security.html">Security</a>
+        </div>
       </div>
-      <div class="footer-section">
-        <h4>Support</h4>
-        <ul>
-          <li><a href="/pages/contact.html">Contact</a></li>
-          <li><a href="/pages/support.html">Support</a></li>
-          <li><a href="/pages/guides.html">Guides</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 BA Integrate. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- JavaScript - Load as modules -->
+  <script type="module">
+    import Navigation from '/assets/js/components/Navigation.js';
+
+    // Initialize navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      new Navigation('#main-nav');
+    });
+  </script>
 </body>
 </html>
