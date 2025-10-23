@@ -253,6 +253,12 @@
                     <div class="form-error" role="alert"></div>
                   </div>
 
+                  <!-- Honeypot field - hidden from users but visible to bots -->
+                  <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none; tabindex: -1;" aria-hidden="true">
+                    <label for="website_url">Website URL (leave blank)</label>
+                    <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                  </div>
+
                   <div class="form-group">
                     <label for="location" class="form-label">
                       Location <span class="required">*</span>
@@ -326,6 +332,31 @@
                         Send me tips and updates about AI commerce (we'll never spam you)
                       </span>
                     </label>
+                  </div>
+
+                  <!-- CAPTCHA Section -->
+                  <div class="form-group">
+                    <label class="form-label">
+                      Security Verification <span class="required">*</span>
+                    </label>
+                    <div class="captcha-container" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--color-background-light); border-radius: var(--border-radius-md); border: 1px solid var(--color-border);">
+                      <div class="captcha-challenge" style="font-family: monospace; font-size: 1.5rem; font-weight: bold; color: var(--color-primary); user-select: none;">
+                        <span id="captcha-text">7 + 3 = ?</span>
+                      </div>
+                      <input 
+                        type="number" 
+                        id="captcha_answer" 
+                        name="captcha_answer" 
+                        class="form-input" 
+                        placeholder="Answer"
+                        required
+                        style="width: 100px; text-align: center;"
+                      >
+                      <button type="button" id="refresh-captcha" style="padding: 0.5rem; background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer;">
+                        ↻
+                      </button>
+                    </div>
+                    <div class="form-error" role="alert"></div>
                   </div>
 
                   <div class="form-actions">
@@ -514,9 +545,43 @@
     document.addEventListener('DOMContentLoaded', () => {
       new Navigation('#main-nav');
       
+      // CAPTCHA functionality
+      let captchaAnswer = 0;
+      
+      function generateCaptcha() {
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+        captchaAnswer = num1 + num2;
+        document.getElementById('captcha-text').textContent = `${num1} + ${num2} = ?`;
+      }
+      
+      // Initialize CAPTCHA
+      generateCaptcha();
+      
+      // Refresh CAPTCHA button
+      document.getElementById('refresh-captcha').addEventListener('click', generateCaptcha);
+      
+      // CAPTCHA validation
+      function validateCaptcha() {
+        const userAnswer = parseInt(document.getElementById('captcha_answer').value);
+        return userAnswer === captchaAnswer;
+      }
+
       // Initialize multi-step form
       const form = new FormValidation('#contact-form', {
         onSuccess: (data) => {
+          // Check honeypot field
+          if (data.website_url && data.website_url.trim() !== '') {
+            console.log('Bot detected - honeypot field filled');
+            return;
+          }
+          
+          // Check CAPTCHA
+          if (!validateCaptcha()) {
+            alert('Please solve the security verification correctly.');
+            return;
+          }
+          
           console.log('Form submitted:', data);
           showSuccessState(data.email);
         }

@@ -184,6 +184,36 @@
                             </select>
                         </div>
                     </div>
+                    </div>
+
+                <!-- Honeypot field - hidden from users but visible to bots -->
+                <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none; tabindex: -1;" aria-hidden="true">
+                    <label for="company_size">Company Size (leave blank)</label>
+                    <input type="text" id="company_size" name="company_size" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- CAPTCHA Section -->
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label class="form-label">
+                        Security Verification <span class="required">*</span>
+                    </label>
+                    <div class="captcha-container" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--color-background-light); border-radius: var(--border-radius-md); border: 1px solid var(--color-border);">
+                        <div class="captcha-challenge" style="font-family: monospace; font-size: 1.5rem; font-weight: bold; color: var(--color-primary); user-select: none;">
+                            <span id="join-captcha-text">5 + 4 = ?</span>
+                    </div>
+                        <input 
+                            type="number" 
+                            id="join_captcha_answer" 
+                            name="join_captcha_answer" 
+                            class="form-input" 
+                            placeholder="Answer"
+                            required
+                            style="width: 100px; text-align: center;"
+                        >
+                        <button type="button" id="refresh-join-captcha" style="padding: 0.5rem; background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer;">
+                            ↻
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Success Step -->
@@ -211,8 +241,42 @@
         import FormValidation from '/assets/js/components/FormValidation.js';
         
         document.addEventListener('DOMContentLoaded', () => {
+            // CAPTCHA functionality for join form
+            let joinCaptchaAnswer = 0;
+            
+            function generateJoinCaptcha() {
+                const num1 = Math.floor(Math.random() * 10) + 1;
+                const num2 = Math.floor(Math.random() * 10) + 1;
+                joinCaptchaAnswer = num1 + num2;
+                document.getElementById('join-captcha-text').textContent = `${num1} + ${num2} = ?`;
+            }
+            
+            // Initialize CAPTCHA
+            generateJoinCaptcha();
+            
+            // Refresh CAPTCHA button
+            document.getElementById('refresh-join-captcha').addEventListener('click', generateJoinCaptcha);
+            
+            // CAPTCHA validation
+            function validateJoinCaptcha() {
+                const userAnswer = parseInt(document.getElementById('join_captcha_answer').value);
+                return userAnswer === joinCaptchaAnswer;
+            }
+
             new FormValidation('#join-form', {
                 onSuccess: (data) => {
+                    // Check honeypot field
+                    if (data.company_size && data.company_size.trim() !== '') {
+                        console.log('Bot detected - honeypot field filled');
+                        return;
+                    }
+                    
+                    // Check CAPTCHA
+                    if (!validateJoinCaptcha()) {
+                        alert('Please solve the security verification correctly.');
+                return;
+            }
+
                     console.log('Form submitted successfully:', data);
                     // Show success step
                     const currentStep = document.querySelector('.form-step.active');
