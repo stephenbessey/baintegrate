@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Onboarding - BAIS Platform | BA Integrate</title>
+    <meta name="description" content="Register your business with the BAIS platform and enable AI agent interactions">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/base/variables.css">
+    <link rel="stylesheet" href="/assets/css/base/reset.css">
+    <link rel="stylesheet" href="/assets/css/base/typography.css">
+    <link rel="stylesheet" href="/assets/css/components/button.css">
+    <link rel="stylesheet" href="/assets/css/components/form.css">
+    <link rel="stylesheet" href="/assets/css/components/navigation.css">
+    <link rel="stylesheet" href="/assets/css/components/footer.css">
+    <link rel="stylesheet" href="/assets/css/components/onboarding-form.css">
+</head>
+<body class="onboarding-page">
+    <!-- Navigation -->
+    <nav id="main-nav" class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" aria-label="BA Integrate - Home">BA Integrate</a>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+
+            <ul id="nav-links" class="nav-links">
+                <li><a href="/pages/platform.html" class="nav-link">How It Works</a></li>
+                <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+                <li><a href="/pages/onboarding.html" class="nav-link active" aria-current="page">Onboarding</a></li>
+                <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="/pages/login.html" class="nav-utility-link">Sign In</a>
+                <a href="/pages/onboarding.html" class="btn btn-primary btn-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="onboarding-main">
+        <div id="onboarding-form-root"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BA Integrate</h3>
+                <p>Turn AI conversations into customers</p>
+            </div>
+            <div class="footer-section">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="/pages/platform.html">How It Works</a></li>
+                    <li><a href="/pages/solutions.html">Solutions</a></li>
+                    <li><a href="/pages/onboarding.html">Onboarding</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/pages/guides.html">Guides</a></li>
+                    <li><a href="/pages/api-reference.html">API Reference</a></li>
+                    <li><a href="/pages/support.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/pages/about.html">About</a></li>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                    <li><a href="/pages/privacy.html">Privacy</a></li>
+                    <li><a href="/pages/terms.html">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BA Integrate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import BAISOnboardingForm from '/assets/js/components/BAISOnboardingForm.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the onboarding form
+            const form = new BAISOnboardingForm('onboarding-form-root');
+
+            // Check if there's a draft to load
+            const hasDraft = localStorage.getItem('bais-onboarding-draft');
+            if (hasDraft) {
+                const loadDraft = confirm('A saved draft was found. Would you like to continue from where you left off?');
+                if (loadDraft && form.loadDraft) {
+                    form.loadDraft();
+                }
+            }
+        });
+    </script>
+
+    <!-- Navigation Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
