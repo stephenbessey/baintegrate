@@ -310,14 +310,14 @@ export default class FormValidation {
   }
 
   validateFirstStep(stepElement) {
-    const radioGroup = stepElement.querySelectorAll('input[type="radio"][name="business_type"]');
+    const radioGroup = stepElement.querySelectorAll('input[type="radio"][name="inquiry_type"]');
     const isRadioSelected = Array.from(radioGroup).some(radio => radio.checked);
-    
+
     if (!isRadioSelected) {
       this.showRadioButtonError(stepElement);
       return false;
     }
-    
+
     this.clearRadioButtonError(stepElement);
     return true;
   }
@@ -325,13 +325,13 @@ export default class FormValidation {
   showRadioButtonError(stepElement) {
     const roleOptions = stepElement.querySelector('.role-options');
     let errorElement = roleOptions.querySelector('.form-error');
-    
+
     if (!errorElement) {
       errorElement = this.createErrorElement();
       roleOptions.appendChild(errorElement);
     }
-    
-    errorElement.textContent = 'Please select a business type to continue';
+
+    errorElement.textContent = 'Please select an option to continue';
     errorElement.style.textAlign = 'center';
     errorElement.style.marginTop = 'var(--spacing-lg)';
   }
