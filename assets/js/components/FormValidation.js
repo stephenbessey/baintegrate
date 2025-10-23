@@ -310,7 +310,10 @@ export default class FormValidation {
   }
 
   validateFirstStep(stepElement) {
-    const radioGroup = stepElement.querySelectorAll('input[type="radio"][name="inquiry_type"]');
+    // Check for both inquiry_type (contact form) and business_type (join form)
+    const inquiryRadioGroup = stepElement.querySelectorAll('input[type="radio"][name="inquiry_type"]');
+    const businessRadioGroup = stepElement.querySelectorAll('input[type="radio"][name="business_type"]');
+    const radioGroup = inquiryRadioGroup.length > 0 ? inquiryRadioGroup : businessRadioGroup;
     const isRadioSelected = Array.from(radioGroup).some(radio => radio.checked);
 
     if (!isRadioSelected) {
