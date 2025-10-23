@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join BAIS - Launch Partner Application</title>
+    <title>Join Launch Partners - BA Integrate</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/base/variables.css">
@@ -12,12 +12,40 @@
     <link rel="stylesheet" href="/assets/css/components/button.css">
     <link rel="stylesheet" href="/assets/css/components/form.css">
     <link rel="stylesheet" href="/assets/css/pages/join.css">
+    <link rel="stylesheet" href="/assets/css/components/navigation.css">
+    <link rel="stylesheet" href="/assets/css/components/footer.css">
 </head>
 <body class="join-page">
+    <!-- Navigation -->
+    <nav id="main-nav" class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/" aria-label="BA Integrate - Home">BA Integrate</a>
+            </div>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+            
+            <ul id="nav-links" class="nav-links">
+                <li><a href="/pages/platform.html" class="nav-link">How It Works</a></li>
+                <li><a href="/pages/solutions.html" class="nav-link">Solutions</a></li>
+                <li><a href="/join.html" class="nav-link active" aria-current="page">Join Launch Partners</a></li>
+                <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="/pages/login.html" class="nav-utility-link">Sign In</a>
+                <a href="/join.html" class="btn btn-primary btn-cta">Apply Now</a>
+            </div>
+        </div>
+    </nav>
     <div class="join-container">
         <!-- Header -->
         <div class="join-header">
-            <h1>Join BAIS Launch Partners</h1>
+            <h1>Join Launch Partners</h1>
             <p class="tagline">Be among the first businesses accessible through AI assistants</p>
         </div>
 
@@ -33,13 +61,13 @@
                 <!-- Progress Indicator -->
                 <div class="form-progress">
                     <div class="progress-bar" style="width: 33.33%"></div>
-                </div>
-                
+                    </div>
+
                 <div class="progress-steps">
                     <div class="progress-step active">1. Business Type</div>
                     <div class="progress-step">2. Business Details</div>
                     <div class="progress-step">3. Contact Info</div>
-                </div>
+                        </div>
 
                 <!-- Step 1: Business Type -->
                 <div class="form-step active" data-step="1">
@@ -47,24 +75,45 @@
                         <h2 class="section-title">What type of business are you?</h2>
                         <div class="role-options">
                             <label class="role-option">
-                                <input type="radio" name="business_type" value="restaurant" required>
-                                <span class="role-icon">🍽️</span>
-                                <div class="role-title">Restaurant</div>
-                                <div class="role-description">Fine dining, casual, fast food, cafes, bars</div>
+                                <input type="radio" name="business_type" value="professional_services" required>
+                                <span class="role-icon">💼</span>
+                                <div class="role-title">Professional Services</div>
+                                <div class="role-description">Consulting, legal, accounting, marketing, design</div>
                             </label>
                             
                             <label class="role-option">
-                                <input type="radio" name="business_type" value="hotel" required>
-                                <span class="role-icon">🏨</span>
-                                <div class="role-title">Hotel</div>
-                                <div class="role-description">Hotels, B&Bs, vacation rentals, hostels</div>
+                                <input type="radio" name="business_type" value="healthcare" required>
+                                <span class="role-icon">⚕️</span>
+                                <div class="role-title">Healthcare & Wellness</div>
+                                <div class="role-description">Medical, dental, therapy, fitness, wellness</div>
                             </label>
                             
                             <label class="role-option">
-                                <input type="radio" name="business_type" value="retail" required>
-                                <span class="role-icon">🛍️</span>
-                                <div class="role-title">Retail & E-commerce</div>
-                                <div class="role-description">Stores, online shops, services, experiences</div>
+                                <input type="radio" name="business_type" value="education" required>
+                                <span class="role-icon">🎓</span>
+                                <div class="role-title">Education & Training</div>
+                                <div class="role-description">Schools, tutoring, courses, workshops, coaching</div>
+                            </label>
+                            
+                            <label class="role-option">
+                                <input type="radio" name="business_type" value="technology" required>
+                                <span class="role-icon">💻</span>
+                                <div class="role-title">Technology & IT</div>
+                                <div class="role-description">Software, hardware, support, development, consulting</div>
+                            </label>
+                            
+                            <label class="role-option">
+                                <input type="radio" name="business_type" value="creative" required>
+                                <span class="role-icon">🎨</span>
+                                <div class="role-title">Creative & Media</div>
+                                <div class="role-description">Design, photography, writing, production, events</div>
+                            </label>
+                            
+                            <label class="role-option">
+                                <input type="radio" name="business_type" value="other" required>
+                                <span class="role-icon">🏢</span>
+                                <div class="role-title">Other Business</div>
+                                <div class="role-description">Any other type of business or service</div>
                             </label>
                         </div>
                     </div>
@@ -72,25 +121,25 @@
 
                 <!-- Step 2: Business Details -->
                 <div class="form-step" data-step="2">
-                    <div class="section">
+                <div class="section">
                         <h2 class="section-title">Tell us about your business</h2>
-                        
-                        <div class="form-group">
+
+                    <div class="form-group">
                             <label for="business_name">Business Name *</label>
                             <input type="text" id="business_name" name="business_name" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
                                 <label for="city">City *</label>
-                                <input type="text" id="city" name="city" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="state">State/Province *</label>
-                                <input type="text" id="state" name="state" required>
-                            </div>
+                            <input type="text" id="city" name="city" required>
                         </div>
-                        
+                        <div class="form-group">
+                                <label for="state">State/Province *</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+
                         <div class="form-group">
                             <label for="business_description">What makes your business special? *</label>
                             <textarea id="business_description" name="business_description" required placeholder="Describe your unique offerings, specialties, or what sets you apart..."></textarea>
@@ -100,11 +149,11 @@
 
                 <!-- Step 3: Contact Information -->
                 <div class="form-step" data-step="3">
-                    <div class="section">
+                <div class="section">
                         <h2 class="section-title">How can we reach you?</h2>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="form-group">
                                 <label for="first_name">First Name *</label>
                                 <input type="text" id="first_name" name="first_name" required>
                             </div>
@@ -113,18 +162,18 @@
                                 <input type="text" id="last_name" name="last_name" required>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
-                        
-                        <div class="form-group">
+
+                    <div class="form-group">
                             <label for="hear_about">How did you hear about us?</label>
                             <select id="hear_about" name="hear_about">
                                 <option value="">Select an option</option>
@@ -180,5 +229,34 @@
             });
         });
     </script>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BA Integrate</h3>
+                <p>Turn AI conversations into customers</p>
+            </div>
+            <div class="footer-section">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="/pages/platform.html">How It Works</a></li>
+                    <li><a href="/pages/solutions.html">Solutions</a></li>
+                    <li><a href="/join.html">Join Launch Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/pages/contact.html">Contact</a></li>
+                    <li><a href="/pages/support.html">Support</a></li>
+                    <li><a href="/pages/guides.html">Guides</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BA Integrate. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
